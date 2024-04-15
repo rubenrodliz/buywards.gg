@@ -12,9 +12,22 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Satoshi', ...defaultTheme.fontFamily.sans],
             },
         },
+        colors: {
+            primary: '#51ac9d',
+            secondary: '#93c6bd',
+            tertiary: '#f7f7f7',
+            success: '#70db47',
+            warning: '#ead346',
+            error: '#ed7262',
+            info: '#4b9ebb',
+            text_dark: '#1c1c1f',
+            text_light: '#f2f4fc',
+            bg_light: '#f2f4fc',
+            bg_dark: '#1c1c1f'
+        }
     },
 
     plugins: [forms],
