@@ -19,6 +19,10 @@
 <body class="font-sans antialiased">
     <div class="h-screen">
         @include('components.navbar/navbar')
+
+        <main>
+            {{ $slot }}
+        </main>
     </div>
 </body>
 </html>
