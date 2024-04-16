@@ -15,6 +15,10 @@ Route::get('/summoner', function () {
     return view('summoner');
 })->name('summoner');
 
+Route::get('/summonerdev', function () {
+    return view('summonerdev');
+})->name('summonerdev');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

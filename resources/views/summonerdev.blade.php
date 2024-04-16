@@ -16,13 +16,9 @@
         </style>
     </head>
 
-<div>
+<div class="flex">
 
-    <h1>summoners </h1>
-
-    @section('content')
-
-
-
-
+    <x-main-layout/>
+    <x-rendiment/>
+    
 </div>
