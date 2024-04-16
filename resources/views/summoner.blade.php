@@ -18,10 +18,10 @@
 
 <div>
 
-    <h1>summoners </h1>
+    <x-summoner-league/>
 
-    @section('content')
-    
+    <x-main-layout/>
+
 
 
 
