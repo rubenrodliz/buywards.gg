@@ -1,4 +1,4 @@
-<header class="w-[85px] bg-primary">
+<header class="w-[65px] bg-primary">
     <nav class="h-screen flex flex-col justify-between items-center py-[40px]">
         <div class="grid place-items-center">
             <div class="w-14 h-14 rounded-full">
