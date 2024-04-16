@@ -14,7 +14,6 @@
                 <x-navbar.nav-link :icon="'receipt'" :href="'tierlist'" />
                 <x-navbar.nav-link :icon="'shield'" :href="'champs'" />
                 <x-navbar.nav-link :icon="'emoji_events'" :href="'leaderboard'" />
-                <x-navbar.nav-link :icon="'settings'" :href="'settings'" />
             </ul>
         </div>
 
