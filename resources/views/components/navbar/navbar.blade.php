@@ -8,6 +8,6 @@
 
         @include('components.navbar.separator')
 
-        
+
     </nav>
 </header>
