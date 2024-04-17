@@ -22,9 +22,7 @@
     <div class="min-h-screen flex">
         <x-navbar.navbar />
 
-        <main class="flex-1">
-            {{ $slot }}
-        </main>
+        {{ $slot }}
     </div>
 </body>
 </html>
