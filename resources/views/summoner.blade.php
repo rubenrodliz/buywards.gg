@@ -28,10 +28,7 @@
     <div>
 
 
-    {{-- <div class="grid grid-cols-12 grid-rows-12 h-screen">
-        <div class="col-start-6 col-span-1 row-start-6 row-span-1 bg-[red]"></div>
-        <div class="col-start-1 col-span-3 row-start-1 row-span-3 bg-[blue]"></div>
-    </div> --}}
+    
 
 
 </body>
