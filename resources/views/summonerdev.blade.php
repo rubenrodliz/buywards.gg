@@ -20,5 +20,5 @@
 
     <x-main-layout/>
     <x-rendiment/>
-    
+
 </div>
