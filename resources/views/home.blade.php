@@ -3,8 +3,12 @@
         @vite(['resources/css/home.css'])
     @endsection
 
-    <main class="flex flex-1 justify-center items-center p-[40px]">
-        <div></div>
+    <main class="flex flex-1 flex-col items-center p-[40px]">
+        <div class="flex self-end">
+            <a href="#" class="font-bold text-2xl bg-primary rounded-lg py-2 px-4">
+                Login
+            </a>
+        </div>
 
         <div class="w-[875px]">
             <div class="flex justify-between items-center">
