@@ -10,7 +10,7 @@
             </a>
         </div>
 
-        <div class="w-[875px]">
+        <div class="w-[875px] mt-7">
             <div class="flex justify-between items-center">
                 <img src="{{ asset('images/logo_text.svg') }}" alt="Buywards logo">
                 <img src="{{ asset('images/League_of_Legends.svg') }}" alt="League of Legends logo">
