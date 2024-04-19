@@ -19,7 +19,9 @@
             <x-searchbar.searchbar />
         </div>
 
-        <div></div>
+        <div class="mt-14">
+            <h4 id="latest-champions" class="font-bold text-bg_light text-4xl">Latest champions</h4>
+        </div>
     </main>
 
     
