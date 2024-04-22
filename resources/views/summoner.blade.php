@@ -11,7 +11,7 @@
             </a>
         </div>
 
-        <div class="w-[1300px] mt-7">
+        <div class="w-[90%] mt-7">
             <div class="flex justify-between items-center">
 
             </div>
