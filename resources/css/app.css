@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* width */
+#region-selector::-webkit-scrollbar {
+    width: 3px;
+}
+
+#region-selector::-webkit-scrollbar-thumb {
+    background: gray;
+}
+
+#default-search::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+}

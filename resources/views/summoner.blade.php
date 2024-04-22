@@ -27,8 +27,13 @@
     </div>
     <div>
 
+    <h1>summoners </h1>
 
-    
+    @section('content')
+
+
+
+
 
 
 </body>
