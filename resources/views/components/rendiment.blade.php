@@ -1,5 +1,5 @@
-<div {{ $attributes->merge(['class'=>"w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-[#1C1C1F] text-white"]) }}>
-<div class="w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-[#1C1C1F] text-white">
+<div {{ $attributes->merge(['class'=>"w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-[#FFFFFF]"]) }}>
+{{-- <div class="w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent  text-white"> --}}
     <div class="w-[94%] h-[10%] my-[3%] mx-[5%]">
         <x-barra-titulos titulo="Rendimiento" />
     </div>
