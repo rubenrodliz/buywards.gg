@@ -7,6 +7,9 @@
                 </a>
             </div>
 
+        @include('components.navbar.separator')
+
+
             <x-navbar.separator />
 
             <ul class="flex flex-col gap-[35px]">
@@ -23,3 +26,4 @@
         </div>
     </nav>
 </header>
+
