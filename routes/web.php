@@ -25,4 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/latest-champions', [App\Http\Controllers\RiotApiController::class, 'checkAndUpdateChampions']);
+
 require __DIR__.'/auth.php';
