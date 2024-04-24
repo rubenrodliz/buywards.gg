@@ -26,14 +26,33 @@
     </div>
     <hr class="text-primary">
     <div class="flex">
-        <div class="relative my-[2%] mx-[1%]">
-            <div class="w-16 h-16 border-t-[8px] border-b-[8px] border-l-0 border-r-[8px] border-solid border-[#F54B4E] rounded-full">
-              <div class="absolute top-0 left-0 w-8 h-16 border-t-[8px] border-b-[8px] border-l-[8px] border-r-0 border-solid border-[#2D62D7] rounded-l-full"></div>
+        <style>
+            .progress-circle {
+                position: relative;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                background: conic-gradient(
+                    #F54B4E 0% 60%,
+                    #2D62D7 60% 100%
+                );
+                margin: 2%;
+            }
+            .progress-text {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              color: white;
+              font-size: 20px;
+            }
+            </style>
+            </head>
+            <body>
+            <div class="progress-circle">
+              <div class="progress-text">50%</div>
             </div>
-            <div class="absolute top-0 left-0 flex items-center justify-center w-16 h-16">
-              <span class="text-x">50%</span>
-            </div>
-        </div>
+
         <div class="mx-[1%] h-[100%] flex flex-col align-middle justify-center">
             <p class="text-[11px] font-bold">5V - 5D</p>
             <p class="text-[14px] font-bold text-[#F69601]">5,43 KDA</p>
