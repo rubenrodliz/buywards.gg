@@ -10,7 +10,7 @@
             <x-navbar.separator />
 
             <ul class="flex flex-col gap-[35px]">
-                <x-navbar.nav-link :icon="'home'" :href="'home'" />
+                <x-navbar.nav-link :icon="'home'" :href="'/'" />
                 <x-navbar.nav-link :icon="'receipt'" :href="'tierlist'" />
                 <x-navbar.nav-link :icon="'shield'" :href="'champs'" />
                 <x-navbar.nav-link :icon="'emoji_events'" :href="'leaderboard'" />
