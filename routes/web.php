@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RiotApiController;
 
 Route::get('/', function () {
     return view('home');
@@ -25,6 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/latest-champions', [App\Http\Controllers\RiotApiController::class, 'checkAndUpdateChampions']);
+Route::get('/latest-champions', [RiotApiController::class, 'checkAndUpdateChampions']);
 
 require __DIR__.'/auth.php';
