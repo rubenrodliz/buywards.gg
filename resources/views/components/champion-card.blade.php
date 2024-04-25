@@ -3,8 +3,8 @@
 
 <article class="champion-card" style="background-image: url('https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/splash-art')">
     <div>
-        <h4 class="text-3xl font-black text-text_light">{{ $champion }}</h4>
-        <a href="#" class="text-2xl font-medium text-text_light flex items-center">Ver campeón <span class="material-icons" style="font-size: 24px">chevron_right</span></a>
+        <h4 class="text-2xl font-black text-text_light">{{ $champion }}</h4>
+        <a href="#" class="text-lg font-medium text-text_light flex items-center">Ver campeón <span class="material-icons" style="font-size: 24px">chevron_right</span></a>
     </div>
     <div class="skills">
         <div class="skill passive-skill">

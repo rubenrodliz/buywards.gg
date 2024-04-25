@@ -9,7 +9,7 @@
 
 <div class="relative inline-block">
     <button id="selected-region" type="button" onclick="toggleRegionSelector()"
-            class="{{ $background }} text-black px-3 py-2 rounded-lg font-bold text-2xl">
+            class="{{ $background }} text-black px-3 py-2 rounded-lg font-bold text-xl">
         EUW
     </button>
 
