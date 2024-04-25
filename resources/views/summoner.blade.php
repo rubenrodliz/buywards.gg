@@ -1,5 +1,7 @@
 
-<x-main-layout>
+
+
+<x-main-layout >
     @section('scripts')
     @vite(['resources/css/summoner.css'])
 @endsection
