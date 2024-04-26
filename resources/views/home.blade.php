@@ -24,9 +24,9 @@
                 <h4 id="latest-champions" class="font-bold text-bg_light text-2xl text-center">Latest champions</h4>
             </div>
             <div class="latests-champions flex justify-between gap-16 mt-4">
-                <x-champion-card :champion="'Smolder'" />
-                <x-champion-card :champion="'Hwei'" />
-                <x-champion-card :champion="'Briar'" />
+                @foreach ($latestChampions as $champion)
+                    <x-champion-card :champion="$champion['champion_id']" />
+                @endforeach
             </div>
         </section>
     </main>
