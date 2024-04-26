@@ -1,40 +1,59 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet">
-
-    <!-- Material UI Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="font-sans antialiased">
-    <div class="grid grid-cols-12 grid-rows-12 h-screen">
-        @include('components.navbar/navbar')
-
-        <x-summoner-league class="col-start-3 col-span-3 row-start-5"/>
 
 
 
-    </div>
-    <div>
+<x-main-layout >
+    @section('scripts')
+    @vite(['resources/css/summoner.css'])
+@endsection
 
-    <h1>summoners </h1>
+    <main class="flex flex-1 flex-col items-center p-[40px]">
+        <div class="flex self-end">
+            <a href="#" class="font-bold text-2xl bg-primary rounded-lg py-2 px-4">
+                Login
+            </a>
+        </div>
 
-    @section('content')
+        <div class="w-[90%] mt-7">
+            <div class="flex justify-between items-center pb-[50px]">
+                <div class="flex justify-start gap-[30px]">
+
+                    <div class="w-200 h-200 p-[100px] bg-primary rounded-lg py-2 px-4">Summoner icon</div>
+                    <div class="flex flex-col gap-[50px]">
+                        <h1 class="text-5xl text-[#FFFFFF]">User Name <span class="text-primary">#hastag</span></h1>
+                        <a href="#" class="text-center font-bold text-2xl bg-primary rounded-lg py-2 px-4 w-40">
+                            Update
+                        </a>
+
+                    </div>
 
 
 
+                </div>
+                <div class="justify-end"></div>
+
+            </div>
+            <div class="flex gap-[50px] pt-[30px] pb-[30px]">
+                <div class="w-[100px]">
+                    <h4 class="active font-bold text-bg_light text-2xl text-left">Resumen</h4>
+                </div>
+                <div class="w-[200px]">
+                    <h4 class=" text-bg_light text-2xl text-left">Juego en vivo</h4>
+                </div>
+            </div>
+            <div class="grid grid-cols-12 gap-5">
+                    <x-summoner-league class="col-start-1 col-span-3 row-start-1"/>
+                    <x-summoner-league class="col-start-1 col-span-3 row-start-2"/>
+                    <x-rendiment class="col-start-1 col-span-3 row-start-3"/>
+                    <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-span-12" >
+                        <x-porcentajeWinrate class="col-start-1 col-span-12"/>
+                    </div>
+            </div>
+
+        </div>
 
 
+    </main>
 
-</body>
-</html>
+
+</x-main-layout>
+
