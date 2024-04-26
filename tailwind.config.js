@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import animations from '@midudev/tailwind-animations'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -30,5 +31,8 @@ export default {
         }
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        animations
+    ],
 };
