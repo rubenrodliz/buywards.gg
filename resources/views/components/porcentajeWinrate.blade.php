@@ -1,4 +1,5 @@
 <div {{ $attributes->merge(['class'=>"border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-[white]"]) }}>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {{-- <div class="w-[1100px] h-[165px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-white"> --}}
     <div class="w-[95%] my-[2%] mx-[3%] flex">
         <div class="w-[10%] h-[40px] mr-[1%] rounded-[10px] border-2 border-solid border-primary bg-primary text-[15px] flex items-center text-center justify-center text-[white]"><p>Total</p></div>
@@ -26,32 +27,10 @@
     </div>
     <hr class="text-primary">
     <div class="flex">
-        <style>
-            .progress-circle {
-                position: relative;
-                width: 70px;
-                height: 70px;
-                border-radius: 50%;
-                background: conic-gradient(
-                    #F54B4E 0% 60%,
-                    #2D62D7 60% 100%
-                );
-                margin: 2%;
-            }
-            .progress-text {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              color: white;
-              font-size: 20px;
-            }
-            </style>
-            </head>
-            <body>
-            <div class="progress-circle">
-              <div class="progress-text">50%</div>
-            </div>
+        <canvas id="PorcentajeWinRate" width="70" height="70" class="m-[2%]"></canvas>
+        <script>
+
+        </script>
 
         <div class="mx-[1%] h-[100%] flex flex-col align-middle justify-center">
             <p class="text-[11px] font-bold">5V - 5D</p>
