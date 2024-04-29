@@ -7,10 +7,10 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <main class="flex flex-1 flex-col items-center p-[1%]">
+    <main class="flex flex-1 flex-col items-center p-[1%] bg-bg_dark">
         <!-- Go back -->
         <div class="absolute top-0 left-0 m-4">
-            <a class="text-sm text-gray-600 rounded-md hover:font-medium hover:text-text_light" href="{{ URL::previous() }}">
+            <a class="text-sm text-text_light rounded-md hover:font-medium hover:text-primary" href="{{ URL::previous() }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block align-middle mr-1 -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>
@@ -18,11 +18,11 @@
             </a>
         </div>
 
-        <div class="w-[70vw] h-[90vh] bg-bg_dark rounded-md flex">
+        <div class="w-[70vw] h-[90vh] bg-primary rounded-md flex">
             <div class="w-[50%] h-[100%] rounded-l-md" id="bg-image">
 
             </div>
-            <div class="w-[50%] h-[100%] flex justify-center items-center text-text_light">
+            <div class="w-[50%] h-[100%] flex justify-center items-center text-text_dark">
                 <form method="POST" action="{{ route('register') }}" class="w-[85%]">
                     @csrf
 
