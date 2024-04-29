@@ -1,5 +1,5 @@
 <header class="w-[65px] bg-primary flex justify-center">
-    <nav class="min-h-full flex flex-col justify-between items-center py-[40px] fixed">
+    <nav class="min-h-full flex flex-col justify-between items-center py-[40px] sticky">
         <div class="grid place-items-center">
             <div class="w-14 h-14 rounded-full">
                 <a href="/">
