@@ -8,6 +8,18 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <main class="flex flex-1 flex-col items-center p-[1%]">
+        <!-- Go back -->
+        <div class="flex items-center justify-start mt-4">
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ URL::previous() }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block align-middle mr-1 -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                {{ __('Go back') }}
+            </a>
+        </div>
+
+
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
