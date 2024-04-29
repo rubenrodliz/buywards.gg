@@ -5,7 +5,7 @@
 
     <main class="flex flex-1 flex-col items-center p-[1%]">
         <section class="flex self-end">
-            <a href="/" class="font-bold text-xl bg-primary rounded-lg py-2 px-4">
+            <a href="{{ route('login') }}" class="font-bold text-xl bg-primary rounded-lg py-2 px-4">
                 Login
             </a>
         </section>
