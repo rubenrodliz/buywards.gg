@@ -1,0 +1,56 @@
+.champion-card {
+    width: 300px;
+    height: 345px;
+    padding: 30px;
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    filter: brightness(1);
+}
+
+.champion-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.champion-card .skills {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.champion-card .skills .skill {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.champion-card .skills .skill img {
+    border-radius: 10px;
+}
+
+.champion-card .skills .skill p {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    padding: 0 8px;
+    background-color: #1C1C1F;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    border-radius: 10px 0 10px 0;
+}
