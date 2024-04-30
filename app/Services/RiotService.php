@@ -55,4 +55,24 @@ class RiotService
         $response = Http::get($url);
         return $response->json()['data'];
     }
+
+    public function getAccountByPuuid(string $gameName, string $tagLine): ?array {
+        $response = Http::get("https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{$gameName}/{$tagLine}?api_key=" . ENV('RIOT_API_KEY'));
+
+        if ($response->status() === 200) {
+            return $response->json();
+        }
+
+        return null;
+    }
+
+    public function getSummonerDataByPuuid(string $puuid, string $region): ?array {
+        $response = Http::get("https://{$region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{$puuid}?api_key" . ENV('RIOT_API_KEY'));
+        
+        if ($response->status() === 200) {
+            return $response->json();
+        }
+
+        return null;
+    }
 }
