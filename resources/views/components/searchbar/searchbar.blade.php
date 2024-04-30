@@ -1,7 +1,9 @@
-<form class="flex justify-between items-center mt-6 w-full gap-8" method="POST">
+<form action="{{ route('search.summoner') }}" class="flex justify-between items-center mt-6 w-full gap-8" method="POST">
     @csrf 
+
+    <!-- Barra de búsqueda -->
     <div class="relative w-full flex">
-        <input type="search" id="default-search"
+        <input type="search" id="default-search" name="summoner"
             class="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 placeholder:text-text_dark placeholder:font-bold placeholder:text-lg"
             placeholder="Search name #tag or champions" required />
         <button type="submit"
@@ -10,5 +12,8 @@
         </button>
     </div>
 
+    <!-- Selector de región -->
     <x-searchbar.region-selector />
+    <!-- Campo oculto para almacenar el valor de la región seleccionada -->
+    <input type="hidden" id="selected-region-input" name="region" />
 </form>
