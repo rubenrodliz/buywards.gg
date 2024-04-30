@@ -20,7 +20,7 @@
 
         <div class="w-[70vw] h-[90vh] bg-bg_dark rounded-md flex">
             <div class="w-[50%] h-[100%] flex justify-center items-center text-text_light">
-                <form method="POST" action="{{ route('login') }}" class="w-[85%]">
+                <form method="POST" action="{{ route('login') }}" class="w-[80%]">
                     @csrf
 
                     <!-- Email Address -->

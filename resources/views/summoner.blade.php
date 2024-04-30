@@ -42,14 +42,20 @@
                 </div>
             </div>
             <div class="grid grid-cols-12 gap-5">
-                    <x-summoner-league class="col-start-1 col-span-3 row-start-1"/>
-                    <x-summoner-league class="col-start-1 col-span-3 row-start-2"/>
-                    <x-rendiment class="col-start-1 col-span-3 row-start-3"/>
-                    <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-span-12" >
-                        <x-porcentajeWinrate class="col-start-1 col-span-12"/>
-                    </div>
+                {{-- @if($summoner)
+                    <x-summoner-league titulo="Clasificatoria Solo/Duo" class="col-start-1 col-span-3 row-start-1"/>';
+                    <x-summoner-league titulo="Clasificatoria Flexible" class="col-start-1 col-span-3 row-start-2"/>';
+                @else
+                    <x-summoner-unranked titulo = "Clasificatoria Solo/Duo"></x-summoner-unranked>
+                    <x-summoner-unranked titulo = "Clasificatoria Flexible"></x-summoner-unranked>
+                @endif --}}
+                <x-summoner-league titulo="Clasificatoria Solo/Duo" class="col-start-1 col-span-3 row-start-1"/>';
+                <x-summoner-league titulo="Clasificatoria Flexible" class="col-start-1 col-span-3 row-start-2"/>';
+                <x-rendiment class="col-start-1 col-span-3 row-start-3"/>';
+                <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-start-1 row-span-12" >';
+                    <x-porcentajeWinrate class="col-start-1 col-span-12 row-start-1"/>';
+                </div>'
             </div>
-
         </div>
 
 
@@ -57,4 +63,6 @@
 
 
 </x-main-layout>
+
+
 

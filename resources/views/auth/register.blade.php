@@ -23,7 +23,7 @@
 
             </div>
             <div class="w-[50%] h-[100%] flex justify-center items-center text-text_dark">
-                <form method="POST" action="{{ route('register') }}" class="w-[85%]">
+                <form method="POST" action="{{ route('register') }}" class="w-[80%]">
                     @csrf
 
                     <!-- Name -->
