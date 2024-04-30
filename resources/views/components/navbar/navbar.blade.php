@@ -13,7 +13,7 @@
                 ToDo: Cuando se vayan desarrollando las demás páginas
                 se debe de cambiar el href de los links para que redirijan
                 a las páginas correspondientes.
-             --}}
+            --}}
             <ul class="flex flex-col gap-[35px]">
                 <x-navbar.nav-link :icon="'home'" :active="request()->is('/')" href="/"/>
                 <x-navbar.nav-link :icon="'receipt'" :action="'tierlist'" />
