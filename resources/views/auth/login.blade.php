@@ -37,15 +37,22 @@
                     </p>
 
                     <!-- Email Address -->
-                    <div  class="mt-4 w-[70%]">
+                    <div class="mt-4 w-[70%]">
                         <x-input-login for="email" :value="__('Email')" />
                         <x-text-input id="email" class="block mt-1 w-full placeholder-text_light border-primary bg-bg_dark border-1" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
                     <!-- Password -->
-                    <div  class="mt-4 w-[70%]">
-                        <x-input-label for="password" :value="__('Contraseña')" />
+                    <div class="mt-4 w-[70%]">
+                        <div class="flex justify-between">
+                            <x-input-label for="password" :value="__('Contraseña')" />
+                            @if (Route::has('password.request'))
+                                <a class="text-sm text-primary rounded-md hover:font-medium" href="{{ route('password.request') }}">
+                                    {{ __('¿Contraseña olvidada?') }}
+                                </a>
+                            @endif
+                        </div>
 
                         <x-text-input id="password" class="block mt-1 w-full placeholder-text_light border-primary bg-bg_dark border-1"
                                         type="password"
@@ -56,7 +63,7 @@
                     </div>
 
                     <!-- Remember Me -->
-                    <div  class="mt-4 w-[70%]">
+                    <div class="mt-4 w-[70%]">
                         <label for="remember_me" class="inline-flex items-center">
                             <input id="remember_me" type="checkbox" class="rounded border-primary text-primary shadow-sm" name="remember">
                             <span class="ms-2 text-sm text-gray-600">{{ __('Recordarme') }}</span>
@@ -64,12 +71,6 @@
                     </div>
 
                     <div class="w-[70%] h-[50px]">
-                        {{-- @if (Route::has('password.request'))
-                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                        @endif --}}
-
                         <x-primary-button class="bg-primary text-text_dark hover:text-text_light ">
                             {{ __('Iniciar sesión') }}
                         </x-primary-button>
