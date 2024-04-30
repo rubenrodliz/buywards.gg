@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bg-image{
+    position: relative;
+    background-image: url('../../public/images/backgrounds/auth.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 9% 0;
+}

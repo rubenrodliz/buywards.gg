@@ -3,7 +3,8 @@
     height: 345px;
     padding: 30px;
     background-size: cover;
-    background-position: right;
+    background-position: center center;
+    aspect-ratio: 3/4;
     background-repeat: no-repeat;
     border-radius: 10px;
     display: flex;
@@ -35,10 +36,12 @@
     height: 40px;
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
 }
 
 .champion-card .skills .skill img {
     border-radius: 10px;
+    aspect-ratio: 1/1;
 }
 
 .champion-card .skills .skill p {
