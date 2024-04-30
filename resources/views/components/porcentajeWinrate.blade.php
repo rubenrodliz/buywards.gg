@@ -27,10 +27,7 @@
     </div>
     <hr class="text-primary">
     <div class="flex">
-        <canvas id="PorcentajeWinRate" width="70" height="70" class="m-[2%]"></canvas>
-        <script>
-
-        </script>
+        <canvas id="PorcentajeWinRate" width="75" height="70" class="m-[1%]"></canvas>
 
         <div class="mx-[1%] h-[100%] flex flex-col align-middle justify-center">
             <p class="text-[11px] font-bold">5V - 5D</p>
