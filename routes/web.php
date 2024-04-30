@@ -1,12 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiotApiController;
-use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::post('/search', [SearchController::class, 'searchSummoner'])->name('search.summoner');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
