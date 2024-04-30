@@ -5,11 +5,6 @@
 }
 
 main {
-    background: linear-gradient(
-        90deg,
-        rgba(23, 190, 170, 1) 50%,
-        rgba(141, 214, 202, 1) 100%
-    );
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -22,5 +17,5 @@ main {
     background-image: url('../../public/images/backgrounds/auth.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 100% 0;
+    background-position: 9% 0;
 }
