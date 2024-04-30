@@ -18,67 +18,65 @@
             </a>
         </div>
 
-        <div class="w-[70vw] h-[90vh] bg-primary rounded-md flex">
-            <div class="w-[50%] h-[100%] rounded-l-md" id="bg-image">
-
-            </div>
+        <div class="w-[60vw] h-[90vh] bg-primary rounded-md flex">
+            <div class="w-[50%] h-[100%] rounded-l-md" id="bg-image"></div>
             <div class="w-[50%] h-[100%] flex justify-center items-center text-text_dark">
                 <form method="POST" action="{{ route('register') }}" class="flex flex-col justify-center items-center w-[100%]">
                     @csrf
                     <!-- Logo -->
-                    <img src="{{ asset('images/logo.svg') }}" alt="BuyWards Logo" class="aspect-square w-[15%]">
+                    <img src="{{ asset('images/logo.svg') }}" alt="BuyWards Logo" class="aspect-square w-[18%]">
 
                     <!-- Title -->
                     <h2 class="text-2xl font-bold mt-6">¡Bienvenido a <b>BW.GG</b>!</h2>
 
                     <!-- Subtitle -->
-                    <p class="text-sm my-6">
+                    <p class="text-sm my-6 font-semibold">
                         ¿Ya tienes cuenta?
-                        <a class="text-sm text-text_light  rounded-md hover:font-semibold" href="{{ route('login') }}">
+                        <a class="text-sm text-text_light rounded-md hover:font-bold transition ease-in-out duration-150" href="{{ route('login') }}">
                             {{ __('Inicia sesión') }}
                         </a>
                     </p>
 
                     <!-- Name -->
-                    <div class="w-[80%]">
+                    <div class="w-[70%]">
                         <x-input-label for="name" :value="__('Usuario')" />
-                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                        <x-text-input id="name" class="block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Nombre de usuario" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
                     <!-- Email Address -->
-                    <div class="mt-4 w-[80%]">
+                    <div class="mt-4 w-[70%]">
                         <x-input-label for="email" :value="__('Email')" />
-                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                        <x-text-input id="email" class="block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="Introduce tu email"/>
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
                     <!-- Password -->
-                    <div class="mt-4 w-[80%]">
+                    <div class="mt-4 w-[70%]">
                         <x-input-label for="password" :value="__('Constraseña')" />
 
-                        <x-text-input id="password" class="block mt-1 w-full"
+                        <x-text-input id="password" class="block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
                                         type="password"
                                         name="password"
-                                        required autocomplete="new-password" />
+                                        required autocomplete="new-password" placeholder="Introduce la constraseña"/>
 
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
 
                     <!-- Confirm Password -->
-                    <div class="mt-4 w-[80%]">
+                    <div class="mt-4 w-[70%]">
                         <x-input-label for="password_confirmation" :value="__('Confirmar contraseña')" />
 
-                        <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                        <x-text-input id="password_confirmation" class="block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
                                         type="password"
-                                        name="password_confirmation" required autocomplete="new-password" />
+                                        name="password_confirmation" required autocomplete="new-password" placeholder="Repite la contraseña"/>
 
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                     </div>
 
-                    <div class="flex items-center justify-end mt-4">
-                        <x-primary-button class="ms-4">
-                            {{ __('Register') }}
+                    <div class="w-[70%] h-[50px]">
+                        <x-primary-button class="bg-bg_dark text-text_light hover:text-primary ">
+                            {{ __('Registrarse') }}
                         </x-primary-button>
                     </div>
                 </form>
