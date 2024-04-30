@@ -39,7 +39,7 @@
                     <!-- Email Address -->
                     <div class="mt-4 w-[70%]">
                         <x-input-login for="email" :value="__('Email')" />
-                        <x-text-input id="email" class="block mt-1 w-full placeholder-text_light border-primary bg-bg_dark border-1" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                        <x-text-input id="email" class="block mt-1 w-full placeholder-text_light border-primary bg-bg_dark border-1" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" placeholder="Introduce tu email" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
@@ -57,7 +57,7 @@
                         <x-text-input id="password" class="block mt-1 w-full placeholder-text_light border-primary bg-bg_dark border-1"
                                         type="password"
                                         name="password"
-                                        required autocomplete="current-password" />
+                                        required autocomplete="current-password" placeholder="Introduce la contraseña"/>
 
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>

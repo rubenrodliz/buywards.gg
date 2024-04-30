@@ -58,7 +58,7 @@
                         <x-text-input id="password" class="block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
                                         type="password"
                                         name="password"
-                                        required autocomplete="new-password" placeholder="Introduce la constraseña"/>
+                                        required autocomplete="new-password" placeholder="Introduce la contraseña"/>
 
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
