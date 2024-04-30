@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class SummonerLeague extends Component
+class SummonerUnranked extends Component
 {
     /**
      * Create a new component instance.
@@ -22,6 +22,6 @@ class SummonerLeague extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.summoner-league',['titulo'=>$this->titulo]);
+        return view('components.summoner-unranked',['titulo'=>$this->titulo]);
     }
 }
