@@ -4,6 +4,7 @@
 <x-main-layout >
     @section('scripts')
     @vite(['resources/css/summoner.css'])
+    @vite(['resources/js/porcentajeWinRate.js'])
 @endsection
 
     <main class="flex flex-1 flex-col items-center p-[40px]">
