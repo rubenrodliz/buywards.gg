@@ -23,26 +23,39 @@
 
             </div>
             <div class="w-[50%] h-[100%] flex justify-center items-center text-text_dark">
-                <form method="POST" action="{{ route('register') }}" class="w-[80%]">
+                <form method="POST" action="{{ route('register') }}" class="flex flex-col justify-center items-center w-[100%]">
                     @csrf
+                    <!-- Logo -->
+                    <img src="{{ asset('images/logo.svg') }}" alt="BuyWards Logo" class="aspect-square w-[15%]">
+
+                    <!-- Title -->
+                    <h2 class="text-2xl font-bold mt-6">¡Bienvenido a <b>BW.GG</b>!</h2>
+
+                    <!-- Subtitle -->
+                    <p class="text-sm my-6">
+                        ¿Ya tienes cuenta?
+                        <a class="text-sm text-text_light  rounded-md hover:font-semibold" href="{{ route('login') }}">
+                            {{ __('Inicia sesión') }}
+                        </a>
+                    </p>
 
                     <!-- Name -->
-                    <div>
-                        <x-input-label for="name" :value="__('Name')" />
+                    <div class="w-[80%]">
+                        <x-input-label for="name" :value="__('Usuario')" />
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
                     <!-- Email Address -->
-                    <div class="mt-4">
+                    <div class="mt-4 w-[80%]">
                         <x-input-label for="email" :value="__('Email')" />
                         <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
                     <!-- Password -->
-                    <div class="mt-4">
-                        <x-input-label for="password" :value="__('Password')" />
+                    <div class="mt-4 w-[80%]">
+                        <x-input-label for="password" :value="__('Constraseña')" />
 
                         <x-text-input id="password" class="block mt-1 w-full"
                                         type="password"
@@ -53,8 +66,8 @@
                     </div>
 
                     <!-- Confirm Password -->
-                    <div class="mt-4">
-                        <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                    <div class="mt-4 w-[80%]">
+                        <x-input-label for="password_confirmation" :value="__('Confirmar contraseña')" />
 
                         <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                         type="password"
@@ -64,10 +77,6 @@
                     </div>
 
                     <div class="flex items-center justify-end mt-4">
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                            {{ __('Already registered?') }}
-                        </a>
-
                         <x-primary-button class="ms-4">
                             {{ __('Register') }}
                         </x-primary-button>

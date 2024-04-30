@@ -9,7 +9,7 @@
 
             <x-navbar.separator />
 
-            {{-- 
+            {{--
                 ToDo: Cuando se vayan desarrollando las demás páginas
                 se debe de cambiar el href de los links para que redirijan
                 a las páginas correspondientes.
