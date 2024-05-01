@@ -1,3 +1,4 @@
+<!-- Aquí comienza el HTML -->
 @props(['champion', 'patch' => '14.8.1'])
 @vite(['resources/css/champion_card.css'])
 
@@ -7,25 +8,59 @@
         <a href="#" class="text-lg font-medium text-text_light flex items-center">Ver campeón <span class="material-icons" style="font-size: 24px">chevron_right</span></a>
     </div>
     <div class="skills">
-        <div class="skill passive-skill hover:animate-pop">
-            <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/passive" alt="Passive">
-            <p>P</p>
+        <div class="skill passive-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative">
+                <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/passive" alt="Passive">
+                <p>P</p>
+            </div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad P</div>
         </div>
-        <div class="skill q-skill hover:animate-pop">
-            <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/q" alt="Q">
-            <p>Q</p>
+
+        <div class="skill q-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative">
+                <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/q" alt="Q">
+                <p>Q</p>
+            </div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad Q</div>
         </div>
-        <div class="skill w-skill hover:animate-pop">
-            <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/w" alt="W">
-            <p>W</p>
+
+        <div class="skill w-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative">
+                <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/w" alt="W">
+                <p>W</p>
+            </div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad W</div>
         </div>
-        <div class="skill e-skill hover:animate-pop">
-            <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/e" alt="E">
-            <p>E</p>
+
+        <div class="skill e-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative">
+                <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/e" alt="E">
+                <p>E</p>
+            </div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad E</div>
         </div>
-        <div class="skill r-skill hover:animate-pop">
-            <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/r" alt="R">
-            <p>R</p>
+
+        <div class="skill r-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative">
+                <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/r" alt="R">
+                <p>R</p>
+            </div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad R</div>
         </div>
     </div>
 </article>
+
+<!-- Aquí comienza el JavaScript -->
+<script>
+    // Función para mostrar el mensaje al pasar el ratón sobre una habilidad
+    function mostrarMensaje(skill) {
+        var mensaje = skill.querySelector('.mensaje');
+        mensaje.style.display = 'block';
+    }
+
+    // Función para ocultar el mensaje al quitar el ratón de una habilidad
+    function ocultarMensaje(skill) {
+        var mensaje = skill.querySelector('.mensaje');
+        mensaje.style.display = 'none';
+    }
+</script>
