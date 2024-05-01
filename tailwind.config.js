@@ -22,7 +22,7 @@ export default {
             tertiary: '#f7f7f7',
             success: '#70db47',
             warning: '#ead346',
-            error: '#ed7262',
+            error: '#b71008',
             info: '#4b9ebb',
             text_dark: '#1c1c1f',
             text_light: '#f2f4fc',
