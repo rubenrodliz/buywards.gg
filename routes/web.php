@@ -10,9 +10,9 @@ use App\Http\Controllers\RiotApiController;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::post('/search', [SearchController::class, 'searchSummoner'])->name('search.summoner');
 
-Route::get('/dashboard', function () {
+/* Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard'); */
 
 Route::get('/summoner', function () {
     return view('summoner');
