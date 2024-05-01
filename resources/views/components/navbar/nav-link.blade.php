@@ -11,7 +11,7 @@
             'text-primary bg-bg_dark' => $active,
             'text-white' => !$active,
         ]) class="" aria-current="page">
-            {{ $icon }}
+            {{ $icon ?? '' }}
         </span>
     </a>
 </li>
