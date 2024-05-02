@@ -8,14 +8,15 @@ use Illuminate\View\Component;
 
 class Checkbox extends Component
 {
-    public $name, $id, $value, $checked;
+    public $name, $id, $value, $checked, $additionalClasses;
 
-    public function __construct($name, $id = null, $value = '1', $checked = false)
+    public function __construct($name, $id = null, $value = '1', $checked = false, $additionalClasses = '')
     {
         $this->name = $name;
         $this->id = $id ?? $name;
         $this->value = $value;
         $this->checked = $checked;
+        $this->additionalClasses = $additionalClasses;
     }
 
     /**
