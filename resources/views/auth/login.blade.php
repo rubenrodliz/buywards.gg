@@ -65,10 +65,7 @@
                     <!-- Remember Me -->
                     <div class="mt-4 w-[70%]">
                         <label for="remember_me" class="inline-flex items-center">
-                            <x-text-input id="remember_me"
-                                class="rounded border-primary text-primary shadow-sm focus:ring-primary" type="checkbox"
-                                name="remember" />
-                            <span class="ms-2 text-sm text-gray-600">{{ __('Recordarme') }}</span>
+                            <x-form.checkbox name="remember" id="remember" :checked="old('remember')">{{ __('Recordarme') }}</x-form.checkbox>
                         </label>
                     </div>
 
