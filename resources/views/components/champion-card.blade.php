@@ -8,8 +8,8 @@
         <a href="#" class="text-lg font-medium text-text_light flex items-center">Ver campeón <span class="material-icons" style="font-size: 24px">chevron_right</span></a>
     </div>
     <div class="skills">
-        <div class="skill passive-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
-            <div class="skill-content relative">
+        <div class="skill passive-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative hover:animate-pop ">
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/passive" alt="Passive">
                 <p>P</p>
             </div>
