@@ -53,7 +53,7 @@
 
                     <!-- Password -->
                     <div class="mt-4 w-[70%]">
-                        <x-input-label for="password" :value="__('Constraseña')" />
+                        <x-input-label for="password" :value="__('Contraseña')" />
 
                         <x-text-input id="password" class="block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
                                         type="password"
