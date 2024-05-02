@@ -9,7 +9,7 @@
 
     <main class="flex flex-col items-center p-[1%]">
         <!-- Go back -->
-        <section class="self-start items-center my-2">
+        <section class="self-start items-center mb-2">
             <a class="text-sm text-gray-600 rounded-md hover:font-medium hover:text-text_light" href="{{ URL::to('/')}}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block align-middle mr-1 -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -54,7 +54,7 @@
                             @endif
                         </div>
 
-                        <x-text-input id="password" class="block mt-1 w-full placeholder-text_light placeholder:text-sm md:placeholder:text-[1rem] border-primary bg-bg_dark border-1 focus:ring-primary" 
+                        <x-text-input id="password" class="block mt-1 w-full placeholder-text_light placeholder:text-sm md:placeholder:text-[1rem] border-primary bg-bg_dark border-1 focus:ring-primary"
                                         type="password"
                                         name="password"
                                         required autocomplete="current-password" placeholder="Introduce la contraseña"/>
