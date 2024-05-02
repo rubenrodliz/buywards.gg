@@ -12,7 +12,11 @@
     justify-content: space-between;
     filter: brightness(1);
 }
-
+.animation-scale:hover {
+    transform: scale(1.1);
+    transition-property: transform;
+    transition-duration: 300ms;
+  }
 .champion-card::before {
     content: "";
     position: absolute;

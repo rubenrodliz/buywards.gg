@@ -9,39 +9,39 @@
     </div>
     <div class="skills">
         <div class="skill passive-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
-            <div class="skill-content relative hover:animate-pop ">
+            <div class="skill-content relative animation-scale">
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/passive" alt="Passive">
                 <p>P</p>
             </div>
             <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad P</div>
         </div>
 
-        <div class="skill q-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
-            <div class="skill-content relative">
+        <div class="skill q-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative animation-scale">
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/q" alt="Q">
                 <p>Q</p>
             </div>
             <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad Q</div>
         </div>
 
-        <div class="skill w-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
-            <div class="skill-content relative">
+        <div class="skill w-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative animation-scale">
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/w" alt="W">
                 <p>W</p>
             </div>
             <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad W</div>
         </div>
 
-        <div class="skill e-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
-            <div class="skill-content relative">
+        <div class="skill e-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative animation-scale">
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/e" alt="E">
                 <p>E</p>
             </div>
             <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad E</div>
         </div>
 
-        <div class="skill r-skill hover:animate-pop flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
-            <div class="skill-content relative">
+        <div class="skill r-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
+            <div class="skill-content relative animation-scale">
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/r" alt="R">
                 <p>R</p>
             </div>
