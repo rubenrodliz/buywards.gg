@@ -26,9 +26,6 @@
                         </a>
 
                     </div>
-
-
-
                 </div>
                 <div class="justify-end"></div>
 
@@ -54,6 +51,7 @@
                 <x-rendiment class="col-start-1 col-span-3 row-start-3"/>';
                 <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-start-1 row-span-12" >';
                     <x-porcentajeWinrate class="col-start-1 col-span-12 row-start-1"/>';
+                    
                 </div>'
             </div>
         </div>
