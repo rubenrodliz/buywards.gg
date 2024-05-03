@@ -27,7 +27,10 @@ export default {
             text_dark: '#1c1c1f',
             text_light: '#f2f4fc',
             bg_light: '#f2f4fc',
-            bg_dark: '#1c1c1f'
+            bg_dark: '#1c1c1f',
+            kda_red: '#F54B4E',
+            kda_orange: '#F69601',
+            kda_blue: '#2D62D7'
         }
     },
 
