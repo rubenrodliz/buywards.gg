@@ -4,15 +4,6 @@
     box-sizing: border-box;
 }
 
-main {
-    position: relative;
-    background-image: url('../../public/images/backgrounds/home.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    filter: brightness(1);
-}
-
 main::before {
     content: "";
     position: absolute;
