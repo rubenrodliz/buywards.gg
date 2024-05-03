@@ -39,7 +39,7 @@
                     <!-- Email Address -->
                     <div class="mt-2 lg:mt-4 w-[70%]">
                         <x-input-login for="email" :value="__('Email')" />
-                        <x-text-input id="email" class="block mt-1 w-full placeholder-text_light placeholder:text-sm md:placeholder:text-[1rem] border-primary bg-bg_dark border-1 focus:ring-primary" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" placeholder="Introduce tu email" />
+                        <x-text-input id="email" class="focus:border-primary block mt-1 w-full placeholder-text_light placeholder:text-sm md:placeholder:text-[1rem] border-primary bg-bg_dark border-1 focus:ring-primary" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" placeholder="Introduce tu email" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
@@ -54,7 +54,7 @@
                             @endif
                         </div>
 
-                        <x-text-input id="password" class="block mt-1 w-full placeholder-text_light placeholder:text-sm md:placeholder:text-[1rem] border-primary bg-bg_dark border-1 focus:ring-primary"
+                        <x-text-input id="password" class="focus:border-primary block mt-1 w-full placeholder-text_light placeholder:text-sm md:placeholder:text-[1rem] border-primary bg-bg_dark border-1 focus:ring-primary"
                                         type="password"
                                         name="password"
                                         required autocomplete="current-password" placeholder="Introduce la contraseña"/>
