@@ -8,8 +8,6 @@ use Illuminate\View\Component;
 
 class performanceSelectorButton extends Component
 {
-    public $selectedButton = '';
-
     public function __construct()
     {
         //

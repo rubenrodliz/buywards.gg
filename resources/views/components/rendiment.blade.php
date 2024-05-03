@@ -1,6 +1,6 @@
 <div {{ $attributes->merge(['class'=>"py-4 px-4 w-[100%] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-text_light"]) }}>
 {{-- <div class="w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent  text-white"> --}}
-    <div class="h-[10%] mb-4">
+    <div>
         <x-barra-titulos titulo="Rendimiento" />
     </div>
     <div class="h-[12%] flex flex-row justify-between mb-4 w-full">

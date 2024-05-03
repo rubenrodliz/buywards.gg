@@ -11,17 +11,15 @@ class barraTitulos extends Component
     /**
      * Create a new component instance.
      */
-    protected $titulo;
-    public function __construct($titulo)
+    public function __construct()
     {
-        $this->titulo=$titulo;
-    }
 
+    }
     /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
     {
-        return view('components.barra-titulos',['titulo'=>$this->titulo]);
+        return view('components.barra-titulos');
     }
 }
