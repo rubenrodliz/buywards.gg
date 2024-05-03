@@ -16,7 +16,7 @@
     </div>
     <hr class="text-primary">
     <div class="flex p-4 justify-between">
-        <div class="flex justify-between items-center w-[30%]">w
+        <div class="flex justify-between items-center w-[30%]">
             <div class="flex gap-8">
                 <canvas id="PorcentajeWinRate" width="75" height="70"></canvas>
                 <x-historial-wins-loses wins="5" loses="8" />
