@@ -6,7 +6,7 @@
 
     <main class="flex w-full flex-col">
         <x-top-navbar />
-        <section class="flex flex-1 flex-col items-center p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, rgba(28, 28, 31, 1), rgba(28, 28, 31, 0.27), rgba(28, 28, 31, 1)), url('https://cdn.communitydragon.org/14.8.1/champion/kaisa/splash-art');">
+        <section class="flex flex-1 flex-col items-center p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/kaisa/splash-art');">
             <section class="w-[90%] mt-7">
                 <div class="flex justify-between items-center pb-[50px]">
                     <div class="flex justify-start gap-[30px]">
