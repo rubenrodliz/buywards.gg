@@ -6,7 +6,7 @@
 
     <main class="flex w-full flex-col">
         <x-top-navbar />
-            <section class="flex flex-1 flex-col items-center p-[40px] relative bg-cover bg-fixed" style="background-image: linear-gradient(to right, rgba(28, 28, 31, 1), rgba(28, 28, 31, 0.27), rgba(28, 28, 31, 1)), url('https://cdn.communitydragon.org/14.8.1/champion/kaisa/splash-art');">
+        <section class="flex flex-1 flex-col items-center p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, rgba(28, 28, 31, 1), rgba(28, 28, 31, 0.27), rgba(28, 28, 31, 1)), url('https://cdn.communitydragon.org/14.8.1/champion/kaisa/splash-art');">
             <section class="w-[90%] mt-7">
                 <div class="flex justify-between items-center pb-[50px]">
                     <div class="flex justify-start gap-[30px]">
@@ -47,8 +47,8 @@
                         <x-summoner-unranked titulo = "Clasificatoria Solo/Duo"></x-summoner-unranked>
                         <x-summoner-unranked titulo = "Clasificatoria Flexible"></x-summoner-unranked>
                     @endif --}}
-                    <x-summoner-league rank="Diamond" tier="4" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Solo/Duo" class="col-start-1 col-span-3 row-start-1" />
-                    <x-summoner-league rank="Iron" tier="1" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Flexible" class="col-start-1 col-span-3 row-start-2"/>
+                    <x-summoner-league rank="Diamond 4" tier="4" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Solo/Duo" class="col-start-1 col-span-3 row-start-1" />
+                    <x-summoner-league rank="Iron 2" tier="" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Flexible" class="col-start-1 col-span-3 row-start-2"/>
                     <x-rendiment class="col-start-1 col-span-3 row-start-3"/>
                     <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-start-1 row-span-12" >
                         <x-porcentaje-winrate class="col-start-1 col-span-12 row-start-1"/>
