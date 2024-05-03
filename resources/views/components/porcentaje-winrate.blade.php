@@ -25,6 +25,9 @@
             <x-historial-k-d-a kills="5" deaths="4" assists="10" />
         </div>
         <div class="flex w-[45%] justify-between items-center">
+            <!-- ToDo: Cuando la respuesta de la API esté creada, pasar esto
+                a un foreach para que se creen los componentes de manera dinámica
+             -->
             <x-historial-champ-stats champName="Kai'sa" champKDA="5,43" champWinRate="50" champWins="5" champLoses="5" champImage="kaisa" />
             <x-historial-champ-stats champName="Kai'sa" champKDA="5,43" champWinRate="30" champWins="5" champLoses="5" champImage="kaisa" />
             <x-historial-champ-stats champName="Kai'sa" champKDA="5,43" champWinRate="70" champWins="5" champLoses="5" champImage="kaisa" />
