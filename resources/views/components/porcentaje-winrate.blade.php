@@ -16,7 +16,7 @@
     </div>
     <hr class="text-primary">
     <div class="flex p-4 justify-between">
-        <div class="flex justify-between items-center w-[30%]">
+        <div class="flex justify-between items-center w-[30%]">w
             <div class="flex gap-8">
                 <canvas id="PorcentajeWinRate" width="75" height="70"></canvas>
                 <x-historial-wins-loses wins="5" loses="8" />
@@ -24,7 +24,7 @@
 
             <x-historial-k-d-a kills="5" deaths="4" assists="10" />
         </div>
-        <div class="flex justify-end w-[45%] justify-between items-center">
+        <div class="flex w-[45%] justify-between items-center">
             <x-historial-champ-stats champName="Kai'sa" champKDA="5,43" champWinRate="50" champWins="5" champLoses="5" champImage="kaisa" />
             <x-historial-champ-stats champName="Kai'sa" champKDA="5,43" champWinRate="30" champWins="5" champLoses="5" champImage="kaisa" />
             <x-historial-champ-stats champName="Kai'sa" champKDA="5,43" champWinRate="70" champWins="5" champLoses="5" champImage="kaisa" />
