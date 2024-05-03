@@ -42,12 +42,14 @@
                 </div>
             </div>
             <div class="grid grid-cols-12 gap-5">
-                    <x-summoner-league class="col-start-1 col-span-3 row-start-1"/>
-                    <x-summoner-league class="col-start-1 col-span-3 row-start-2"/>
+                    <x-summoner-league class="col-start-1 col-span-3 row-start-1" titulo=""/>
+                    <x-summoner-league class="col-start-1 col-span-3 row-start-2" titulo=""/>
                     <x-rendiment class="col-start-1 col-span-3 row-start-3"/>
                     <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-span-12" >
                         <x-porcentajeWinrate class="col-start-1 col-span-12"/>
+                        <x-gameWin class="col-start-1 col-span-12"/>
                     </div>
+
             </div>
 
         </div>
