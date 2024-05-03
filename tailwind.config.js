@@ -30,7 +30,18 @@ export default {
             bg_dark: '#1c1c1f',
             kda_red: '#F54B4E',
             kda_orange: '#F69601',
-            kda_blue: '#2D62D7'
+            kda_blue: '#2D62D7',
+            unraked: '#6B6963',
+            iron: '#51484A',
+            bronze: '#8C513A',
+            silver: '#80989D',
+            gold: '#CD8837',
+            platinum: '#25ACD6',
+            emerald: '#519847',
+            diamond: '#8141EB',
+            master: '#9E4AE0',
+            grandmaster: '#CD4545',
+            challenger: '#F4C874'
         }
     },
 
