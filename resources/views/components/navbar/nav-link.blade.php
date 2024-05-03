@@ -9,7 +9,7 @@
         <span @class([
             'material-icons rounded-[10px] text-[35px] p-[2px]',
             'text-primary bg-bg_dark' => $active,
-            'text-white' => !$active,
+            'text-text_dark' => !$active,
         ]) class="" aria-current="page">
             {{ $icon ?? '' }}
         </span>
