@@ -33,6 +33,15 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'El campo correo electrónico es obligatorio.',
+            'email.email' => 'El campo correo electrónico debe ser una dirección de correo electrónico válida.',
+            'password.required' => 'El campo contraseña es obligatorio.',
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *
