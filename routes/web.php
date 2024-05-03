@@ -5,10 +5,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiotApiController;
-
+use App\Http\Controllers\WorkInProgressController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::post('/search', [SearchController::class, 'searchSummoner'])->name('search.summoner');
+Route::get('/workinprogress', [WorkInProgressController::class, 'index'])->name('workinprogress');
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');

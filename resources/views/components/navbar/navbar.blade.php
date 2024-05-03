@@ -16,7 +16,7 @@
             --}}
             <ul class="flex flex-col gap-[35px]">
                 <x-navbar.nav-link :icon="'home'" :active="request()->is('/')" href="/"/>
-                <x-navbar.nav-link :icon="'receipt'" :action="'tierlist'" />
+                <x-navbar.nav-link :icon="'receipt'" :active="request()->is('workinprogress')" href="workinprogress" />
                 <x-navbar.nav-link :icon="'shield'" :action="'champs'" />
                 <x-navbar.nav-link :icon="'emoji_events'" :action="'leaderboard'" />
             </ul>
