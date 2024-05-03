@@ -1,4 +1,6 @@
-<div {{ $attributes->merge(['class'=>"py-4 px-4 w-[100%] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-text_light"]) }}>
+@props(['class' => ''])
+
+<div class="py-4 px-4 w-[100%] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-text_light {{ $class }}">
 {{-- <div class="w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent  text-white"> --}}
     <div>
         <x-barra-titulos titulo="Rendimiento" />
