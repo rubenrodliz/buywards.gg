@@ -40,14 +40,14 @@
                     <!-- Name -->
                     <div class="w-[70%]">
                         <x-input-label for="name" :value="__('Usuario')" />
-                        <x-text-input id="name" class="focus:border-bg_dark block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Nombre de usuario" />
+                        <x-text-input id="name" class="focus:ring-bg_dark focus:border-bg_dark block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Nombre de usuario" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
                     <!-- Email Address -->
                     <div class="mt-4 w-[70%]">
                         <x-input-label for="email" :value="__('Email')" />
-                        <x-text-input id="email" class="focus:border-bg_dark block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="Introduce tu email"/>
+                        <x-text-input id="email" class="focus:ring-bg_dark focus:border-bg_dark  block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="Introduce tu email"/>
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
@@ -55,7 +55,7 @@
                     <div class="mt-4 w-[70%]">
                         <x-input-label for="password" :value="__('Contraseña')" />
 
-                        <x-text-input id="password" class="focus:border-bg_dark block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
+                        <x-text-input id="password" class="focus:ring-bg_dark focus:border-bg_dark  block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
                                         type="password"
                                         name="password"
                                         required autocomplete="new-password" placeholder="Introduce la contraseña"/>
@@ -67,7 +67,7 @@
                     <div class="mt-4 w-[70%]">
                         <x-input-label for="password_confirmation" :value="__('Confirmar contraseña')" />
 
-                        <x-text-input id="password_confirmation" class="focus:border-bg_dark block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
+                        <x-text-input id="password_confirmation" class="focus:ring-bg_dark focus:border-bg_dark  block mt-1 w-full placeholder-text_dark border-bg_dark bg-primary border-1"
                                         type="password"
                                         name="password_confirmation" required autocomplete="new-password" placeholder="Repite la contraseña"/>
 
