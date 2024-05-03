@@ -1,5 +1,5 @@
-<form action="{{ route('search.summoner') }}" class="flex justify-between items-center mt-6 w-full gap-8" method="POST">
-    @csrf 
+<form action="{{ route('search.summoner') }}" class="flex justify-between items-center w-full gap-8" method="POST">
+    @csrf
 
     <!-- Barra de búsqueda -->
     <div class="relative w-full flex">
