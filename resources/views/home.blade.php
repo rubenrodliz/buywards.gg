@@ -7,7 +7,7 @@
         <x-auth-login-dropdown-button />
 
         <section class="w-[875px] mt-6">
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center mb-6">
                 <img src="{{ asset('images/logo_text.svg') }}" alt="Buywards logo" class="w-[33.33%]">
                 <img src="{{ asset('images/League_of_Legends.svg') }}" alt="League of Legends logo" class="w-[25%]">
             </div>
