@@ -4,10 +4,10 @@
         @vite(['resources/js/porcentajeWinRate.js'])
     @endsection
 
-    <div class="flex w-full flex-col">
+    <main class="flex w-full flex-col">
         <x-top-navbar />
-            <main class="flex flex-1 flex-col items-center p-[40px] relative bg-cover bg-fixed" style="background-image: linear-gradient(to right, rgba(28, 28, 31, 1), rgba(28, 28, 31, 0.27), rgba(28, 28, 31, 1)), url('https://cdn.communitydragon.org/14.8.1/champion/kaisa/splash-art');">
-            <div class="w-[90%] mt-7">
+            <section class="flex flex-1 flex-col items-center p-[40px] relative bg-cover bg-fixed" style="background-image: linear-gradient(to right, rgba(28, 28, 31, 1), rgba(28, 28, 31, 0.27), rgba(28, 28, 31, 1)), url('https://cdn.communitydragon.org/14.8.1/champion/kaisa/splash-art');">
+            <section class="w-[90%] mt-7">
                 <div class="flex justify-between items-center pb-[50px]">
                     <div class="flex justify-start gap-[30px]">
                         <div class="w-200 h-200 p-[100px] bg-primary rounded-lg py-2 px-4">
@@ -54,9 +54,9 @@
                         <x-porcentaje-winrate class="col-start-1 col-span-12 row-start-1"/>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
+            </section>
+        </section>
+    </main>
 </x-summoner-layout>
 
 
