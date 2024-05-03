@@ -4,9 +4,8 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
 
-class historialKDA extends Component
+class historialKDA extends Historial
 {
     /**
      * Create a new component instance.
@@ -21,6 +20,8 @@ class historialKDA extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.historial-k-d-a');
+        return view('components.historial-k-d-a', [
+            'class' => $this
+        ]);
     }
 }
