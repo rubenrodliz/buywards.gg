@@ -4,9 +4,9 @@
         <x-barra-titulos titulo="Rendimiento" />
     </div>
     <div class="h-[12%] flex flex-row justify-between mb-4 w-full">
-        <div class="py-2 w-[25%] rounded-[10px] border-2 border-solid border-primary bg-primary text-md flex items-center text-center justify-center text-text_dark font-semibold"><p>Total</p></div>
-        <div class="py-2 w-[25%] rounded-[10px] border-2 border-solid border-primary text-md flex items-center text-center justify-center text-primary hover:bg-primary hover:text-text_dark hover:font-semibold hover:cursor-pointer"><p>SoloQ</p></div>
-        <div class="py-2 w-[25%] rounded-[10px] border-2 border-solid border-primary text-md flex items-center text-center justify-center text-primary hover:bg-primary hover:text-text_dark hover:font-semibold hover:cursor-pointer"><p>Flex</p></div>
+        <x-performance-selector-button isSelected="true" name="Total" />
+        <x-performance-selector-button name="SoloQ" />
+        <x-performance-selector-button name="Flex" />
     </div>
     <div class="self-center flex flex-col w-full">
         <div class="w-full h-fit mb-4 flex justify-between items-center font-semibold">
