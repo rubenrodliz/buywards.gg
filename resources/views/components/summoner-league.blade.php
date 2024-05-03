@@ -1,6 +1,6 @@
 @props(['titulo', 'class', 'rank', 'lp', 'wins', 'losses', 'winrate'])
 
-<div class="flex flex-col text-text_light border border-primary border-solid rounded-lg p-4 bg-transparent h-[130px] {{ $class }}">
+<div class="flex flex-col text-text_light border-2 border-primary border-solid rounded-lg p-4 bg-transparent h-[130px] bg-opacity-60 bg-bg_dark {{ $class }}">
     <div class="flex-1">
         <x-barra-titulos titulo="{{ $titulo }}" />
     </div>

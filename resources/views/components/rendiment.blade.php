@@ -1,6 +1,6 @@
 @props(['class' => ''])
 
-<div class="py-4 px-4 w-[100%] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-text_light {{ $class }}">
+<div class="py-4 px-4 w-[100%] border-primary border-solid border-2 rounded-[10px] flex flex-col bg-transparent text-text_light bg-opacity-60 bg-bg_dark {{ $class }}">
 {{-- <div class="w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent  text-white"> --}}
     <div>
         <x-barra-titulos titulo="Rendimiento" />
