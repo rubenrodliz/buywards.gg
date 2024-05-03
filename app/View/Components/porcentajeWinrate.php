@@ -21,6 +21,6 @@ class porcentajeWinrate extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.porcentajeWinrate');
+        return view('components.porcentaje-winrate');
     }
 }
