@@ -47,8 +47,8 @@
                         <x-summoner-unranked titulo = "Clasificatoria Solo/Duo"></x-summoner-unranked>
                         <x-summoner-unranked titulo = "Clasificatoria Flexible"></x-summoner-unranked>
                     @endif --}}
-                    <x-summoner-league rank="Diamante 4" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Solo/Duo" class="col-start-1 col-span-3 row-start-1" />
-                    <x-summoner-league rank="Hierro 2" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Flexible" class="col-start-1 col-span-3 row-start-2"/>
+                    <x-summoner-league rank="Diamond 4" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Solo/Duo" class="col-start-1 col-span-3 row-start-1" />
+                    <x-summoner-league rank="Iron 2" lp="40" wins="3" losses="10" winrate="55" titulo="Clasificatoria Flexible" class="col-start-1 col-span-3 row-start-2"/>
                     <x-rendiment class="col-start-1 col-span-3 row-start-3"/>
                     <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-start-1 row-span-12" >
                         <x-porcentaje-winrate class="col-start-1 col-span-12 row-start-1"/>
