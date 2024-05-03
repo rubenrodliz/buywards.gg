@@ -1,5 +1,5 @@
 <header class="w-[65px] bg-primary flex justify-center">
-    <nav class="min-h-full flex flex-col justify-between items-center py-[40px] sticky">
+    <nav class="h-screen flex flex-col justify-between items-center py-[40px] sticky top-0">
         <div class="grid place-items-center">
             <div class="w-14 h-14 rounded-full">
                 <a href="/">
@@ -9,11 +9,6 @@
 
             <x-navbar.separator />
 
-            {{--
-                ToDo: Cuando se vayan desarrollando las demás páginas
-                se debe de cambiar el href de los links para que redirijan
-                a las páginas correspondientes.
-            --}}
             <ul class="flex flex-col gap-[35px]">
                 <x-navbar.nav-link :icon="'home'" :active="request()->is('/')" href="/"/>
                 <x-navbar.nav-link :icon="'receipt'" :active="request()->is('workinprogress')" href="workinprogress" />
