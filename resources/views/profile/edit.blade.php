@@ -25,7 +25,7 @@
             </div>
 
             <!-- Botones para mostrar/ocultar formularios -->
-            <div class="flex justify-center gap-8 mb-4 text-xl">
+            <div class="flex justify-center gap-8 mb-4 text-lg">
                 <div class="flex flex-col justify-center items-center gap-2 h-[50px]">
                     <button id="update-profile-button" class="btn text-text_light hover:text-primary font-bold">Update Profile</button>
                     <div id="selected-bar-update-profile" class="w-[80%] h-1 bg-primary rounded-lg"></div>
