@@ -21,6 +21,7 @@ class searchChampion extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.search-champion');
+        return view('components.search-champion',);
     }
+
 }
