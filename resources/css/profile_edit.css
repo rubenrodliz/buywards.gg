@@ -9,3 +9,11 @@ main {
     justify-content: center;
     align-items: center;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.medium {
+    font-weight: normal;
+}
