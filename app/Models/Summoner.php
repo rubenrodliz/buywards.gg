@@ -33,7 +33,7 @@ class Summoner extends Model
         $PUUID_name = $PUUID['gameName'];
         $PUUID_tag = $PUUID['tagLine'];
 
-        $SUMMONER_DATA = RiotService::getSummonerDataByPuuid($PUUID_puuid,'euw1');
+        $SUMMONER_DATA = RiotService::getSummonerDataByPuuid($PUUID_puuid,$this->region);
         dd($SUMMONER_DATA);
 
 
