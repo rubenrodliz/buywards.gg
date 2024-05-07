@@ -32,3 +32,37 @@ main::before {
     border-bottom: 4px solid #17AF9D;
     border-radius: 10px;
 }
+
+.text-unranked {
+    color: #6B6963;
+}
+.text-iron {
+    color: #51484A;
+}
+.text-bronze {
+    color: #8C513A;
+}
+.text-silver {
+    color: #80989D;
+}
+.text-gold {
+    color: #CD8837;
+}
+.text-platinum {
+    color: #25ACD6;
+}
+.text-emerald {
+    color: #519847;
+}
+.text-diamond {
+    color: #8141EB;
+}
+.text-master {
+    color: #9E4AE0;
+}
+.text-grandmaster {
+    color: #CD4545;
+}
+.text-challenger {
+    color: #F4C874;
+}
