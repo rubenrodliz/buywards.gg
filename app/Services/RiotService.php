@@ -56,8 +56,8 @@ class RiotService
     }
 
     public static function getAccountByPuuid(string $gameName, string $tagLine, string $region): ?array {
-        $response = Http::get("https://" . $this->getContinentalRegion($region) . ".api.riotgames.com/riot/account/v1/accounts/by-riot-id/{$gameName}/{$tagLine}?api_key=" . ENV('RIOT_API_KEY'));
-
+        $response = Http::get("https://" . self::getContinentalRegion($region) . ".api.riotgames.com/riot/account/v1/accounts/by-riot-id/{$gameName}/{$tagLine}?api_key=" . ENV('RIOT_API_KEY'));
+        
         if ($response->status() === 200) {
             return $response->json();
         }
@@ -96,14 +96,12 @@ class RiotService
     }
 
     /**
-     * getContinentalRegion
-     * 
      * Returns the continental region of the given region
      *
      * @param string $region
-     * @return string
+     * @return ?string The continental region
      */
-    private static function getContinentalRegion(string $region): string {
+    private static function getContinentalRegion(string $region): ?string {
         $regions = [
             'americas' => ['BR1', 'LA1', 'LA2', 'NA1'],
             'asia' => ['JP1', 'KR', 'OC1', 'PH2', 'SG2', 'TH2', 'TW2', 'VN2'],
