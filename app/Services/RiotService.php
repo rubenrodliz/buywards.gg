@@ -33,7 +33,7 @@ class RiotService
         }
     }
 
-    public function getLatestGameVersion()
+    public static function getLatestGameVersion()
     {
         $response = Http::get('https://ddragon.leagueoflegends.com/api/versions.json');
         $currentVersion = $response->json()[0];
