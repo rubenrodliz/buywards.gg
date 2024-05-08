@@ -2,7 +2,7 @@
 @props(['champion', 'patch'])
 @vite(['resources/css/champion_card.css'])
 
-<article class="champion-card animate-fade-in animate-duration-1000" style="background-image: url('https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/splash-art')">
+<article class="champion-card animate-fade-in animate-duration-1000" style="background-image: url('https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/splash-art/centered')">
     <div>
         <h4 class="text-2xl font-black text-text_light">{{ $champion }}</h4>
         <a href="#" class="text-lg font-medium text-text_light flex items-center">Ver campeón <span class="material-icons" style="font-size: 24px">chevron_right</span></a>
