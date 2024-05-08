@@ -1,17 +1,17 @@
 var ctx = document.getElementById('PorcentajeWinRate');
-var victorias = 7; // Número de victorias
-var derrotas = 5; // Número de derrotas
+let data=document.getElementById('PorcentajeWinRate').getContext('2d');
+var victorias = parseInt(data.canvas.attributes.win.value);
+var derrotas = parseInt(data.canvas.attributes.lose.value);
 var totalPartidas = victorias + derrotas;
 var porcentajeVictoria = (victorias / totalPartidas) * 100;
-
-var porcentajeDerrota = 100 - porcentajeVictoria; // Calcula el porcentaje de derrotas
+var porcentajeDerrota = 100 - porcentajeVictoria;
 
 var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: [
-            'Lose ' + porcentajeDerrota.toFixed(0) + '%', // Agrega el porcentaje de derrotas en la etiqueta
-            'Win ' + porcentajeVictoria.toFixed(0) + '%' // Agrega el porcentaje de victorias en la etiqueta
+            'Lose ' + porcentajeDerrota.toFixed(0) + '%',
+            'Win ' + porcentajeVictoria.toFixed(0) + '%'
         ],
         datasets: [{
             data: [derrotas, victorias],

@@ -11,19 +11,19 @@ class RiotService
     public function checkAndUpdateChampions()
     {
         $latestVersion = $this->getLatestGameVersion();
-        
+
         $champions = $this->fetchChampionData($latestVersion);
 
         foreach ($champions as $championId => $champion) {
             $existingChampion = Champion::where('champion_id', $championId)->first();
-            
+
             if (!$existingChampion) {
                 Champion::create([
                     'champion_id' => $championId,
                     'name' => $champion['name'],
                     'version' => $latestVersion,
                     'data' => json_encode($champion),
-                ]); 
+                ]);
             } else if ($existingChampion->version !== $latestVersion) {
                 $existingChampion->update([
                     'version' => $latestVersion,
@@ -66,7 +66,7 @@ class RiotService
     }
 
     public static function getSummonerDataByPuuid(string $puuid, string $region): ?array {
-        $response = Http::get("https://{$region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{$puuid}?api_key=" . ENV('RIOT_API_KEY'));
+        $response = Http::get("https://{$region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{$puuid}?api_key" . ENV('RIOT_API_KEY'));
         
         if ($response->status() === 200) {
             return $response->json();
@@ -77,7 +77,7 @@ class RiotService
 
     public static function getLeagueEntriesBySummonerId(string $encryptedSummonerId, string $region): ?array {
         $response = Http::get("https://{$region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{$encryptedSummonerId}?api_key=" . ENV('RIOT_API_KEY'));
-        
+
         if ($response->status() === 200) {
             return $response->json();
         }
@@ -87,7 +87,7 @@ class RiotService
 
     public static function getMatchHistoryByPuuid(string $puuid, string $region, int $count = 10): ?array {
         $response = Http::get("https://" . self::getContinentalRegion($region) . ".api.riotgames.com/lol/match/v5/matches/by-puuid/{$puuid}/ids?start=0&count={$count}&api_key=" . ENV('RIOT_API_KEY'));
-        
+
         if ($response->status() === 200) {
             return $response->json();
         }
@@ -96,6 +96,8 @@ class RiotService
     }
 
     /**
+     * getContinentalRegion
+     * 
      * Returns the continental region of the given region
      *
      * @param string $region

@@ -1,4 +1,6 @@
-<section class="w-full bg-bg_dark h-fit drop-shadow-md flex justify-around items-center py-3 sticky top-0">
+@vite('resources/js/dropdownProfile.js')
+
+<section class="w-full summoner bg-bg_dark h-fit drop-shadow-md flex justify-around items-center py-3 sticky top-0">
     <div class="w-[30%] flex justify-start items-center">
         <img src="{{ asset('images/League_of_Legends.svg') }}" alt="League of Legends logo" class="w-[20%]">
     </div>

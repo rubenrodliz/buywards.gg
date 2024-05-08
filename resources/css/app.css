@@ -15,3 +15,13 @@
     -webkit-appearance: none;
     appearance: none;
 }
+
+::selected {
+    background-color: #93c6bd;
+    color: #1c1c1f;
+}
+
+::-moz-selection {
+    background-color: #93c6bd;
+    color: #1c1c1f;
+}

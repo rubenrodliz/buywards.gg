@@ -27,5 +27,3 @@
         </section>
     </main>
 </x-main-layout>
-
-<script src="{{ asset('js/dropdownProfile.js') }}"></script>

@@ -1,19 +1,19 @@
 @props(['win_lose','titulo','rank','tier'])
 @php
     if ($win_lose=="Victoria") {
-        $color="#2D62D7";
+        $color="kda_blue";
     }else{
-        $color="#F54B4E";
+        $color="kda_red";
     }
 @endphp
 
-<div {{ $attributes->merge(['class'=>"mt-[10px] border-[$color] border-solid border-[1px] rounded-[10px] flex justify-between bg-transparent text-[$color] h-[20]"]) }}>
-    <div class="w-8 h-full bg-[{{$color}}] rounded-l-[10px]"></div>
+<div {{ $attributes->merge(['class'=>"mt-[10px] border-$color border-solid border-[1px] rounded-[10px] flex justify-between bg-transparent text-$color h-[20]"]) }}>
+    <div class="w-8 h-full bg-{{$color}} rounded-l-[10px]"></div>
     <div class="w-[17%] h-[80%] self-center text-[#FFFFFF] text-[16px] font-medium">
         <h2 class="text-[20px] font-bold">{{$titulo}}</h2>
         <p>Hace 7 días</p>
-        <hr class="text-[{{$color}}] my-[10px]">
-        <p><span class="text-[{{$color}}]">{{$win_lose}}</span> 20:41</p>
+        <hr class="text-{{$color}} my-[10px]">
+        <p><span class="text-{{$color}}">{{$win_lose}}</span> 20:41</p>
         <p>{{$rank}} {{ $tier }}</p>
     </div>
     <div class="w-[30%] h-[80%] self-center text-[#FFFFFF] text-[16px] font-medium flex flex-wrap">
@@ -29,7 +29,7 @@
             </div>
             <div class="ml-[15px]">
                 <h2 class="text-[20px]">9 / <span class="text-[#F54B4E]">4</span> / 7</h2>
-                <p class="text-[16px] text-[{{$color}}]">5,45 KDA</p>
+                <p class="text-[16px] text-{{$color}}">5,45 KDA</p>
                 <p class="text-[16px]">140 CS (7,9)</p>
             </div>
         </div>
@@ -51,5 +51,5 @@
             </div>
         @endfor
     </div>
-    <div class="w-8 h-full bg-[{{$color}}] rounded-r-[10px] flex items-end"><img src="{{ asset('images/flechaAbajo.svg') }}" alt="fecha abajo" class="w-full"></div>
+    <div class="w-8 h-full bg-{{$color}} rounded-r-[10px] flex items-end"><img src="{{ asset('images/flechaAbajo.svg') }}" alt="fecha abajo" class="w-full"></div>
 </div>
