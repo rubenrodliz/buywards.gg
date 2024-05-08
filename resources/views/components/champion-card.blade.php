@@ -1,5 +1,5 @@
 <!-- Aquí comienza el HTML -->
-@props(['champion', 'patch' => '14.8.1'])
+@props(['champion', 'patch'])
 @vite(['resources/css/champion_card.css'])
 
 <article class="champion-card animate-fade-in animate-duration-1000" style="background-image: url('https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/splash-art')">
