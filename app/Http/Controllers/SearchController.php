@@ -11,15 +11,28 @@ class SearchController extends Controller
         // Get the summoner name and region from the request
         $summoner = trim($request->input('summoner'));
 
-        // ToDo: Los summoners pueden tener entre 3 y 5 digitos
+        // Patron de expresion regular para encontrar el tag
+        $tagPattern = '/#(\w{3,5})$/';
+
+        // Buscar coincidencias usando expresiones regulares
+        if (preg_match($tagPattern, $summoner, $matches)) {
+            $tag = $matches[1];
+            // El nombre del invocador será lo que esté antes del tag
+            $summonerName = trim(str_replace("#$tag", "", $summoner));
+        } else {
+            return back()->withErrors(['error' => 'Summoner name and tag format is invalid'], 400);
+        }
+
         $searchData = [
-            'summoner' => trim(substr($summoner, 0, -4)),
-            'tag' => trim(substr($summoner, -3)),
+            'summoner' => $summonerName,
+            'tag' => $tag,
             'region' => $request->input('region')
         ];
 
         // Obtain the puuid of the summoner
         $account = $riotService::getAccountByPuuid($searchData['summoner'], $searchData['tag'], $searchData['region']);
+
+        dd($account);
 
         if (!$account) {
             return back()->withErrors(['error' => 'Summoner not found'], 404);
@@ -27,7 +40,7 @@ class SearchController extends Controller
 
         // Get the summoner data
         $summonerData = $riotService::getSummonerDataByPuuid($account['puuid'], $searchData['region']);
-        
+
         if (!$summonerData) {
             return back()->withErrors(['error' => 'Summoner not found'], 404);
         }
