@@ -66,7 +66,7 @@ class RiotService
     }
 
     public static function getSummonerDataByPuuid(string $puuid, string $region): ?array {
-        $response = Http::get("https://{$region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{$puuid}?api_key" . ENV('RIOT_API_KEY'));
+        $response = Http::get("https://{$region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{$puuid}?api_key=" . ENV('RIOT_API_KEY'));
         
         if ($response->status() === 200) {
             return $response->json();
@@ -87,6 +87,16 @@ class RiotService
 
     public static function getMatchHistoryByPuuid(string $puuid, string $region, int $count = 10): ?array {
         $response = Http::get("https://" . self::getContinentalRegion($region) . ".api.riotgames.com/lol/match/v5/matches/by-puuid/{$puuid}/ids?start=0&count={$count}&api_key=" . ENV('RIOT_API_KEY'));
+
+        if ($response->status() === 200) {
+            return $response->json();
+        }
+
+        return null;
+    }
+
+    public static function getMatchDataByMatchId(string $matchId, string $region): ?array {
+        $response = Http::get("https://" . self::getContinentalRegion($region) . ".api.riotgames.com/lol/match/v5/matches/{$matchId}?api_key=" . ENV('RIOT_API_KEY'));
 
         if ($response->status() === 200) {
             return $response->json();
