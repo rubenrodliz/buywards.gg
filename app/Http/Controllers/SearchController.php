@@ -10,9 +10,11 @@ class SearchController extends Controller
     public function searchSummoner(RiotService $riotService, Request $request) {
         // Get the summoner name and region from the request
         $summoner = trim($request->input('summoner'));
+
+        // ToDo: Los summoners pueden tener entre 3 y 5 digitos
         $searchData = [
-            'summoner' => substr($summoner, 0, -4),
-            'tag' => substr($summoner, -3),
+            'summoner' => trim(substr($summoner, 0, -4)),
+            'tag' => trim(substr($summoner, -3)),
             'region' => $request->input('region')
         ];
 
@@ -44,6 +46,12 @@ class SearchController extends Controller
             return back()->withErrors(['error' => 'Summoner not found'], 404);
         }
 
-        
+        $matches = [];
+        foreach ($matchHistory as $match) {
+            $matches[] = $riotService::getMatchDataByMatchId($match, $searchData['region']);
+        }
+
+        // Implementar procesamiento de datos para enviar solo la información necesaria
+        dd($account, $summonerData, $leagueEntries, $matches);
     }
 }
