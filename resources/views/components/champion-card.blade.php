@@ -4,7 +4,6 @@
 
 @php
     $championData = Http::get("https://ddragon.leagueoflegends.com/cdn/{$patch}/data/es_ES/champion/{$champion}.json");
-    // dump($championData->json()['data'][$champion]['spells'][0]['name']);
 @endphp
 
 <article class="champion-card animate-fade-in animate-duration-1000" style="background-image: url('https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/splash-art/centered')">
