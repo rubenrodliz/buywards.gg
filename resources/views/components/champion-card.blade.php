@@ -2,6 +2,11 @@
 @props(['champion', 'patch'])
 @vite(['resources/css/champion_card.css'])
 
+@php
+    $championData = Http::get("https://ddragon.leagueoflegends.com/cdn/{$patch}/data/es_ES/champion/{$champion}.json");
+    // dump($championData->json()['data'][$champion]['spells'][0]['name']);
+@endphp
+
 <article class="champion-card animate-fade-in animate-duration-1000" style="background-image: url('https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/splash-art/centered')">
     <div>
         <h4 class="text-2xl font-black text-text_light">{{ $champion }}</h4>
@@ -13,7 +18,9 @@
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/passive" alt="Passive">
                 <p>P</p>
             </div>
-            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad P</div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2 text-center" style="display: none;">
+                {{ $championData->json()['data'][$champion]['passive']['name'] }}
+            </div>
         </div>
 
         <div class="skill q-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
@@ -21,7 +28,9 @@
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/q" alt="Q">
                 <p>Q</p>
             </div>
-            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad Q</div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2 text-center" style="display: none;">
+                {{ $championData->json()['data'][$champion]['spells'][0]['name'] }}
+            </div>
         </div>
 
         <div class="skill w-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
@@ -29,7 +38,9 @@
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/w" alt="W">
                 <p>W</p>
             </div>
-            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad W</div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2 text-center" style="display: none;">
+                {{ $championData->json()['data'][$champion]['spells'][1]['name'] }}
+            </div>
         </div>
 
         <div class="skill e-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
@@ -37,7 +48,9 @@
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/e" alt="E">
                 <p>E</p>
             </div>
-            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad E</div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2 text-center" style="display: none;">
+                {{ $championData->json()['data'][$champion]['spells'][2]['name'] }}
+            </div>
         </div>
 
         <div class="skill r-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
@@ -45,7 +58,9 @@
                 <img src="https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/ability-icon/r" alt="R">
                 <p>R</p>
             </div>
-            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2" style="display: none;">Mensaje para habilidad R</div>
+            <div class="mensaje bg-primary w-[200px] p-2 rounded-lg absolute top-full left-[-90px] m-2 text-center" style="display: none;">
+                {{ $championData->json()['data'][$champion]['spells'][3]['name'] }}
+            </div>
         </div>
     </div>
 </article>
