@@ -10,7 +10,7 @@ class SearchController extends Controller
 {
     public function searchSummoner(RiotService $riotService, Request $request) {
         // Get the summoner name and region from the request
-        $searchData = $this->searchData($request->input('summoner'), $request->input('region'));
+        $searchData = $this->searchData($request->summoner, $request->region);
 
         // Obtain the puuid of the summoner
         $account = $riotService::getAccountByPuuid($searchData['summoner'], $searchData['tag'], $searchData['region']);
@@ -48,7 +48,7 @@ class SearchController extends Controller
         // Implementar procesamiento de datos para enviar solo la información necesaria
         dd($account, $summonerData, $leagueEntries, $matches);
     }
-    
+
     private function searchData (string $summoner, string $region): array|RedirectResponse {
         $tagPattern = '/#(\w{3,5})$/';
 
