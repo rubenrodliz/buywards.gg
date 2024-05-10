@@ -21,11 +21,9 @@
             </div>
             <div class="latests-champions flex justify-between gap-16 mt-4">
                 @foreach ($latestChampions as $champion)
-                    <x-champion-card :champion="$champion['champion_id']" />
+                    <x-champion-card :champion="$champion['champion_id']" :patch="$patch" />
                 @endforeach
             </div>
         </section>
     </main>
 </x-main-layout>
-
-<script src="{{ asset('js/dropdownProfile.js') }}"></script>

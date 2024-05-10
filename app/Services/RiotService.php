@@ -14,8 +14,11 @@ class RiotService
 
         $champions = $this->fetchChampionData($latestVersion);
 
+        $championIds = array_keys($champions);
+        $existingChampions = Champion::whereIn('champion_id', $championIds)->get()->keyBy('champion_id');
+
         foreach ($champions as $championId => $champion) {
-            $existingChampion = Champion::where('champion_id', $championId)->first();
+            $existingChampion = $existingChampions->get($championId);
 
             if (!$existingChampion) {
                 Champion::create([
@@ -24,7 +27,7 @@ class RiotService
                     'version' => $latestVersion,
                     'data' => json_encode($champion),
                 ]);
-            } else if ($existingChampion->version !== $latestVersion) {
+            } elseif ($existingChampion->version !== $latestVersion) {
                 $existingChampion->update([
                     'version' => $latestVersion,
                     'data' => json_encode($champion),
@@ -33,7 +36,7 @@ class RiotService
         }
     }
 
-    public function getLatestGameVersion()
+    public static function getLatestGameVersion()
     {
         $response = Http::get('https://ddragon.leagueoflegends.com/api/versions.json');
         $currentVersion = $response->json()[0];
@@ -55,7 +58,8 @@ class RiotService
         return $response->json()['data'];
     }
 
-    public static function getAccountByPuuid(string $gameName, string $tagLine, string $region): ?array {
+    public static function getAccountByPuuid(string $gameName, string $tagLine, string $region): ?array
+    {
         $response = Http::get("https://" . self::getContinentalRegion($region) . ".api.riotgames.com/riot/account/v1/accounts/by-riot-id/{$gameName}/{$tagLine}?api_key=" . ENV('RIOT_API_KEY'));
 
         if ($response->status() === 200) {
@@ -65,9 +69,10 @@ class RiotService
         return null;
     }
 
-    public static function getSummonerDataByPuuid(string $puuid, string $region): ?array {
-        $response = Http::get("https://{$region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{$puuid}?api_key" . ENV('RIOT_API_KEY'));
-        // dd($response->json(''));
+    public static function getSummonerDataByPuuid(string $puuid, string $region): ?array
+    {
+        $response = Http::get("https://{$region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{$puuid}?api_key=" . ENV('RIOT_API_KEY'));
+
         if ($response->status() === 200) {
             return $response->json();
         }
@@ -75,7 +80,8 @@ class RiotService
         return null;
     }
 
-    public static function getLeagueEntriesBySummonerId(string $encryptedSummonerId, string $region): ?array {
+    public static function getLeagueEntriesBySummonerId(string $encryptedSummonerId, string $region): ?array
+    {
         $response = Http::get("https://{$region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{$encryptedSummonerId}?api_key=" . ENV('RIOT_API_KEY'));
 
         if ($response->status() === 200) {
@@ -85,8 +91,20 @@ class RiotService
         return null;
     }
 
-    public static function getMatchHistoryByPuuid(string $puuid, string $region, int $count = 10): ?array {
+    public static function getMatchHistoryByPuuid(string $puuid, string $region, int $count = 10): ?array
+    {
         $response = Http::get("https://" . self::getContinentalRegion($region) . ".api.riotgames.com/lol/match/v5/matches/by-puuid/{$puuid}/ids?start=0&count={$count}&api_key=" . ENV('RIOT_API_KEY'));
+
+        if ($response->status() === 200) {
+            return $response->json();
+        }
+
+        return null;
+    }
+
+    public static function getMatchDataByMatchId(string $matchId, string $region): ?array
+    {
+        $response = Http::get("https://" . self::getContinentalRegion($region) . ".api.riotgames.com/lol/match/v5/matches/{$matchId}?api_key=" . ENV('RIOT_API_KEY'));
 
         if ($response->status() === 200) {
             return $response->json();
@@ -97,13 +115,14 @@ class RiotService
 
     /**
      * getContinentalRegion
-     *
+     * 
      * Returns the continental region of the given region
      *
      * @param string $region
-     * @return string
+     * @return ?string The continental region
      */
-    private static function getContinentalRegion(string $region): string {
+    private static function getContinentalRegion(string $region): ?string
+    {
         $regions = [
             'americas' => ['BR1', 'LA1', 'LA2', 'NA1'],
             'asia' => ['JP1', 'KR', 'OC1', 'PH2', 'SG2', 'TH2', 'TW2', 'VN2'],

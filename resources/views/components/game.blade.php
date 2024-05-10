@@ -1,22 +1,25 @@
 @props(['win_lose','titulo','rank','tier'])
+@vite(['/resources/css/summoner.css'])
 @php
     if ($win_lose=="Victoria") {
         $color="kda_blue";
+        $bgColor="bg-kda_blue";
     }else{
         $color="kda_red";
+        $bgColor="bg-kda_red";
     }
 @endphp
 
 <div {{ $attributes->merge(['class'=>"mt-[10px] border-$color border-solid border-[1px] rounded-[10px] flex justify-between bg-transparent text-$color h-[20]"]) }}>
-    <div class="w-8 h-full bg-{{$color}} rounded-l-[10px]"></div>
-    <div class="w-[17%] h-[80%] self-center text-[#FFFFFF] text-[16px] font-medium">
+    <div class="w-8 h-full {{$bgColor}} rounded-l-[10px]"></div>
+    <div class="w-[17%] h-[80%] self-center text-text_light text-[16px] font-medium">
         <h2 class="text-[20px] font-bold">{{$titulo}}</h2>
         <p>Hace 7 días</p>
         <hr class="text-{{$color}} my-[10px]">
         <p><span class="text-{{$color}}">{{$win_lose}}</span> 20:41</p>
         <p>{{$rank}} {{ $tier }}</p>
     </div>
-    <div class="w-[30%] h-[80%] self-center text-[#FFFFFF] text-[16px] font-medium flex flex-wrap">
+    <div class="w-[30%] h-[80%] self-center text-text_light text-[16px] font-medium flex flex-wrap">
         <div class="w-[70px] h-[50%]">
             <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-full rounded-[10px]">
         </div>
@@ -51,5 +54,5 @@
             </div>
         @endfor
     </div>
-    <div class="w-8 h-full bg-{{$color}} rounded-r-[10px] flex items-end"><img src="{{ asset('images/flechaAbajo.svg') }}" alt="fecha abajo" class="w-full"></div>
+    <div class="w-8 h-full {{$bgColor}} rounded-r-[10px] flex items-end"><img src="{{ asset('images/flechaAbajo.svg') }}" alt="fecha abajo" class="w-full"></div>
 </div>
