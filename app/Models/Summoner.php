@@ -28,23 +28,27 @@ class Summoner extends Model
 
         // $PUUID = getPUUID($this->name,$this->tag,$this->region);
 
-        $PUUID = RiotService::getAccountByPuuid($this->name, $this->tag);
+        $PUUID = RiotService::getAccountByPuuid($this->name, $this->tag,$this->region);
         $PUUID_puuid = $PUUID['puuid'];
         $PUUID_name = $PUUID['gameName'];
         $PUUID_tag = $PUUID['tagLine'];
 
         $SUMMONER_DATA = RiotService::getSummonerDataByPuuid($PUUID_puuid,$this->region);
-        dd($SUMMONER_DATA);
+        $SUMMONER_DATA_id = $SUMMONER_DATA['id'];
+        $SUMMONER_DATA_accountId = $SUMMONER_DATA['accountId'];
+        $SUMMONER_DATA_profileIconId = $SUMMONER_DATA['profileIconId'];
+        $SUMMONER_DATA_revisionDate = $SUMMONER_DATA['revisionDate'];
+        $SUMMONER_DATA_summonerLevel = $SUMMONER_DATA['summonerLevel'];
+
+        $LEAGUE_ENTRIES = RiotService::getLeagueEntriesBySummonerId($SUMMONER_DATA_id,$this->region);
+        dd($LEAGUE_ENTRIES);
+
 
 
         // return $array;
 
     }
 
-    protected function getPUUID($name,$tag,$region):string{
-        $url = 'https://'. $region .'.api.riotgames.com/riot/account/v1/accounts/by-riot-id/'.$name.'/'.$tag.'?api_key='.$API_KEY;
-
-        $PUUID = $url['puuid'];
-        return $PUUID;
-    }
+    //servcices//////////////////////////
+    
 }
