@@ -10,7 +10,7 @@
     }
 @endphp
 
-<div {{ $attributes->merge(['class'=>"bg-opacity-60 bg-bg_dark mt-[20px] border-$color border-solid border-[1px] rounded-xl flex justify-between text-$color h-[20]"]) }}>
+<div {{ $attributes->merge(['class'=>"bg-opacity-60 bg-bg_dark border-$color border-solid border-[1px] rounded-xl flex justify-between text-$color h-[20]"]) }}>
     <div class="w-8 h-full {{$bgColor}} rounded-l-[10px]"></div>
     <div class="w-[17%] self-center text-text_light text-[16px] font-medium">
         <h2 class="text-[20px] font-bold">{{$titulo}}</h2>
