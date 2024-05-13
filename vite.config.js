@@ -8,6 +8,7 @@ export default defineConfig({
 				'resources/css/app.css',
 				'resources/css/home.css',
 				'resources/css/champion_card.css',
+                'resources/css/login.css',
                 'resources/js/app.js',
             ],
             refresh: true,
