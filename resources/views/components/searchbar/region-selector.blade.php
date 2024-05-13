@@ -23,7 +23,7 @@
 
 <div class="relative inline-block">
     <button id="selected-region" type="button" name="region" onclick="toggleRegionSelector()"
-        class="{{ $background }} text-black px-3 py-2 rounded-lg font-bold text-xl">
+        class="{{ $background }} text-black px-3 py-2 rounded-lg font-bold text-sm md:text-xl">
         EUW
     </button>
 
@@ -31,7 +31,7 @@
         @foreach ($regions as $region)
             <li class="hover:bg-primary/[.2]">
                 <button onclick="selectRegion('{{ $region }}')"
-                    class="block w-full text-center px-4 py-2 text-text_dark hover:bg-gray-100">
+                    class="block w-full text-center md:px-4 py-2 text-text_dark hover:bg-gray-100">
                     {{ $region }}
                 </button>
             </li>
