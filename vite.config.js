@@ -10,6 +10,8 @@ export default defineConfig({
 				'resources/css/champion_card.css',
                 'resources/css/login.css',
                 'resources/css/register.css',
+                'resources/css/profile.css',
+                'resources/css/summoner.css',
                 'resources/js/app.js',
             ],
             refresh: true,
