@@ -11,10 +11,9 @@ class SummonerLeague extends Component
     /**
      * Create a new component instance.
      */
-    protected $titulo;
-    public function __construct($titulo)
+    public function __construct()
     {
-        $this->titulo=$titulo;
+
     }
 
     /**
@@ -22,6 +21,6 @@ class SummonerLeague extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.summoner-league',['titulo'=>$this->titulo]);
+        return view('components.summoner-league');
     }
 }
