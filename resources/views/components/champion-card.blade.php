@@ -1,6 +1,5 @@
 <!-- Aquí comienza el HTML -->
 @props(['champion', 'patch'])
-@vite(['resources/css/champion_card.css'])
 
 @php
     $championData = Http::get("https://ddragon.leagueoflegends.com/cdn/{$patch}/data/en_US/champion/{$champion}.json");
@@ -9,7 +8,7 @@
 <article class="champion-card animate-fade-in animate-duration-1000" style="background-image: url('https://cdn.communitydragon.org/{{ $patch }}/champion/{{ $champion }}/splash-art/centered')">
     <div>
         <h4 class="text-2xl font-black text-text_light">{{ $champion }}</h4>
-        <a href="#" class="text-lg font-medium text-text_light flex items-center">See champion info <span class="material-icons" style="font-size: 24px">chevron_right</span></a>
+        <a href="{{ route('workinprogress') }}" class="text-lg font-medium text-text_light flex items-center">See champion info <span class="material-icons" style="font-size: 24px">chevron_right</span></a>
     </div>
     <div class="skills">
         <div class="skill passive-skill flex flex-col items-center relative" onmouseover="mostrarMensaje(this)" onmouseout="ocultarMensaje(this)">
