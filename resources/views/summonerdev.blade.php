@@ -32,7 +32,7 @@
     "performance": {
       "total": {
         "champ1": {
-          "champLogo": "link",
+          "champLogo": "https://cdn.communitydragon.org/14.5.1/champion/yasuo/splash-art",
           "champName": "yasuo",
           "kda": "3.69",
           "wins": "10",
@@ -40,7 +40,7 @@
           "winrate": "69"
         },
         "champ2": {
-          "champLogo": "link",
+          "champLogo": "https://cdn.communitydragon.org/14.5.1/champion/kaisa/splash-art",
           "champName": "kaisa",
           "kda": "3.69",
           "wins": "10",
@@ -48,7 +48,7 @@
           "winrate": "69"
         },
         "champ3": {
-          "champLogo": "link",
+          "champLogo": "https://cdn.communitydragon.org/14.5.1/champion/kaisa/splash-art",
           "champName": "kaisa",
           "kda": "3.69",
           "wins": "10",
@@ -1863,6 +1863,11 @@
   }');
     $data_rankSolo=json_encode($data->rankedSolo);
     $data_rankFlex=json_encode($data->rankedFlex);
+    $data_performance_total=json_encode($data->performance->total);
+    $data_performance_solo=json_encode($data->performance->solo);
+    $data_performance_flex=json_encode($data->performance->flex);
+    // $Solo=json_encode($data->performance->Solo);
+    // $data_performance_total=json_encode($data->performance->total);
     @endphp
     {{-- @dd($data); --}}
     <main class="flex w-full flex-col">
@@ -1905,7 +1910,7 @@
                 <div id="data_summoner" class="grid grid-cols-12 gap-5">
                     <x-summoner-league data="{{$data_rankSolo}}" class="col-start-1 col-span-3 row-start-1" />
                     <x-summoner-league data="{{$data_rankFlex}}" class="col-start-1 col-span-3 row-start-2"/>
-                    <x-rendiment class="col-start-1 col-span-3 row-start-3"/>
+                    <x-rendiment class="col-start-1 col-span-3 row-start-3" data="{{$data_performance_flex}}"/>
                     <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-start-1 row-span-12" >
                         <x-porcentaje-winrate class="col-start-1 col-span-12 row-start-1"/>
                         <x-game class="col-start-1 col-span-12" win_lose="Victoria" titulo="Clasificatoria Solo/Duo" rank="Diamond" tier="4"/>

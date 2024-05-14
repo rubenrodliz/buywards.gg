@@ -1,5 +1,8 @@
-@props(['class' => ''])
-
+@props(['class' => '','data'])
+@php
+    $data = json_decode(str_replace("&quot;",'"',$data));
+@endphp
+{{-- @dd($data->champ1) --}}
 <div class="py-4 px-4 w-[100%] border-primary border-solid border-2 rounded-[10px] flex flex-col bg-transparent text-text_light bg-opacity-60 bg-bg_dark {{ $class }}">
 {{-- <div class="w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent  text-white"> --}}
     <div>
@@ -11,17 +14,14 @@
         <x-performance-selector-button name="Flex" />
     </div>
     <div class="self-center flex flex-col w-full">
-        <div class="w-full h-fit mb-4 flex justify-between items-center font-semibold">
-            <x-champ-performance champName="Kai'sa" champKDA="3.69" champWinRate="52" champWins="8" champLoses="7" champImage="{{asset('images/kaisa.png')}}" />
-        </div>
-        <div class="w-full h-fit mb-4 flex justify-between items-center font-semibold">
-            <x-champ-performance champName="Kai'sa" champKDA="0.8" champWinRate="30" champWins="8" champLoses="7" champImage="{{asset('images/kaisa.png')}}" />
-        </div>
-        <div class="w-full h-fit mb-4 flex justify-between items-center font-semibold">
-            <x-champ-performance champName="Kai'sa" champKDA="2.49" champWinRate="62" champWins="8" champLoses="7" champImage="{{asset('images/kaisa.png')}}" />
-        </div>
-        <div class="w-full h-fit flex justify-between items-center font-semibold">
-            <x-champ-performance champName="Kai'sa" champKDA="6.77" champWinRate="52" champWins="8" champLoses="7" champImage="{{asset('images/kaisa.png')}}" />
-        </div>
+        @for ($i=1;$i<4;$i++)
+            @php
+                $champ="champ".$i;
+                $url = "https://cdn.communitydragon.org/14.5.1/champion/".str_replace("'","",$data->$champ->champName)."/splash-art";
+            @endphp
+            <div class="w-full h-fit mb-4 flex justify-between items-center font-semibold">
+                <x-champ-performance champName="{{$data->$champ->champName}}" champKDA="{{$data->$champ->kda}}" champWinRate="{{$data->$champ->wins}}" champWins="{{$data->$champ->winrate}}" champLoses="{{$data->$champ->loses}}" champImage="{{$url}}" />
+            </div>
+        @endfor
     </div>
 </div>
