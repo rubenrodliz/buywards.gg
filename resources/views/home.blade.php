@@ -1,7 +1,6 @@
 <x-main-layout>
     @section('scripts')
-        @vite(['resources/css/home.css']),
-        @vite(['resources/css/champion_card.css'])
+        @vite(['resources/css/home.css', 'resources/css/champion_card.css'])
     @endsection
 
     <main class="flex flex-1 flex-col items-center p-[1%]">
