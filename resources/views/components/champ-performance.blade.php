@@ -1,6 +1,6 @@
 @props(['champName', 'champKDA', 'champWinRate', 'champWins', 'champLoses', 'champImage'])
 
-<div class="w-[80px]"><img src="{{ $champImage }}" alt="{{ $champName }} lol character" class="w-full rounded-[10px]"></div>
+<div class="w-[50px] h-[50px]"><img src="{{ $champImage }}" alt="{{ $champName }} lol character" class="w-full h-full rounded-[10px]"></div>
 <div class="h-full w-[50%] pl-[20px]">
     <p class="">{{ $champName ?? ''}}</p>
     <p class="

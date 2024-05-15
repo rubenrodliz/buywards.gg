@@ -17,10 +17,10 @@
         @for ($i=1;$i<4;$i++)
             @php
                 $champ="champ".$i;
-                $url = "https://cdn.communitydragon.org/14.5.1/champion/".str_replace("'","",$data->$champ->champName)."/splash-art";
+                // $url = "https://cdn.communitydragon.org/14.5.1/champion/".str_replace("'","",$data->$champ->champName)."/splash-art/centered";
             @endphp
             <div class="w-full h-fit mb-4 flex justify-between items-center font-semibold">
-                <x-champ-performance champName="{{$data->$champ->champName}}" champKDA="{{$data->$champ->kda}}" champWinRate="{{$data->$champ->wins}}" champWins="{{$data->$champ->winrate}}" champLoses="{{$data->$champ->loses}}" champImage="{{$url}}" />
+                <x-champ-performance champName="{{$data->$champ->champName}}" champKDA="{{$data->$champ->kda}}" champWinRate="{{$data->$champ->wins}}" champWins="{{$data->$champ->winrate}}" champLoses="{{$data->$champ->loses}}" champImage="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$data->$champ->champLogo}}.png" />
             </div>
         @endfor
     </div>
