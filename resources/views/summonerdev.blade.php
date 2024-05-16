@@ -1892,7 +1892,7 @@
                 </div>
 
                 @php
-                $prueba = new \App\Models\Summoner('OkasarRP', 'LSG', 'EUW1');
+                $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
                 $prueba->execute();
             @endphp
                 <div class="flex gap-[50px] pt-[30px] pb-[30px]">
