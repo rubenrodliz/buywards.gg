@@ -53,6 +53,7 @@
                     <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-start-1 row-span-12" >
                         <x-porcentaje-winrate class="col-start-1 col-span-12 row-start-1"/>
                         <x-game class="col-start-1 col-span-12" win_lose="Derrota" titulo="Clasificatoria Solo/Duo" rank="Diamond" tier="4"/>
+                        <x-game-open class="col-start-1 col-span-12" win_lose="Victoria" titulo="Clasificatoria Solo/Duo" rank="Diamond" tier="4"/>
                     </div>
                 </div>
             </section>
