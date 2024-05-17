@@ -27,5 +27,5 @@
     ">
         {{ $champWinRate }}%
     </p>
-    <p class="text-sm">{{ $champWins }}V - {{ $champLoses }}D</p>
+    <p class="text-sm">{{ $champWins }}W - {{ $champLoses }}L</p>
 </div>

@@ -5,11 +5,13 @@
         @vite(['resources/js/dataSummoner.js'])
     @endsection
     @php
+        $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
+        $prueba->execute();
         $data = json_decode('{
     "gameName": "OkasarRP",
     "tagLine": "LSG",
-    "profileIconId": "kaisa",
     "summonerLevel": "420",
+    "profileIconId": "4851",
     "patch": "14.5.1",
     "rankedSolo": {
       "queueType": "RANKED_SOLO_5x5",
@@ -33,7 +35,7 @@
       "total": {
         "champ1": {
           "champLogo": "1",
-          "champName": "yasuo",
+          "champName": "ekko",
           "kda": "3.69",
           "wins": "10",
           "loses": "5",
@@ -116,7 +118,7 @@
         "gameDuration": "20:30",
         "ownSide": "blue",
         "ownGameInfo":{
-          "champIcon": "url",
+          "champIcon": "1",
           "summoner1Id": "4",
           "summoner2Id": "6",
           "tier": "DIAMOND",
@@ -127,8 +129,8 @@
           "kda": "4.69",
           "killParticipation": "70",
           "runes": {
-            "primaryStyle": "8008",
-            "subStyle": "8429"
+            "primaryStyle": "1",
+            "subStyle": "3"
           },
           "totalMinionsKilled": "200",
           "miniosPerMinute": "6.9",
@@ -154,6 +156,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner1",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -163,12 +167,12 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "1",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
-                  "primaryStyle": "8008",
-                  "subStyle": "8429"
+                  "primaryStyle": "1",
+                  "subStyle": "3"
                 },
                 "totalMinionsKilled": "200",
                 "miniosPerMinute": "6.9",
@@ -183,6 +187,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner2",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -192,7 +198,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "2",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -212,6 +218,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner3",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -221,7 +229,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "3",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -241,6 +249,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner4",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -250,7 +260,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "4",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -270,6 +280,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner5",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -279,7 +291,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "5",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -311,6 +323,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner6",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -320,7 +334,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "6",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -340,6 +354,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner7",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -349,7 +365,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "7",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -369,6 +385,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner8",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -378,7 +396,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "8",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -398,6 +416,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner9",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -407,7 +427,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "9",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -427,6 +447,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner10",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -436,7 +458,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "10",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -461,12 +483,11 @@
       },
       "game1": {
         "gameMode": "ARAM",
-        "win": "true",
-        "gameDuration_min": "20",
-        "gameDuration_sec": "41",
+        "win": "false",
+        "gameDuration": "20:30",
         "ownSide": "blue",
         "ownGameInfo":{
-          "champIcon": "url",
+          "champIcon": "1",
           "summoner1Id": "4",
           "summoner2Id": "6",
           "tier": "DIAMOND",
@@ -477,8 +498,8 @@
           "kda": "4.69",
           "killParticipation": "70",
           "runes": {
-            "primaryStyle": "8008",
-            "subStyle": "8429"
+            "primaryStyle": "1",
+            "subStyle": "3"
           },
           "totalMinionsKilled": "200",
           "miniosPerMinute": "6.9",
@@ -494,7 +515,7 @@
         },
         "gameInfo": {
           "team1": {
-            "win": "true",
+            "win": "false",
             "side": "blue",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -504,6 +525,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner1",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -513,12 +536,12 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "1",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
-                  "primaryStyle": "8008",
-                  "subStyle": "8429"
+                  "primaryStyle": "1",
+                  "subStyle": "3"
                 },
                 "totalMinionsKilled": "200",
                 "miniosPerMinute": "6.9",
@@ -533,6 +556,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner2",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -542,7 +567,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "2",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -562,6 +587,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner3",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -571,7 +598,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "3",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -591,6 +618,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner4",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -600,7 +629,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "4",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -620,6 +649,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner5",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -629,7 +660,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "5",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -651,7 +682,7 @@
             }
           },
           "team2": {
-            "win": "false",
+            "win": "true",
             "side": "red",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -661,6 +692,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner6",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -670,7 +703,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "6",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -690,6 +723,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner7",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -699,7 +734,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "7",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -719,6 +754,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner8",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -728,7 +765,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "8",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -748,6 +785,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner9",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -757,7 +796,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "9",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -777,6 +816,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner10",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -786,7 +827,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "10",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -811,12 +852,11 @@
       },
       "game2": {
         "gameMode": "ARAM",
-        "win": "true",
-        "gameDuration_min": "20",
-        "gameDuration_sec": "41",
+        "win": "false",
+        "gameDuration": "20:30",
         "ownSide": "blue",
         "ownGameInfo":{
-          "champIcon": "url",
+          "champIcon": "1",
           "summoner1Id": "4",
           "summoner2Id": "6",
           "tier": "DIAMOND",
@@ -827,8 +867,8 @@
           "kda": "4.69",
           "killParticipation": "70",
           "runes": {
-            "primaryStyle": "8008",
-            "subStyle": "8429"
+            "primaryStyle": "1",
+            "subStyle": "3"
           },
           "totalMinionsKilled": "200",
           "miniosPerMinute": "6.9",
@@ -844,7 +884,7 @@
         },
         "gameInfo": {
           "team1": {
-            "win": "true",
+            "win": "false",
             "side": "blue",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -854,6 +894,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner1",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -863,12 +905,12 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "1",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
-                  "primaryStyle": "8008",
-                  "subStyle": "8429"
+                  "primaryStyle": "1",
+                  "subStyle": "3"
                 },
                 "totalMinionsKilled": "200",
                 "miniosPerMinute": "6.9",
@@ -883,6 +925,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner2",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -892,7 +936,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "2",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -912,6 +956,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner3",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -921,7 +967,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "3",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -941,6 +987,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner4",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -950,7 +998,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "4",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -970,6 +1018,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner5",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -979,7 +1029,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "5",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1001,7 +1051,7 @@
             }
           },
           "team2": {
-            "win": "false",
+            "win": "true",
             "side": "red",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -1011,6 +1061,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner6",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1020,7 +1072,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "6",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1040,6 +1092,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner7",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1049,7 +1103,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "7",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1069,6 +1123,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner8",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1078,7 +1134,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "8",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1098,6 +1154,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner9",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1107,7 +1165,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "9",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1127,6 +1185,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner10",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -1136,7 +1196,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "10",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1161,12 +1221,11 @@
       },
       "game3": {
         "gameMode": "ARAM",
-        "win": "true",
-        "gameDuration_min": "20",
-        "gameDuration_sec": "41",
+        "win": "false",
+        "gameDuration": "20:30",
         "ownSide": "blue",
         "ownGameInfo":{
-          "champIcon": "url",
+          "champIcon": "1",
           "summoner1Id": "4",
           "summoner2Id": "6",
           "tier": "DIAMOND",
@@ -1177,8 +1236,8 @@
           "kda": "4.69",
           "killParticipation": "70",
           "runes": {
-            "primaryStyle": "8008",
-            "subStyle": "8429"
+            "primaryStyle": "1",
+            "subStyle": "3"
           },
           "totalMinionsKilled": "200",
           "miniosPerMinute": "6.9",
@@ -1194,7 +1253,7 @@
         },
         "gameInfo": {
           "team1": {
-            "win": "true",
+            "win": "false",
             "side": "blue",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -1204,6 +1263,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner1",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1213,12 +1274,12 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "1",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
-                  "primaryStyle": "8008",
-                  "subStyle": "8429"
+                  "primaryStyle": "1",
+                  "subStyle": "3"
                 },
                 "totalMinionsKilled": "200",
                 "miniosPerMinute": "6.9",
@@ -1233,6 +1294,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner2",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1242,7 +1305,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "2",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1262,6 +1325,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner3",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1271,7 +1336,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "3",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1291,6 +1356,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner4",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1300,7 +1367,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "4",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1320,6 +1387,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner5",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -1329,7 +1398,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "5",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1351,7 +1420,7 @@
             }
           },
           "team2": {
-            "win": "false",
+            "win": "true",
             "side": "red",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -1361,6 +1430,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner6",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1370,7 +1441,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "6",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1390,6 +1461,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner7",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1399,7 +1472,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "7",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1419,6 +1492,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner8",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1428,7 +1503,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "8",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1448,6 +1523,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner9",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1457,7 +1534,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "9",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1477,6 +1554,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner10",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -1486,7 +1565,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "10",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1511,12 +1590,11 @@
       },
       "game4": {
         "gameMode": "ARAM",
-        "win": "true",
-        "gameDuration_min": "20",
-        "gameDuration_sec": "41",
+        "win": "false",
+        "gameDuration": "20:30",
         "ownSide": "blue",
         "ownGameInfo":{
-          "champIcon": "url",
+          "champIcon": "1",
           "summoner1Id": "4",
           "summoner2Id": "6",
           "tier": "DIAMOND",
@@ -1527,8 +1605,8 @@
           "kda": "4.69",
           "killParticipation": "70",
           "runes": {
-            "primaryStyle": "8008",
-            "subStyle": "8429"
+            "primaryStyle": "1",
+            "subStyle": "3"
           },
           "totalMinionsKilled": "200",
           "miniosPerMinute": "6.9",
@@ -1544,7 +1622,7 @@
         },
         "gameInfo": {
           "team1": {
-            "win": "true",
+            "win": "false",
             "side": "blue",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -1554,6 +1632,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner1",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1563,12 +1643,12 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "1",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
-                  "primaryStyle": "8008",
-                  "subStyle": "8429"
+                  "primaryStyle": "1",
+                  "subStyle": "3"
                 },
                 "totalMinionsKilled": "200",
                 "miniosPerMinute": "6.9",
@@ -1583,6 +1663,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner2",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1592,7 +1674,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "2",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1612,6 +1694,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner3",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1621,7 +1705,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "3",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1641,6 +1725,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner4",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1650,7 +1736,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "4",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1670,6 +1756,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner5",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -1679,7 +1767,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "5",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1701,7 +1789,7 @@
             }
           },
           "team2": {
-            "win": "false",
+            "win": "true",
             "side": "red",
             "teamBaronKills": "1",
             "teamElderDragonKills": "1",
@@ -1711,6 +1799,8 @@
             "totalGoldEarned": "20000",
             "players": {
               "player1": {
+                "riotIdGameName": "summoner6",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1720,7 +1810,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "6",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1740,6 +1830,8 @@
                 }
               },
                 "player2": {
+                "riotIdGameName": "summoner7",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1749,7 +1841,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "7",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1769,6 +1861,8 @@
                 }
               },
               "player3": {
+                "riotIdGameName": "summoner8",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1778,7 +1872,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "8",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1798,6 +1892,8 @@
                 }
               },
               "player4": {
+                "riotIdGameName": "summoner9",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "champLevel": 18,
@@ -1807,7 +1903,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "9",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1827,6 +1923,8 @@
                 }
               },
               "player5": {
+                "riotIdGameName": "summoner10",
+                "riotIdTagline": "TAG",
                 "tier": "DIAMOND",
                 "rank": "4",
                 "kills": "20",
@@ -1836,7 +1934,7 @@
                 "kda": "4.69",
                 "killParticipation": "70",
                 "totalDamageDealtToChampions": "69420",
-                "champIcon": "url",
+                "champIcon": "10",
                 "summoner1Id": "4",
                 "summoner2Id": "6",
                 "runes": {
@@ -1866,18 +1964,19 @@
     $data_performance_total=json_encode($data->performance->total);
     $data_performance_solo=json_encode($data->performance->solo);
     $data_performance_flex=json_encode($data->performance->flex);
-    // $Solo=json_encode($data->performance->Solo);
-    // $data_performance_total=json_encode($data->performance->total);
+    // $data_games=json_encode($data->games->game0);
     @endphp
-    {{-- @dd($data); --}}
+    @php
+
+    @endphp
     <main class="flex w-full flex-col">
         <x-top-navbar />
-        <section class="flex flex-1 flex-col items-center p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/kaisa/splash-art');">
+        <section class="flex flex-1 flex-col items-center p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/{{$data->performance->total->champ1->champName}}/splash-art');">
             <section class="w-[90%] mt-7">
                 <div class="flex justify-between items-center pb-[50px]">
                     <div class="flex justify-start gap-[30px]">
                         <div class="w-[150px] h-[150px] p-[100px] bg-primary rounded-lg py-2 px-4" id="img">
-                            <img src="https://cdn.communitydragon.org/14.5.1/champion/kaisa/splash-art" class="w-full h-full">
+                            <img src="https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/{{$data->profileIconId}}.png" class="w-full h-full">
                         </div>
                         <div class="flex flex-col gap-[50px]">
                             <h1 id="user_name" class="text-5xl text-text_light">
@@ -1892,8 +1991,8 @@
                 </div>
 
                 @php
-                $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
-                $prueba->execute();
+                // $prueba = new \App\Models\Summoner('OkasarRP', 'LSG', 'EUW1');
+                // $prueba->execute();
             @endphp
                 <div class="flex gap-[50px] pt-[30px] pb-[30px]">
                     <div class="w-[100px]">
@@ -1911,10 +2010,15 @@
                     <x-summoner-league data="{{$data_rankSolo}}" class="col-start-1 col-span-3 row-start-1" />
                     <x-summoner-league data="{{$data_rankFlex}}" class="col-start-1 col-span-3 row-start-2"/>
                     <x-rendiment class="col-start-1 col-span-3 row-start-3" data="{{$data_performance_total}}"/>
-                    <div class=" grid grid-cols-12 grid-rows-12 col-start-4 col-span-9 row-start-1 row-span-12" >
+                    <div class=" grid grid-cols-12 grid-rows-6 col-start-4 col-span-9 row-start-1 row-span-12" >
                         <x-porcentaje-winrate data="{{$data_performance_total}}" class="col-start-1 col-span-12 row-start-1"/>
-                        <x-game class="col-start-1 col-span-12" win_lose="Victoria" titulo="Clasificatoria Solo/Duo" rank="Diamond" tier="4"/>
-                        <x-game class="col-start-1 col-span-12" win_lose="Derrota" titulo="Clasificatoria Flexible" rank="Diamond" tier="4"/>
+                        @for ($i=0;$i<5;$i++)
+                            @php
+                                $game="game".$i;
+                            @endphp
+                            <x-game data="{{json_encode($data->games->$game)}}" class="col-start-1 col-span-12" win_lose="Victoria" titulo="Clasificatoria Solo/Duo" rank="Diamond" tier="4"/>
+                        @endfor
+                        {{-- <x-game class="col-start-1 col-span-12" win_lose="Derrota" titulo="Clasificatoria Flexible" rank="Diamond" tier="4"/> --}}
                     </div>
                 </div>
             </section>
