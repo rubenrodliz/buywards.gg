@@ -1,56 +1,77 @@
-@props(['win_lose','titulo','rank','tier'])
+@props(["data",'win_lose','titulo','rank','tier'])
 @vite(['/resources/css/summoner.css'])
+
 @php
-    if ($win_lose=="Victoria") {
+    $data = json_decode(str_replace("&quot;",'"',$data));
+    if ($data->win=="true") {
         $color="kda_blue";
         $bgColor="bg-kda_blue";
+        $win="Win";
     }else{
         $color="kda_red";
         $bgColor="bg-kda_red";
+        $win="Lose";
     }
 @endphp
+{{-- @dd($data->ownGameInfo->runes) --}}
 
 <div {{ $attributes->merge(['class'=>"bg-opacity-60 bg-bg_dark mt-[20px] border-$color border-solid border-[1px] rounded-xl flex justify-between text-$color h-[20]"]) }}>
     <div class="w-8 h-full {{$bgColor}} rounded-l-[10px]"></div>
     <div class="w-[17%] self-center text-text_light text-[16px] font-medium">
-        <h2 class="text-[20px] font-bold">{{$titulo}}</h2>
+        <h2 class="text-[20px] font-bold">{{$data->gameMode}}</h2>
         <p>Hace 7 días</p>
         <hr class="text-{{$color}} my-[10px]">
-        <p><span class="text-{{$color}}">{{$win_lose}}</span> 20:41</p>
-        <p>{{$rank}} {{ $tier }}</p>
+        <p><span class="text-{{$color}}">{{$win}}</span> {{$data->gameDuration}}</p>
+        <p>{{$data->ownGameInfo->tier}} {{$data->ownGameInfo->rank}}</p>
     </div>
     <div class="w-[30%] h-[80%] self-center text-text_light text-[16px] font-medium flex flex-wrap items-center justify-center">
         <div class="w-[70px] h-[50%]">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-full rounded-lg">
+            <img src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$data->ownGameInfo->champIcon}}.png" alt="" class="h-full rounded-lg">
         </div>
         <div class="ml-[5%] w-[70%] h-fit flex">
-            <div class="flex flex-wrap w-[40%] gap-1">
-                <img src="{{ asset('images/kaisa.png') }}" alt="" class="w-[35px] rounded-lg">
-                <img src="{{ asset('images/kaisa.png') }}" alt="" class="w-[35px] rounded-lg">
-                <img src="{{ asset('images/kaisa.png') }}" alt="" class="w-[35px] rounded-lg">
-                <img src="{{ asset('images/kaisa.png') }}" alt="" class="w-[35px] rounded-lg">
+            <div class="flex w-[20%] gap-1">
+                <div class="w-full h-full">
+                    @foreach ($data->ownGameInfo->runes as $rune)
+                        <img src="https://lolcdn.darkintaqt.com/cdn/spells/{{$rune}}" alt="rune" class="w-[35px] rounded-lg">
+                    @endforeach
+                </div>
             </div>
             <div class="ml-[15px]">
-                <h2 class="text-[20px]">9 / <span class="text-kda_red">4</span> / 7</h2>
-                <p class="text-[16px] text-{{$color}}">5,45 KDA</p>
-                <p class="text-[16px]">140 CS (7,9)</p>
+                <h2 class="text-[20px]">{{$data->ownGameInfo->kills}} / <span class="text-kda_red">{{$data->ownGameInfo->deaths}}</span> / {{$data->ownGameInfo->asists}}</h2>
+                <p class="text-[16px] text-{{$color}}">{{$data->ownGameInfo->kda}} KDA</p>
+                <p class="text-[16px]">{{$data->ownGameInfo->totalMinionsKilled}} CS ({{$data->ownGameInfo->miniosPerMinute}})</p>
             </div>
         </div>
         <div class="w-full h-[35%] flex items-center justify-start gap-1">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-[35px] rounded-lg">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-[35px] rounded-lg">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-[35px] rounded-lg">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-[35px] rounded-lg">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-[35px] rounded-lg">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-[35px] rounded-lg">
-            <img src="{{ asset('images/kaisa.png') }}" alt="" class="h-[35px] rounded-lg">
+            @foreach ($data->ownGameInfo->items as $item)
+                @if ($item!=0)
+                    <img src="https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/{{$item}}.png" alt="" class="h-[35px] rounded-lg">
+                @endif
+                @if ($item==0)
+                    <img src="{{ asset('images/vacio.svg') }}" alt="" class="h-[35px] rounded-lg">
+                @endif
+            @endforeach
         </div>
     </div>
-    <div class="m-2 w-[30%] flex flex-wrap">
-        @for ($i=1;11>$i;$i++)
+    <div class="m-2 w-[15%]">
+        @for ($i=1;6>$i;$i++)
             <div class="flex items-center w-[50%] my-[2px]">
-                <img src="{{ asset('images/kaisa.png') }}" class="w-[30px] rounded-lg">
-                <p class="text-text_light">Summoner1</p>
+                @php
+                    $player="player".$i;
+                @endphp
+                <img src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$data->gameInfo->team1->players->$player->champIcon}}.png" class="w-[30px] rounded-lg">
+                <p class="text-text_light">{{$data->gameInfo->team1->players->$player->riotIdGameName}}#{{$data->gameInfo->team1->players->$player->riotIdTagline}}</p>
+            </div>
+        @endfor
+    </div>
+    <div class="m-2 w-[15%]">
+        @for ($i=1;6>$i;$i++)
+            <div class="flex items-center w-[50%] my-[2px]">
+                @php
+                    $player="player".$i;
+                @endphp
+                <img src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$data->gameInfo->team2->players->$player->champIcon}}.png" class="w-[30px] rounded-lg">
+                <p class="text-text_light">{{$data->gameInfo->team2->players->$player->riotIdGameName}}#{{$data->gameInfo->team2->players->$player->riotIdTagline}}</p>
             </div>
         @endfor
     </div>

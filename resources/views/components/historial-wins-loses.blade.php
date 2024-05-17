@@ -6,6 +6,6 @@
 @endphp
 
 <div class="flex flex-col align-middle justify-center">
-    <p class="text-md font-bold">{{ $wins }}V - {{ $loses }}D</p>
+    <p class="text-md font-bold">{{ $wins }}W - {{ $loses }}L</p>
     <p class="text-lg font-bold {{ $class::getKdaClassByWinrate($winrate) }}">{{ number_format($winrate, 2) }}% WR</p>
 </div>
