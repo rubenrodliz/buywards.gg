@@ -25,19 +25,22 @@ class Summoner extends Model
     }
 
     public function execute(){
-        $RETURN_DATA = "{";
+
         // CURRENT PATCH INFO /////////////////////////////
         $CURRENT_PATCH = RiotService::getLatestGameVersion();//última versión del juego
-
-
-        // PUUID INFO /////////////////////////////
         $PUUID = RiotService::getAccountByPuuid($this->name, $this->tag,$this->region);//nombre de invocador
+        $SUMMONER_DATA = RiotService::getSummonerDataByPuuid($PUUID['puuid'],$this->region);// información del invocador
+        $LEAGUE_ENTRIES = RiotService::getLeagueEntriesBySummonerId($SUMMONER_DATA['id'],$this->region);// información de las ligas
+        $MACH_ENTRIES =RiotService::getMatchHistoryByPuuid($PUUID['puuid'],$this->region);//array de id de partidas
+        // $RETURN_DATA=$this->DecoreInfo($CURRENT_PATCH,$PUUID,$SUMMONER_DATA,$LEAGUE_ENTRIES,$MACH_ENTRIES);
+        // return $RETURN_DATA;
+        dd($this->getLeagueEntries($LEAGUE_ENTRIES));
+        // PUUID INFO /////////////////////////////
         $PUUID_puuid = $PUUID['puuid'];
         $PUUID_name = $PUUID['gameName'];
         $PUUID_tag = $PUUID['tagLine'];
 
         // SUMMONER DATA INFO /////////////////////////////
-        $SUMMONER_DATA = RiotService::getSummonerDataByPuuid($PUUID_puuid,$this->region);// información del invocador
         $SUMMONER_DATA_id = $SUMMONER_DATA['id'];
         $SUMMONER_DATA_accountId = $SUMMONER_DATA['accountId'];
         $SUMMONER_DATA_profileIconId = $SUMMONER_DATA['profileIconId'];
@@ -46,7 +49,6 @@ class Summoner extends Model
 
         // LEAGUE ENTRIES INFO /////////////////////////////
 
-        $LEAGUE_ENTRIES = RiotService::getLeagueEntriesBySummonerId($SUMMONER_DATA_id,$this->region);// información de las ligas
 
             //flex info////////////////////////////
             // $LEAGUE_DATA_queueType_flex = $LEAGUE_ENTRIES[0]['queueType'];
@@ -80,57 +82,26 @@ class Summoner extends Model
         // MATCH ENTRIES INFO////////////////////////////
         $RETURN_DATA .='{ "games" : {';
 
-        $MACH_ENTRIES =RiotService::getMatchHistoryByPuuid($PUUID_puuid,$this->region);//array de id de partidas
+
 
         for($i = 0 ; $i < count($MACH_ENTRIES); $i++){
             $MACH_INSTANCE = RiotService::getMatchDataByMatchId($MACH_ENTRIES[$i],$this->region);
-            $pruebaArray = $this->getParticipantsData($MACH_INSTANCE['info']['participants'],$MACH_INSTANCE['info']['gameDuration']);
-            dd($pruebaArray);
-            dd($MACH_INSTANCE);
-            $MACH_INSTANCE_gameMode = $MACH_INSTANCE['info']['gameMode'];
-            $MACH_INSTANCE_win = $this->findGameResult($MACH_INSTANCE);
-            $MACH_INSTANCE_gameDuration = $this->durationMinSec($MACH_INSTANCE);
-            $MACH_INSTANCE_ownSide = $this->getOwnSide($MACH_INSTANCE);
-
-            // $MACH_INSTANCE_gameDurationMin = $MACH_INSTANCE[''];
-            // $MACH_INSTANCE_gameDurationSec = $MACH_INSTANCE[''];
-            // $MACH_INSTANCE_ownSide = $MACH_INSTANCE[''];
-            $this->getTeamData($MACH_INSTANCE['info']['teams']);
+            // dd($this->getParticipantsData($MACH_INSTANCE['info']['participants'],$MACH_INSTANCE['info']['gameDuration']));
+            // dd($MACH_INSTANCE);
+            // $MACH_INSTANCE_gameMode = $MACH_INSTANCE['info']['gameMode'];
+            // $MACH_INSTANCE_win = $this->findGameResult($MACH_INSTANCE);
+            // $MACH_INSTANCE_gameDuration = $this->durationMinSec($MACH_INSTANCE);
+            // $MACH_INSTANCE_ownSide = $this->getOwnSide($MACH_INSTANCE);
+            // $this->getTeamData($MACH_INSTANCE['info']['teams']);
 
 
             $GAME .= '{ "game'.$i.'" : { "gameMode": "'.$MACH_INSTANCE_gameMode.'","win": "'.$MACH_INSTANCE_win.'","gameDuration": "'.$MACH_INSTANCE_gameDuriation.'","ownSide": "'.$MACH_INSTANCE_ownSide.'",' ;
 
-            $GAME .= '"ownGameInfo":{
-                "champIcon": "'.$this->getOwnInfo($MACH_INSTANCE).'",
-                "summoner1Id": "4",
-                "summoner2Id": "6",
-                "tier": "DIAMOND",
-                "rank": "IV",
-                "kills": "20",
-                "deaths": "5",
-                "asists": "12",
-                "kda": "4.69",
-                "killParticipation": "70",
-                "runes": {
-                  "primaryStyle": "8008",
-                  "subStyle": "8429"
-                },
-                "totalMinionsKilled": "200",
-                "miniosPerMinute": "6.9",
-                "items": {
-                    "item0": "1026",
-                    "item1": "6655",
-                    "item2": "4645",
-                    "item3": "3020",
-                    "item4": "3089",
-                    "item5": "4630",
-                    "item6": "0"
-                }
-              }';
-
+            $GAME .= $this->getParticipantsData($MACH_INSTANCE['info']['participants'],$MACH_INSTANCE['info']['gameDuration'].'}}')  ;
+            $RETURN_DATA .= $GAME;
 
         }
-
+        // dd($RETURN_DATA);
 
 
 
@@ -142,6 +113,81 @@ class Summoner extends Model
 
     //servcices//////////////////////////
 
+    protected function DecoreInfo($currentPatch,$puuid,$summonerData,$leagueEntries,$machEntries){
+        $legague = $this->getLeagueEntries($leagueEntries);
+        $returnData = '{
+            "gameName": "OkasarRP",
+            "tagLine": "LSG",
+            "profileIconId": "4858(peticion)",
+            "summonerLevel": "420",
+            "patch" : "'.$currentPatch .'",
+            "
+
+
+
+
+
+
+
+
+
+        }';
+
+
+    }
+    protected function getLeagueEntries($leagueEntries){
+
+        switch ($leagueEntries){
+
+
+            case  count($leagueEntries) == 1 and $leagueEntries[0]['queueType'] == "RANKED_SOLO_5x5" ;
+                return ["rankedSolo"=>[
+                    "queueType"=>$leagueEntries[0]['queueType'],
+                    "tier"=> $leagueEntries[0]['tier'],
+                    "rank"=> $this->transformRank($leagueEntries[0]['rank']),
+                    "leaguePoints"=> $leagueEntries[0]['leaguePoints'],
+                    "wins"=> $leagueEntries[0]['wins'],
+                    "losses"=> $leagueEntries[0]['losses'],
+                    "winRatio"=> $this->getWinrate($leagueEntries[0]['wins'],$leagueEntries[0]['losses'])
+                ],"rankedFlex"=>"UNRANKED"];
+            break;
+
+            case  count($leagueEntries) == 1 and $leagueEntries[0]['queueType'] == "RANKED_FLEX_SR" ;
+                return ["rankedSolo"=> "UNRANKED","rankedFlex"=>[
+                    "queueType"=>$leagueEntries[0]['queueType'],
+                    "tier"=> $leagueEntries[0]['tier'],
+                    "rank"=> $this->transformRank($leagueEntries[0]['rank']),
+                    "leaguePoints"=> $leagueEntries[0]['leaguePoints'],
+                    "wins"=> $leagueEntries[0]['wins'],
+                    "losses"=> $leagueEntries[0]['losses'],
+                    "winRatio"=> $this->getWinrate($leagueEntries[0]['wins'],$leagueEntries[0]['losses'])
+                ]];
+            break;
+
+            case  count($leagueEntries) == 2;
+                return ["rankedSolo"=> [
+                    "queueType"=>$leagueEntries[1]['queueType'],
+                    "tier"=> $leagueEntries[1]['tier'],
+                    "rank"=> $this->transformRank($leagueEntries[1]['rank']),
+                    "leaguePoints"=> $leagueEntries[1]['leaguePoints'],
+                    "wins"=> $leagueEntries[1]['wins'],
+                    "losses"=> $leagueEntries[1]['losses'],
+                    "winRatio"=> $this->getWinrate($leagueEntries[1]['wins'],$leagueEntries[1]['losses'])
+                ],"rankedFlex"=>[
+                    "queueType"=>$leagueEntries[0]['queueType'],
+                    "tier"=> $leagueEntries[0]['tier'],
+                    "rank"=> $this->transformRank($leagueEntries[0]['rank']),
+                    "leaguePoints"=> $leagueEntries[0]['leaguePoints'],
+                    "wins"=> $leagueEntries[0]['wins'],
+                    "losses"=> $leagueEntries[0]['losses'],
+                    "winRatio"=> $this->getWinrate($leagueEntries[0]['wins'],$leagueEntries[0]['losses'])
+                ]];
+            break;
+
+            default: return ["rankedSolo"=>'"queueType":"UNRANKED"',"flex"=>'"queueType":"UNRANKED"'];
+
+        }
+    }
     protected function getWinrate($wins,$losses){
         $total_games=$wins+$losses;
         $winrate=($wins*100)/$total_games;
@@ -191,9 +237,8 @@ class Summoner extends Model
                     "item5"=>$participants[$i]['item5'],
                     "item6"=>$participants[$i]['item6'],
                 ],
+                "win" => $participants[$i]['win']
             ];
-
-            // $arrayResponse[] = '"player"'.$i.'=> ['.$arrayParticipantsData.']';
             $arrayResponse[] = $arrayParticipantsData;
         }
         for($y = 0 ; $y <count($arrayResponse); $y++){
@@ -206,6 +251,16 @@ class Summoner extends Model
         $arrayResponse[] = ["ownData"=>$ownArray];
 
         return $arrayResponse;
+    }
+    protected function getGeneralGameData($machInstanceInfo){
+        for($i = 0 ;  $i<count($machInstanceInfo); $i++){
+            $arrayGeneralInfo=[
+                "gameCreation"=>$this->getUnixTime($machInstanceInfo['gameCreation']),
+                "gameDuration"=>$this->durationMinSec($machInstanceInfo['gameDuration']),
+            ];
+
+        }
+        return $arrayGeneralInfo;
     }
     protected static function getTeamData($arrayTeams){//$MACH_INSTANCE['info']['teams']
         $teamsInfo=[];
@@ -224,7 +279,9 @@ class Summoner extends Model
 
 
 
-
+    protected function getUnixTime($uTime){
+        return date('d/m/Y',$uTime);
+    }
 
 
 
@@ -265,7 +322,7 @@ class Summoner extends Model
 
     }
     protected function durationMinSec($machInstance){
-        $gameDurationTotalMin = $machInstance['info']['gameDuration'];
+        // $gameDurationTotalMin = $machInstance['info']['gameDuration'];
         if($gameDurationTotalMin < 3600){
             $gameTime = date("i:s", $gameDurationTotalMin);
             return  $gameTime;
