@@ -5,6 +5,8 @@
         @vite(['resources/js/dataSummoner.js'])
     @endsection
     @php
+        $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
+        $prueba->execute();
         $data = json_decode('{
     "gameName": "OkasarRP",
     "tagLine": "LSG",
@@ -1964,7 +1966,9 @@
     $data_performance_flex=json_encode($data->performance->flex);
     // $data_games=json_encode($data->games->game0);
     @endphp
-    {{-- @dd($data); --}}
+    @php
+
+    @endphp
     <main class="flex w-full flex-col">
         <x-top-navbar />
         <section class="flex flex-1 flex-col items-center p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/{{$data->performance->total->champ1->champName}}/splash-art');">

@@ -115,7 +115,7 @@ class RiotService
 
     /**
      * getContinentalRegion
-     * 
+     *
      * Returns the continental region of the given region
      *
      * @param string $region

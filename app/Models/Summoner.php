@@ -158,8 +158,10 @@ class Summoner extends Model
     }
     protected function getParticipantsData($participants,$gameDuration){
         $arrayResponse = [];
+        $ownArray=[];
         for($i = 0 ;  $i<count($participants); $i++){
-            $league=$this->getTierRankForOthers($participants[$i]['riotIdGameName'],$participants[$i]['riotIdTagline'],$this->region);
+
+            // $league=$this->getTierRankForOthers($participants[$i]['riotIdGameName'],$participants[$i]['riotIdTagline'],$this->region);
 
             $arrayParticipantsData=[
                 "riotIdGameName"=>$participants[$i]['riotIdGameName'],
@@ -167,12 +169,12 @@ class Summoner extends Model
                 "championId"=>$participants[$i]['championId'],
                 "summoner1Id"=>$participants[$i]['summoner1Id'],
                 "summoner2Id"=>$participants[$i]['summoner2Id'],
-                "tier"=>$league['tier'],
-                "rank"=>$league['rank'],
+                // "tier"=>$league['tier'],
+                // "rank"=>$league['rank'],
                 "kills"=>$participants[$i]['kills'],
                 "deaths"=>$participants[$i]['deaths'],
                 "assists"=>$participants[$i]['assists'],
-                "kda"=>$participants[$i]['challenges']['kda'],
+                "kda"=>round($participants[$i]['challenges']['kda'],2),
                 "killParticipation"=>$this->getkillParticipation($participants[$i]['challenges']['killParticipation']),
                 "runes"=>[
                     "primaryStyle" =>$participants[$i]['perks']['styles'][0]['style'],
@@ -195,11 +197,14 @@ class Summoner extends Model
             $arrayResponse[] = $arrayParticipantsData;
         }
         for($y = 0 ; $y <count($arrayResponse); $y++){
-            if($arrayResponse[$y]["riotIdGameName"] == $this->name){
+
+            if(strtolower($arrayResponse[$y]["riotIdGameName"]) == strtolower($this->name)){
                 $ownArray = $arrayResponse[$y];
+
             }
         }
         $arrayResponse[] = ["ownData"=>$ownArray];
+
         return $arrayResponse;
     }
     protected static function getTeamData($arrayTeams){//$MACH_INSTANCE['info']['teams']
@@ -224,18 +229,24 @@ class Summoner extends Model
 
 
     protected function getkillParticipation($killP){
-        return $killP*100;
+        return round($killP*100,2);
     }
 
     protected function getTierRankForOthers($name,$tag,$region){
         $puuid=RiotService::getAccountByPuuid($name,$tag,$region)['puuid'];
         $idInfo=RiotService::getSummonerDataByPuuid($puuid,$region)['id'];
         $tierRank = RiotService::getLeagueEntriesBySummonerId($idInfo,$region);
-        dd($tierRank);
-        return ["rank" => $tierRank[1]['rank'],"tier" => $tierRank[1]['tier']];
+
+        for($u = 0 ; $u < count($tierRank); $u++){
+            if($tierRank[$u]['queueType']=='RANKED_SOLO_5x5'){
+                return ["rank" => $tierRank[$u]['rank'],"tier" => $tierRank[$u]['tier']];
+            }
+        }
+        return ["rank" => "","tier" => "UNRANKED"];
+
     }
     protected function getMininosPerMinute($totalMinions,$gameDuration){
-        return $totalMinions/($gameDuration/60);
+        return round($totalMinions/($gameDuration/60),2);
     }
 
 
