@@ -13,8 +13,8 @@
             $data = null;
         }
 
-        $prueba = new \App\Models\Summoner('OkasarRP', 'LSG', 'EUW1');
-        $prueba->execute();
+        // $prueba = new \App\Models\Summoner('OkasarRP', 'LSG', 'EUW1');
+        // $prueba->execute();
 
         $data_rankSolo=json_encode($data->rankedSolo);
         $data_rankFlex=json_encode($data->rankedFlex);
@@ -28,7 +28,7 @@
     @endphp
     <main class="flex w-full flex-col">
         <x-top-navbar />
-        <section class="flex flex-1 flex-col items-center p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/{{$data->performance->total->champ1->champName}}/splash-art');">
+        <section class="flex flex-1 flex-col items-center p-0 lg:p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/{{$data->performance->total->champ1->champName}}/splash-art');">
             <section class="w-[90%] mt-7">
                 <div class="flex justify-between items-center pb-[50px]">
                     <div class="flex justify-start gap-[30px]">
@@ -71,10 +71,10 @@
                     </div>
                 </div>
                 <div id="data_summoner" class="grid grid-cols-12 gap-5">
-                    <x-summoner-league data="{{ $data_rankSolo }}" class="col-start-1 col-span-3 row-start-1" />
-                    <x-summoner-league data="{{ $data_rankFlex }}" class="col-start-1 col-span-3 row-start-2" />
-                    <x-rendiment class="col-start-1 col-span-3 row-start-3" data="{{ $data_performance_total }}" />
-                    <div class="grid grid-cols-12 col-start-4 col-span-9 row-start-1 row-span-12">
+                    <x-summoner-league data="{{ $data_rankSolo }}" class="col-start-1 col-span-12 lg:col-span-3 row-start-1" />
+                    <x-summoner-league data="{{ $data_rankFlex }}" class="col-start-1 col-span-12 lg:col-span-3 row-start-2" />
+                    <x-rendiment class="col-start-1 col-span-12 lg:col-span-3 row-start-3" data="{{ $data_performance_total }}" />
+                    <div class="grid grid-cols-12 lg:col-start-4 col-start-1 lg:col-span-9 col-span-12 lg:row-start-1 row-start-4 row-span-12">
                         <x-porcentaje-winrate data="{{ $data_performance_total }}" class="col-start-1 col-span-12 row-start-1" />
                         @for ($i = 0; $i < 5; $i++)
                             @php
