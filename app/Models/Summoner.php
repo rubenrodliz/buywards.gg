@@ -33,6 +33,8 @@ class Summoner extends Model
         $LEAGUE_ENTRIES = RiotService::getLeagueEntriesBySummonerId($SUMMONER_DATA['id'],$this->region);// información de las ligas
         $MACH_ENTRIES =RiotService::getMatchHistoryByPuuid($PUUID['puuid'],$this->region);//array de id de partidas
         $RETURN_DATA=$this->DecoreInfo($CURRENT_PATCH,$PUUID,$SUMMONER_DATA,$LEAGUE_ENTRIES,$MACH_ENTRIES);
+        $RETURN_JSON =json_encode($RETURN_DATA);
+        dd($RETURN_JSON);
         // return $RETURN_DATA;
         // dd($this->getLeagueEntries($LEAGUE_ENTRIES));
 
@@ -193,7 +195,7 @@ class Summoner extends Model
                 ]];
             break;
 
-            default: return ["rankedSolo"=>'"queueType":"UNRANKED"',"rankedFlex"=>'"queueType":"UNRANKED"'];
+            default: return ["rankedSolo"=>["queueType"=>"UNRANKED"],"rankedFlex"=>["queueType"=>"UNRANKED"]];
 
         }
     }
