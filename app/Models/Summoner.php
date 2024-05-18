@@ -35,7 +35,7 @@ class Summoner extends Model
         $RETURN_DATA=$this->DecoreInfo($CURRENT_PATCH,$PUUID,$SUMMONER_DATA,$LEAGUE_ENTRIES,$MACH_ENTRIES);
         $RETURN_JSON =json_encode($RETURN_DATA);
         dd($RETURN_JSON);
-        // return $RETURN_DATA;
+        return $RETURN_JSON;
         // dd($this->getLeagueEntries($LEAGUE_ENTRIES));
 
     }
