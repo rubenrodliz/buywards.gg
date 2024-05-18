@@ -66,7 +66,7 @@ class Summoner extends Model
             "performance"=>$performance,
             "games"=>$gameStats
         ];
-        dd($returnData);
+        // dd($returnData);
         return $returnData;
     }
     protected function getPerformance($arrayGames){
