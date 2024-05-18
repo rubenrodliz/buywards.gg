@@ -71,19 +71,18 @@
                     </div>
                 </div>
                 <div id="data_summoner" class="grid grid-cols-12 gap-5">
-                    <x-summoner-league data="{{$data_rankSolo}}" class="col-start-1 col-span-3 row-start-1" />
-                    <x-summoner-league data="{{$data_rankFlex}}" class="col-start-1 col-span-3 row-start-2"/>
-                    <x-rendiment class="col-start-1 col-span-3 row-start-3" data="{{$data_performance_total}}"/>
-                    <div class=" grid grid-cols-12 grid-rows-6 col-start-4 col-span-9 row-start-1 row-span-12" >
-                        <x-porcentaje-winrate data="{{$data_performance_total}}" class="col-start-1 col-span-12 row-start-1"/>
-                        @for ($i=0;$i<5;$i++)
+                    <x-summoner-league data="{{ $data_rankSolo }}" class="col-start-1 col-span-3 row-start-1" />
+                    <x-summoner-league data="{{ $data_rankFlex }}" class="col-start-1 col-span-3 row-start-2" />
+                    <x-rendiment class="col-start-1 col-span-3 row-start-3" data="{{ $data_performance_total }}" />
+                    <div class="grid grid-cols-12 col-start-4 col-span-9 row-start-1 row-span-12">
+                        <x-porcentaje-winrate data="{{ $data_performance_total }}" class="col-start-1 col-span-12 row-start-1" />
+                        @for ($i = 0; $i < 5; $i++)
                             @php
-                                $game="game".$i;
+                                $game = "game" . $i;
                             @endphp
-                            <x-game data="{{json_encode($data->games->$game)}}" class="col-start-1 col-span-12" />
-                            {{-- <x-game-open data="{{json_encode($data->games->$game)}}" class="col-start-1 col-span-12 hidden" /> --}}
+                            <x-game data="{{ json_encode($data->games->$game) }}" class="col-start-1 col-span-12 mt-4" />
+                            <x-game-open data="{{ json_encode($data->games->$game) }}" class="col-start-1 col-span-12 mt-4" />
                         @endfor
-                        {{-- <x-game class="col-start-1 col-span-12" win_lose="Derrota" titulo="Clasificatoria Flexible" rank="Diamond" tier="4"/> --}}
                     </div>
                 </div>
             </section>
