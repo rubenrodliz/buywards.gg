@@ -44,7 +44,7 @@
 
                         <div class="flex flex-col gap-[50px]">
                             <h1 id="user_name" class="text-5xl text-text_light">
-                                {{$data->gameName}}<span id='hastag' class='text-primary'>#{{$data->tagLine}}</span>
+                                {{$data->gameName}}<span id='hastag' class='text-primary font-semibold'> #{{$data->tagLine}}</span>
                             </h1>
                             <a href="#" class="text-center font-bold text-2xl bg-primary rounded-lg py-2 px-4 w-40">
                                 Update
