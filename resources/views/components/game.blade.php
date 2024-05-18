@@ -1,4 +1,4 @@
-@props(["data",'win_lose','titulo','rank','tier'])
+@props(["data"])
 @vite(['/resources/css/summoner.css'])
 
 @php
@@ -15,7 +15,7 @@
 @endphp
 {{-- @dd($data->ownGameInfo->runes) --}}
 
-<div {{ $attributes->merge(['class'=>"bg-opacity-60 bg-bg_dark mt-[20px] border-$color border-solid border-[1px] rounded-xl flex justify-between text-$color h-[20]"]) }}>
+<div {{ $attributes->merge(['class'=>"bg-opacity-60 bg-bg_dark mt-[20px] border-$color border-2 rounded-xl flex justify-between text-$color h-[20]"]) }}>
     <div class="w-8 h-full {{$bgColor}} rounded-l-[10px]"></div>
     <div class="w-[17%] self-center text-text_light text-[16px] font-medium">
         <h2 class="text-[20px] font-bold">{{$data->gameMode}}</h2>
@@ -48,7 +48,7 @@
                     <img src="https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/{{$item}}.png" alt="" class="h-[35px] rounded-lg">
                 @endif
                 @if ($item==0)
-                    <img src="{{ asset('images/vacio.svg') }}" alt="" class="h-[35px] rounded-lg">
+                    <img src="{{ asset('images/vacio.svg') }}" alt="" class="h-[35px]">
                 @endif
             @endforeach
         </div>
