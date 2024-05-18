@@ -28,12 +28,25 @@ class Summoner extends Model
 
         // CURRENT PATCH INFO /////////////////////////////
         $CURRENT_PATCH = RiotService::getLatestGameVersion();//última versión del juego
+
         $PUUID = RiotService::getAccountByPuuid($this->name, $this->tag,$this->region);//nombre de invocador
+        if (!$PUUID) {return back()->withErrors(['error' => 'Summoner not found'], 404);}
+
         $SUMMONER_DATA = RiotService::getSummonerDataByPuuid($PUUID['puuid'],$this->region);// información del invocador
+        if (!$SUMMONER_DATA) {return back()->withErrors(['error' => 'Summoner not found'], 404);}
+
         $LEAGUE_ENTRIES = RiotService::getLeagueEntriesBySummonerId($SUMMONER_DATA['id'],$this->region);// información de las ligas
+        if (!$LEAGUE_ENTRIES) {return back()->withErrors(['error' => 'Summoner not found'], 404);}
+
         $MACH_ENTRIES =RiotService::getMatchHistoryByPuuid($PUUID['puuid'],$this->region);//array de id de partidas
+        if (!$MACH_ENTRIES) {return back()->withErrors(['error' => 'Summoner not found'], 404);}
+
         $RETURN_DATA=$this->DecoreInfo($CURRENT_PATCH,$PUUID,$SUMMONER_DATA,$LEAGUE_ENTRIES,$MACH_ENTRIES);
+        if (!$RETURN_DATA) {return back()->withErrors(['error' => 'Summoner not found'], 404);}
+
         $RETURN_JSON =json_encode($RETURN_DATA);
+        if (!$RETURN_JSON) {return back()->withErrors(['error' => 'Summoner not found'], 404);}
+
         dd($RETURN_JSON);
         return $RETURN_JSON;
         // dd($this->getLeagueEntries($LEAGUE_ENTRIES));
