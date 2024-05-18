@@ -4,7 +4,7 @@
 @endphp
 <div class="flex flex-col text-text_light border-2 border-primary border-solid rounded-lg p-4 bg-transparent h-[130px] bg-opacity-60 bg-bg_dark {{ $class }}">
     <div class="flex-1">
-        <x-barra-titulos titulo="{{ $data->queueType }}" />
+        <x-barra-titulos titulo="{{ $data->queueType == 'RANKED_SOLO_5x5' ? 'Ranked SoloQ' : 'Ranked Flex' }}" />
         </div>
         <div class="flex flex-row flex-wrap justify-center items-center">
             <img src="{{ asset('images/ranks/' . strtolower($data->tier)  . '.webp') }}" alt="league rank" class="w-[20%] mr-3">
