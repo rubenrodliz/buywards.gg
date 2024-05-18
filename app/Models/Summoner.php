@@ -115,13 +115,21 @@ class Summoner extends Model
 
     protected function DecoreInfo($currentPatch,$puuid,$summonerData,$leagueEntries,$machEntries){
         $legague = $this->getLeagueEntries($leagueEntries);
-        $returnData = '{
-            "gameName": "OkasarRP",
-            "tagLine": "LSG",
-            "profileIconId": "4858(peticion)",
-            "summonerLevel": "420",
-            "patch" : "'.$currentPatch .'",
-            "
+        // $perfomrance = getPerfomrance();
+        $gameStats = [];
+        for($i = 0 ;$i < count($machEntries) ;$i++){
+            $this->getParticipantsData($machEntries['info']['participants'],$machEntries['info']['gameDuration']);
+
+        }
+        $returnData = [
+            "gameName"=> $puuid['gameName'],
+            "tagLine"=> $puuid['tagLine'],
+            "profileIconId"=> $summonerData['profileIconId'],
+            "summonerLevel"=>$summonerData['summonerLevel'],
+            "patch"=>$currentPatch,
+            "rankedSolo"=>$league['rankedSolo'],
+            "rankedFlex"=>$league['rankedFlex'],
+            // "performance"=>$performance,
 
 
 
@@ -131,7 +139,9 @@ class Summoner extends Model
 
 
 
-        }';
+
+
+        ];
 
 
     }
