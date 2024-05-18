@@ -41,7 +41,7 @@ class Summoner extends Model
     //servcices//////////////////////////
 
     protected function DecoreInfo($currentPatch,$puuid,$summonerData,$leagueEntries,$machEntries){
-        $legague = $this->getLeagueEntries($leagueEntries);
+        $league = $this->getLeagueEntries($leagueEntries);
         $gameStats = [];
         for ($i = 0; $i < count($machEntries); $i++) {
             $machInstance = RiotService::getMatchDataByMatchId($machEntries[$i], $this->region);
@@ -50,10 +50,9 @@ class Summoner extends Model
             $arrayTeams = $this->getTeamData($machInstance['info']['teams']);
             $gameStats[] = ["generalGameData"=>$generalGameData,"teams"=>$arrayTeams,"game" =>$participantsData];
         }
+        // dd($gameStats);
 
-        $getPerformance=$this->getPerformance($gameStats);
-        dd($getPerformance);
-        // $performance = getPerformance($gameStats);
+        $performance = $this->getPerformance($gameStats);
 
 
         $returnData = [
@@ -64,13 +63,11 @@ class Summoner extends Model
             "patch"=>$currentPatch,
             "rankedSolo"=>$league['rankedSolo'],
             "rankedFlex"=>$league['rankedFlex'],
-            // "performance"=>[$performance],
-            "games"=>[$gameStats]
-
-
+            "performance"=>$performance,
+            "games"=>$gameStats
         ];
-
-
+        dd($returnData);
+        return $returnData;
     }
     protected function getPerformance($arrayGames){
         $total=[];
@@ -79,20 +76,22 @@ class Summoner extends Model
 
         for($i = 0; $i < count($arrayGames); $i++) {
                 $total[]=$arrayGames[$i]['game'][10]['ownData'];
-                // if($$arrayGames[$i]['generalGameData']['gameMode'] =='RANKED_SOLO_5x5'){$rankedSolo[]=$arrayGames[$i]['game'][10]['ownData'];}
+                // if($$arrayGames[$i]['generalGameData']['gameMode'] =='CLASSIC'){$rankedSolo[]=$arrayGames[$i]['game'][10]['ownData'];}
                 // if($$arrayGames[$i]['generalGameData']['gameMode'] =='RANKED_FLEX_SR'){$rankedFlex[]=$arrayGames[$i]['game'][10]['ownData'];}
         }
         //TOTAL
-        // dd($total);
-        $counts = $this->ProcesPerformanceFunction($total);
-        dd($counts);
-
-
+        $countsTotal = $this->ProcesPerformanceFunction($total);
 
 
         //Ranked SOLO
 
         //Ranqued Flex
+
+
+
+        $returnArray = ["total"=>$countsTotal, "rankedSolo"=>[0], "rankedFlex"=>[0]];
+
+        return $returnArray;
 
     }
 
@@ -142,40 +141,39 @@ class Summoner extends Model
             return $b['counts'] <=> $a['counts'];
         });
 
-        dd($result); // Para depuración
+        // dd($result); // Para depuración
         return $result;
     }
-
     protected function getLeagueEntries($leagueEntries){
 
-        switch ($leagueEntries){
+        switch (count($leagueEntries)){
+            case 1:
+                if($leagueEntries[0]['queueType'] == "RANKED_SOLO_5x5"){
+                    return ["rankedSolo"=>[
+                        "queueType"=>$leagueEntries[0]['queueType'],
+                        "tier"=> $leagueEntries[0]['tier'],
+                        "rank"=> $this->transformRank($leagueEntries[0]['rank']),
+                        "leaguePoints"=> $leagueEntries[0]['leaguePoints'],
+                        "wins"=> $leagueEntries[0]['wins'],
+                        "losses"=> $leagueEntries[0]['losses'],
+                        "winRatio"=> $this->getWinrate($leagueEntries[0]['wins'],$leagueEntries[0]['losses'])
+                    ],"rankedFlex"=>"UNRANKED"];
 
+                }else if($leagueEntries[0]['queueType'] == "RANKED_FLEX_SR"){
+                    return ["rankedSolo"=> "UNRANKED","rankedFlex"=>[
+                        "queueType"=>$leagueEntries[0]['queueType'],
+                        "tier"=> $leagueEntries[0]['tier'],
+                        "rank"=> $this->transformRank($leagueEntries[0]['rank']),
+                        "leaguePoints"=> $leagueEntries[0]['leaguePoints'],
+                        "wins"=> $leagueEntries[0]['wins'],
+                        "losses"=> $leagueEntries[0]['losses'],
+                        "winRatio"=> $this->getWinrate($leagueEntries[0]['wins'],$leagueEntries[0]['losses'])
+                    ]];
+                }
 
-            case  count($leagueEntries) == 1 and $leagueEntries[0]['queueType'] == "RANKED_SOLO_5x5" ;
-                return ["rankedSolo"=>[
-                    "queueType"=>$leagueEntries[0]['queueType'],
-                    "tier"=> $leagueEntries[0]['tier'],
-                    "rank"=> $this->transformRank($leagueEntries[0]['rank']),
-                    "leaguePoints"=> $leagueEntries[0]['leaguePoints'],
-                    "wins"=> $leagueEntries[0]['wins'],
-                    "losses"=> $leagueEntries[0]['losses'],
-                    "winRatio"=> $this->getWinrate($leagueEntries[0]['wins'],$leagueEntries[0]['losses'])
-                ],"rankedFlex"=>"UNRANKED"];
             break;
 
-            case  count($leagueEntries) == 1 and $leagueEntries[0]['queueType'] == "RANKED_FLEX_SR" ;
-                return ["rankedSolo"=> "UNRANKED","rankedFlex"=>[
-                    "queueType"=>$leagueEntries[0]['queueType'],
-                    "tier"=> $leagueEntries[0]['tier'],
-                    "rank"=> $this->transformRank($leagueEntries[0]['rank']),
-                    "leaguePoints"=> $leagueEntries[0]['leaguePoints'],
-                    "wins"=> $leagueEntries[0]['wins'],
-                    "losses"=> $leagueEntries[0]['losses'],
-                    "winRatio"=> $this->getWinrate($leagueEntries[0]['wins'],$leagueEntries[0]['losses'])
-                ]];
-            break;
-
-            case  count($leagueEntries) == 2;
+            case 2;
                 return ["rankedSolo"=> [
                     "queueType"=>$leagueEntries[1]['queueType'],
                     "tier"=> $leagueEntries[1]['tier'],
@@ -195,7 +193,7 @@ class Summoner extends Model
                 ]];
             break;
 
-            default: return ["rankedSolo"=>'"queueType":"UNRANKED"',"flex"=>'"queueType":"UNRANKED"'];
+            default: return ["rankedSolo"=>'"queueType":"UNRANKED"',"rankedFlex"=>'"queueType":"UNRANKED"'];
 
         }
     }
@@ -286,11 +284,16 @@ class Summoner extends Model
         }
         return $teamsInfo;
     }
-    protected function getUnixTime($uTime){//revisar funcion y mejorar
-        return date('d/m/Y',$uTime);
+    protected function getUnixTime($uTime){
+        $timestampInSeconds = $uTime / 1000;
+        return gmdate('d/m/Y', $timestampInSeconds);
     }
     protected function getkillParticipation($killP){
-        return round($killP*100,2);
+        if($killP>=1){
+            return round($killP*100,2);
+        }else {
+            return 0;
+        }
     }
     protected function getMininosPerMinute($totalMinions,$gameDuration){
         return round($totalMinions/($gameDuration/60),2);

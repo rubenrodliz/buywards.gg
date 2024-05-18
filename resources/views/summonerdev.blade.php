@@ -13,7 +13,7 @@
             $data = null;
         }
 
-        $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
+        $prueba = new \App\Models\Summoner('OkasarRP', 'LSG', 'EUW1');
         $prueba->execute();
 
         $data_rankSolo=json_encode($data->rankedSolo);
