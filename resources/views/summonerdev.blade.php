@@ -13,8 +13,8 @@
             $data = null;
         }
 
-        // $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
-        // $prueba->execute();
+        $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
+        $prueba->execute();
 
         $data_rankSolo=json_encode($data->rankedSolo);
         $data_rankFlex=json_encode($data->rankedFlex);

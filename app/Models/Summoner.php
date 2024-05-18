@@ -32,82 +32,9 @@ class Summoner extends Model
         $SUMMONER_DATA = RiotService::getSummonerDataByPuuid($PUUID['puuid'],$this->region);// información del invocador
         $LEAGUE_ENTRIES = RiotService::getLeagueEntriesBySummonerId($SUMMONER_DATA['id'],$this->region);// información de las ligas
         $MACH_ENTRIES =RiotService::getMatchHistoryByPuuid($PUUID['puuid'],$this->region);//array de id de partidas
-        // $RETURN_DATA=$this->DecoreInfo($CURRENT_PATCH,$PUUID,$SUMMONER_DATA,$LEAGUE_ENTRIES,$MACH_ENTRIES);
+        $RETURN_DATA=$this->DecoreInfo($CURRENT_PATCH,$PUUID,$SUMMONER_DATA,$LEAGUE_ENTRIES,$MACH_ENTRIES);
         // return $RETURN_DATA;
-        dd($this->getLeagueEntries($LEAGUE_ENTRIES));
-        // PUUID INFO /////////////////////////////
-        $PUUID_puuid = $PUUID['puuid'];
-        $PUUID_name = $PUUID['gameName'];
-        $PUUID_tag = $PUUID['tagLine'];
-
-        // SUMMONER DATA INFO /////////////////////////////
-        $SUMMONER_DATA_id = $SUMMONER_DATA['id'];
-        $SUMMONER_DATA_accountId = $SUMMONER_DATA['accountId'];
-        $SUMMONER_DATA_profileIconId = $SUMMONER_DATA['profileIconId'];
-        $SUMMONER_DATA_revisionDate = $SUMMONER_DATA['revisionDate'];
-        $SUMMONER_DATA_summonerLevel = $SUMMONER_DATA['summonerLevel'];
-
-        // LEAGUE ENTRIES INFO /////////////////////////////
-
-
-            //flex info////////////////////////////
-            // $LEAGUE_DATA_queueType_flex = $LEAGUE_ENTRIES[0]['queueType'];
-            // $LEAGUE_DATA_tier_flex =$LEAGUE_ENTRIES[0]['tier'];
-            // $LEAGUE_DATA_rank_flex =  $this->transformRank($LEAGUE_ENTRIES[0]['rank']);
-            // $LEAGUE_DATA_leaguePoints_flex = $LEAGUE_ENTRIES[0]['leaguePoints'];
-            // $LEAGUE_DATA_wins_flex = $LEAGUE_ENTRIES[0]['wins'];
-            // $LEAGUE_DATA_losses_flex = $LEAGUE_ENTRIES[0]['losses'];
-            // $LEAGUE_DATA_winrate_flex = $this->getWinrate($LEAGUE_DATA_wins_flex,$LEAGUE_DATA_losses_flex);
-
-            // //solo/duo info////////////////////////////
-            // $LEAGUE_DATA_queueType_solo = $LEAGUE_ENTRIES[1]['queueType'];
-            // $LEAGUE_DATA_tier_solo = $LEAGUE_ENTRIES[1]['tier'];
-            // $LEAGUE_DATA_rank_solo =  $this->transformRank($LEAGUE_ENTRIES[1]['rank']);
-            // $LEAGUE_DATA_leaguePoints_solo = $LEAGUE_ENTRIES[1]['leaguePoints'];
-            // $LEAGUE_DATA_wins_solo = $LEAGUE_ENTRIES[1]['wins'];
-            // $LEAGUE_DATA_losses_solo = $LEAGUE_ENTRIES[1]['losses'];
-            // $LEAGUE_DATA_winrate_solo = $this->getWinrate($LEAGUE_DATA_wins_solo,$LEAGUE_DATA_losses_solo);
-
-
-        // RETURN DATA FASE 1//////////////////////////////
-
-        // $RETURN_DATA .= '"gameName": "'.$PUUID_name.'","tagLine": "'.$PUUID_tag.'","profileIconId": "'.$SUMMONER_DATA_profileIconId.'","summonerLevel": "'.$SUMMONER_DATA_summonerLevel.'",';
-
-
-        // $RETURN_DATA .= '"rankedSolo": {"queueType": "'.$LEAGUE_DATA_queueType_solo.'","tier": "'.$LEAGUE_DATA_tier_solo.'","rank": "'.$LEAGUE_DATA_rank_solo.'","leaguePoints": "'.$LEAGUE_DATA_leaguePoints_solo.'","wins": "'.$LEAGUE_DATA_wins_solo.'","loses": "'.$LEAGUE_DATA_losses_solo.'","winRate": "'.$LEAGUE_DATA_winrate_solo.'"},';
-
-        // $RETURN_DATA .= '"rankedFlex": {"queueType": "'.$LEAGUE_DATA_queueType_flex.'","tier": "'.$LEAGUE_DATA_tier_flex.'","rank": "'.$LEAGUE_DATA_rank_flex.'","leaguePoints": "'.$LEAGUE_DATA_leaguePoints_flex.'","wins": "'.$LEAGUE_DATA_wins_flex.'","loses": "'.$LEAGUE_DATA_losses_flex.'","winRate": "'.$LEAGUE_DATA_winrate_flex.'"},';
-        // dd($RETURN_DATA);
-
-        // MATCH ENTRIES INFO////////////////////////////
-        $RETURN_DATA .='{ "games" : {';
-
-
-
-        for($i = 0 ; $i < count($MACH_ENTRIES); $i++){
-            $MACH_INSTANCE = RiotService::getMatchDataByMatchId($MACH_ENTRIES[$i],$this->region);
-            // dd($this->getParticipantsData($MACH_INSTANCE['info']['participants'],$MACH_INSTANCE['info']['gameDuration']));
-            // dd($MACH_INSTANCE);
-            // $MACH_INSTANCE_gameMode = $MACH_INSTANCE['info']['gameMode'];
-            // $MACH_INSTANCE_win = $this->findGameResult($MACH_INSTANCE);
-            // $MACH_INSTANCE_gameDuration = $this->durationMinSec($MACH_INSTANCE);
-            // $MACH_INSTANCE_ownSide = $this->getOwnSide($MACH_INSTANCE);
-            // $this->getTeamData($MACH_INSTANCE['info']['teams']);
-
-
-            $GAME .= '{ "game'.$i.'" : { "gameMode": "'.$MACH_INSTANCE_gameMode.'","win": "'.$MACH_INSTANCE_win.'","gameDuration": "'.$MACH_INSTANCE_gameDuriation.'","ownSide": "'.$MACH_INSTANCE_ownSide.'",' ;
-
-            $GAME .= $this->getParticipantsData($MACH_INSTANCE['info']['participants'],$MACH_INSTANCE['info']['gameDuration'].'}}')  ;
-            $RETURN_DATA .= $GAME;
-
-        }
-        // dd($RETURN_DATA);
-
-
-
-
-
-        // return $array;
+        // dd($this->getLeagueEntries($LEAGUE_ENTRIES));
 
     }
 
@@ -115,12 +42,20 @@ class Summoner extends Model
 
     protected function DecoreInfo($currentPatch,$puuid,$summonerData,$leagueEntries,$machEntries){
         $legague = $this->getLeagueEntries($leagueEntries);
-        // $perfomrance = getPerfomrance();
         $gameStats = [];
-        for($i = 0 ;$i < count($machEntries) ;$i++){
-            $this->getParticipantsData($machEntries['info']['participants'],$machEntries['info']['gameDuration']);
-
+        for ($i = 0; $i < count($machEntries); $i++) {
+            $machInstance = RiotService::getMatchDataByMatchId($machEntries[$i], $this->region);
+            $participantsData = $this->getParticipantsData($machInstance['info']['participants'], $machInstance['info']['gameDuration']);
+            $generalGameData = $this->getGeneralGameData($machInstance['info']);
+            $arrayTeams = $this->getTeamData($machInstance['info']['teams']);
+            $gameStats[] = ["generalGameData"=>$generalGameData,"teams"=>$arrayTeams,"game" =>$participantsData];
         }
+
+        $getPerformance=$this->getPerformance($gameStats);
+        dd($getPerformance);
+        // $performance = getPerformance($gameStats);
+
+
         $returnData = [
             "gameName"=> $puuid['gameName'],
             "tagLine"=> $puuid['tagLine'],
@@ -129,22 +64,88 @@ class Summoner extends Model
             "patch"=>$currentPatch,
             "rankedSolo"=>$league['rankedSolo'],
             "rankedFlex"=>$league['rankedFlex'],
-            // "performance"=>$performance,
-
-
-
-
-
-
-
-
-
+            // "performance"=>[$performance],
+            "games"=>[$gameStats]
 
 
         ];
 
 
     }
+    protected function getPerformance($arrayGames){
+        $total=[];
+        $rankedSolo=[];
+        $rankedFlex=[];
+
+        for($i = 0; $i < count($arrayGames); $i++) {
+                $total[]=$arrayGames[$i]['game'][10]['ownData'];
+                // if($$arrayGames[$i]['generalGameData']['gameMode'] =='RANKED_SOLO_5x5'){$rankedSolo[]=$arrayGames[$i]['game'][10]['ownData'];}
+                // if($$arrayGames[$i]['generalGameData']['gameMode'] =='RANKED_FLEX_SR'){$rankedFlex[]=$arrayGames[$i]['game'][10]['ownData'];}
+        }
+        //TOTAL
+        // dd($total);
+        $counts = $this->ProcesPerformanceFunction($total);
+        dd($counts);
+
+
+
+
+        //Ranked SOLO
+
+        //Ranqued Flex
+
+    }
+
+    function countChampionIds($championData) {
+        $counts = [];
+
+        // Iterar sobre los datos de los campeones
+        foreach ($championData as $data) {
+            $championId = $data['championId'];
+
+            if (!isset($counts[$championId])) {
+                $counts[$championId] = [
+                    'champId' => $championId,
+                    'counts' => 0,
+                    'totalKills' => 0,
+                    'totalDeaths' => 0,
+                    'totalAssists' => 0,
+                    'totalKDA' => 0,
+                    'totalWins' => 0,
+                ];
+            }
+
+            $counts[$championId]['counts']++;
+            $counts[$championId]['totalKills'] += $data['kills'];
+            $counts[$championId]['totalDeaths'] += $data['deaths'];
+            $counts[$championId]['totalAssists'] += $data['assists'];
+            $counts[$championId]['totalKDA'] += $data['kda'];
+            $counts[$championId]['totalWins'] += $data['win'] ? 1 : 0;
+        }
+
+        $result = [];
+        // Calcular la media
+        foreach ($counts as $championId => $data) {
+            $result[] = [
+                'champId' => $championId,
+                'counts' => $data['counts'],
+                'totalKills' => $data['totalKills'] / $data['counts'],
+                'totalDeaths' => $data['totalDeaths'] / $data['counts'],
+                'totalAssists' => $data['totalAssists'] / $data['counts'],
+                'totalKDA' => $data['totalKDA'] / $data['counts'],
+                'totalWins' => $data['totalWins'],
+                'winrate' => $data['counts']/$data['win'] * 100,
+            ];
+        }
+
+        // Ordenar el resultado por 'counts' en orden descendente
+        usort($result, function($a, $b) {
+            return $b['counts'] <=> $a['counts'];
+        });
+
+        return $result;
+    }
+
     protected function getLeagueEntries($leagueEntries){
 
         switch ($leagueEntries){
@@ -216,9 +217,7 @@ class Summoner extends Model
         $arrayResponse = [];
         $ownArray=[];
         for($i = 0 ;  $i<count($participants); $i++){
-
             // $league=$this->getTierRankForOthers($participants[$i]['riotIdGameName'],$participants[$i]['riotIdTagline'],$this->region);
-
             $arrayParticipantsData=[
                 "riotIdGameName"=>$participants[$i]['riotIdGameName'],
                 "riotIdTagline"=>$participants[$i]['riotIdTagline'],
@@ -267,6 +266,7 @@ class Summoner extends Model
             $arrayGeneralInfo=[
                 "gameCreation"=>$this->getUnixTime($machInstanceInfo['gameCreation']),
                 "gameDuration"=>$this->durationMinSec($machInstanceInfo['gameDuration']),
+                "gameMode"=>$machInstanceInfo['gameMode']
             ];
 
         }
@@ -286,38 +286,15 @@ class Summoner extends Model
         }
         return $teamsInfo;
     }
-
-
-
-    protected function getUnixTime($uTime){
+    protected function getUnixTime($uTime){//revisar funcion y mejorar
         return date('d/m/Y',$uTime);
     }
-
-
-
     protected function getkillParticipation($killP){
         return round($killP*100,2);
-    }
-
-    protected function getTierRankForOthers($name,$tag,$region){
-        $puuid=RiotService::getAccountByPuuid($name,$tag,$region)['puuid'];
-        $idInfo=RiotService::getSummonerDataByPuuid($puuid,$region)['id'];
-        $tierRank = RiotService::getLeagueEntriesBySummonerId($idInfo,$region);
-
-        for($u = 0 ; $u < count($tierRank); $u++){
-            if($tierRank[$u]['queueType']=='RANKED_SOLO_5x5'){
-                return ["rank" => $tierRank[$u]['rank'],"tier" => $tierRank[$u]['tier']];
-            }
-        }
-        return ["rank" => "","tier" => "UNRANKED"];
-
     }
     protected function getMininosPerMinute($totalMinions,$gameDuration){
         return round($totalMinions/($gameDuration/60),2);
     }
-
-
-
     protected function findGameResult($machInstance){
         $arrayParticipants=$machInstance['info']['participants'];
         $win = false;
@@ -331,8 +308,8 @@ class Summoner extends Model
         return $win;
 
     }
-    protected function durationMinSec($machInstance){
-        // $gameDurationTotalMin = $machInstance['info']['gameDuration'];
+    protected function durationMinSec($gameDurationTotalMin){
+
         if($gameDurationTotalMin < 3600){
             $gameTime = date("i:s", $gameDurationTotalMin);
             return  $gameTime;
@@ -344,37 +321,17 @@ class Summoner extends Model
 
     }
 
-    protected function getOwnSide($machInstance){
-        $arrayParticipants=$machInstance['info']['participants'];
-        $arrayTeams=$machInstance['info']['teams'];
-        $win;
-        $team;
-        for($i = 0 ; $i <count($arrayParticipants); $i++){
-            if($arrayParticipants[$i]['riotIdGameName'] == $this->name){
-                $win = $arrayParticipants[$i]['win'];
-            }
-        }
-        for($i = 0 ; $i <count($arrayTeams); $i++){
-            if($arrayTeams[$i]['win'] == $win){
-                if($i == 0){
-                   return $team = 'blue';
-                }else if($i == 1){
-                    return $team = "red";
-                }else{
-                    return null;
-                }
+    // protected function getTierRankForOthers($name,$tag,$region){
+    //     $puuid=RiotService::getAccountByPuuid($name,$tag,$region)['puuid'];
+    //     $idInfo=RiotService::getSummonerDataByPuuid($puuid,$region)['id'];
+    //     $tierRank = RiotService::getLeagueEntriesBySummonerId($idInfo,$region);
 
-            }
-        }
+    //     for($u = 0 ; $u < count($tierRank); $u++){
+    //         if($tierRank[$u]['queueType']=='RANKED_SOLO_5x5'){
+    //             return ["rank" => $tierRank[$u]['rank'],"tier" => $tierRank[$u]['tier']];
+    //         }
+    //     }
+    //     return ["rank" => "","tier" => "UNRANKED"];
 
-    }
-
-    protected function getOwnInfo($machInstance){
-        $arrayParticipants=$machInstance['info']['participants'];
-        for($i = 0; $i<count($arrayParticipants);$i++){
-            if($arrayParticipants[$i]['riotIdGameName'] == $this->name){
-                return $arrayParticipants[$i];
-            }
-        }
-    }
+    // }
 }
