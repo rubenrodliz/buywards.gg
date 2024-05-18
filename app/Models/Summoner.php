@@ -96,9 +96,8 @@ class Summoner extends Model
 
     }
 
-    function countChampionIds($championData) {
+    function ProcesPerformanceFunction($championData) {
         $counts = [];
-
         // Iterar sobre los datos de los campeones
         foreach ($championData as $data) {
             $championId = $data['championId'];
@@ -134,7 +133,7 @@ class Summoner extends Model
                 'totalAssists' => $data['totalAssists'] / $data['counts'],
                 'totalKDA' => $data['totalKDA'] / $data['counts'],
                 'totalWins' => $data['totalWins'],
-                'winrate' => $data['counts']/$data['win'] * 100,
+                'winrate' => ($data['totalWins'] / $data['counts']) * 100,
             ];
         }
 
@@ -143,6 +142,7 @@ class Summoner extends Model
             return $b['counts'] <=> $a['counts'];
         });
 
+        dd($result); // Para depuración
         return $result;
     }
 
