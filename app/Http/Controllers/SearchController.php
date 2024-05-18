@@ -2,51 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\RiotService;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use App\Services\RiotService;
+use App\Models\Summoner;
 
 class SearchController extends Controller
 {
-    public function searchSummoner(RiotService $riotService, Request $request) {
-        // Get the summoner name and region from the request
+    public function searchSummoner(Request $request) {
         $searchData = $this->searchData($request->summoner, $request->region);
 
-        // Obtain the puuid of the summoner
-        $account = $riotService::getAccountByPuuid($searchData['summoner'], $searchData['tag'], $searchData['region']);
-
-        if (!$account) {
-            return back()->withErrors(['error' => 'Summoner not found'], 404);
-        }
-
-        // Get the summoner data
-        $summonerData = $riotService::getSummonerDataByPuuid($account['puuid'], $searchData['region']);
-
+        $summoner = new Summoner($searchData['summoner'], $searchData['tag'], $searchData['region']);
+        
+        $summonerData = $summoner->execute();
+        
         if (!$summonerData) {
-            return back()->withErrors(['error' => 'Summoner not found'], 404);
+            return abort(404);
         }
 
-        // Get League entries of summoner
-        $leagueEntries = $riotService::getLeagueEntriesBySummonerId($summonerData['id'], $searchData['region']);
-
-        if (!$leagueEntries) {
-            return back()->withErrors(['error' => 'Summoner not found'], 404);
-        }
-
-        // Get the match history of the summoner
-        $matchHistory = $riotService::getMatchHistoryByPuuid($account['puuid'], $searchData['region']);
-
-        if (!$matchHistory) {
-            return back()->withErrors(['error' => 'Summoner not found'], 404);
-        }
-
-        $matches = [];
-        foreach ($matchHistory as $match) {
-            $matches[] = $riotService::getMatchDataByMatchId($match, $searchData['region']);
-        }
-
-        // Implementar procesamiento de datos para enviar solo la información necesaria
-        dd($account, $summonerData, $leagueEntries, $matches);
+        return view('summoner', ['summonerData' => $summonerData]);
     }
 
     private function searchData (string $summoner, string $region): array|RedirectResponse {
