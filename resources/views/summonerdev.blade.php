@@ -13,8 +13,8 @@
             $data = null;
         }
 
-        $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
-        $prueba->execute();
+        // $prueba = new \App\Models\Summoner('KillerChino800', 'EUW', 'EUW1');
+        // $prueba->execute();
 
         $data_rankSolo=json_encode($data->rankedSolo);
         $data_rankFlex=json_encode($data->rankedFlex);
@@ -32,9 +32,16 @@
             <section class="w-[90%] mt-7">
                 <div class="flex justify-between items-center pb-[50px]">
                     <div class="flex justify-start gap-[30px]">
-                        <div class="w-[150px] h-[150px] p-[100px] bg-primary rounded-lg py-2 px-4" id="img">
-                            <img src="https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/{{$data->profileIconId}}.png" class="w-full h-full">
+                        <div class="relative w-[150px]">
+                            <div class="w-[150px] h-[150px] bg-primary rounded-lg bg-cover border-2 border-primary"
+                                style="background-image: url('https://ddragon.leagueoflegends.com/cdn/14.9.1/img/profileicon/{{ $data->profileIconId }}.png');">
+                            </div>
+                            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 px-2 py-1 bg-bg_dark text-text_light font-semibold border-2 border-primary rounded-lg">
+                                {{ $data->summonerLevel }}
+                            </div>
                         </div>
+
+
                         <div class="flex flex-col gap-[50px]">
                             <h1 id="user_name" class="text-5xl text-text_light">
                                 {{$data->gameName}}<span id='hastag' class='text-primary'>#{{$data->tagLine}}</span>
@@ -74,7 +81,7 @@
                                 $game="game".$i;
                             @endphp
                             <x-game data="{{json_encode($data->games->$game)}}" class="col-start-1 col-span-12" />
-                            <x-game-open data="{{json_encode($data->games->$game)}}" class="col-start-1 col-span-12 hidden" />
+                            {{-- <x-game-open data="{{json_encode($data->games->$game)}}" class="col-start-1 col-span-12 hidden" /> --}}
                         @endfor
                         {{-- <x-game class="col-start-1 col-span-12" win_lose="Derrota" titulo="Clasificatoria Flexible" rank="Diamond" tier="4"/> --}}
                     </div>
