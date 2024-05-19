@@ -81,11 +81,11 @@
                                         <img src="https://lolcdn.darkintaqt.com/cdn/spells/{{$player["summoner2Id"]}}" alt="summ2" class="h-[50%] rounded-sm">
                                     </div>
                                 </div>
-                                <div>
+                                <div class="w-[200px]">
                                     <p class="text-text_light">{{$player["riotIdGameName"]}} <span class="text-primary font-medium">#{{$player["riotIdTagline"]}}</span></p>
                                 </div>
                             </div>
-                            <div class="flex flex-col text-text_light h-[35px] items-center justify-center font-semibold">
+                            <div class="flex flex-col text-text_light h-[35px] w-[100px] items-center justify-center font-semibold">
                                 <p class="">{{$player["kills"]}} / <span class="text-kda_red">{{$player["deaths"]}}</span> / {{$player["assists"]}}</p>
                                 <p class="text-kda_blue">{{$player["kda"]}} KDA</p> {{-- ToDo: Change color depending on the value of KDA --}}
                             </div>
@@ -93,7 +93,7 @@
                                 <p>20000</p>
                                 <p class="text-sm">DMG</p>
                             </div>
-                            <div class="flex flex-col text-text_light h-[35px] items-center justify-center">
+                            <div class="flex flex-col text-text_light h-[35px] w-[100px] items-center justify-center">
                                 <p class="">{{$player["totalMinionsKilled"]}} CS ({{$player["minionsPerMinute"]}})</p>
                                 <p class="text-kda_orange font-medium">{{$player["killParticipation"]}}% KP</p> {{-- ToDo: Change color depending on the value of KillParticipation --}}
                             </div>
@@ -174,21 +174,21 @@
                                         <img src="https://lolcdn.darkintaqt.com/cdn/spells/{{$player["summoner2Id"]}}" alt="summ2" class="h-[50%] rounded-sm">
                                     </div>
                                 </div>
-                                <div>
+                                <div class="w-[200px]">
                                     <p class="text-text_light">{{$player["riotIdGameName"]}} <span class="text-primary font-medium">#{{$player["riotIdTagline"]}}</span></p>
                                 </div>
                             </div>
-                            <div class="flex flex-col text-text_light h-[35px] items-center justify-center font-semibold">
+                            <div class="flex flex-col text-text_light h-[35px] w-[100px] items-center justify-center font-semibold">
                                 <p class="">{{$player["kills"]}} / <span class="text-kda_red">{{$player["deaths"]}}</span> / {{$player["assists"]}}</p>
-                                <p class="text-kda_red">{{$player["kda"]}} KDA</p> {{-- ToDo: Change color depending on the value of KDA --}}
+                                <p class="text-kda_red">{{$player["kda"]}} KDA</p>
                             </div>
                             <div class="flex flex-col text-text_light h-[35px] items-center justify-center font-medium">
                                 <p>20000</p>
                                 <p class="text-sm">DMG</p>
                             </div>
-                            <div class="flex flex-col text-text_light h-[35px] items-center justify-center">
+                            <div class="flex flex-col text-text_light h-[35px] w-[100px] items-center justify-center">
                                 <p class="">{{$player["totalMinionsKilled"]}} CS ({{$player["minionsPerMinute"]}})</p>
-                                <p class="text-kda_orange font-medium">{{$player["killParticipation"]}}% KP</p> {{-- ToDo: Change color depending on the value of KillParticipation --}}
+                                <p class="text-kda_orange font-medium">{{$player["killParticipation"]}}% KP</p>
                             </div>
                             <div class="flex items-center justify-start gap-1">
                                 @foreach ($player["items"] as $item)

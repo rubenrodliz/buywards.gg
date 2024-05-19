@@ -75,3 +75,7 @@ main::before {
 .bg-kda_orange {
     color: #F69601;
 }
+
+.hidden {
+    display: none;
+}
