@@ -3,6 +3,7 @@
         @vite(['resources/css/summoner.css'])
         @vite(['resources/js/porcentajeWinRate.js'])
         @vite(['resources/js/summonerDataSummoner.js'])
+        @vite(['resources/js/dropdownGames.js'])
     @endsection
     @php
         /* $jsonPath = resource_path('summonerData/mock.json');
@@ -14,7 +15,7 @@
         } */
 
 
-
+        $i=0;
         // dd($summonerData);
         $summonerData_rankSolo = $summonerData['rankedSolo'];
         $summonerData_rankFlex = $summonerData['rankedFlex'];
@@ -70,8 +71,12 @@
                     <div class="grid grid-cols-12 lg:col-start-4 col-start-1 lg:col-span-9 col-span-12 lg:row-start-1 row-start-4 row-span-12">
                         <x-porcentaje-winrate :summonerData="$summonerData_performance_total" class="col-start-1 col-span-12 row-start-1" />
                         @foreach ($summonerData['games'] as $game)
-                            <x-game :summonerData="$game" class="col-start-1 col-span-12 mt-4"/>
-                            <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4"/>
+                            {{-- @dd($game) --}}
+                            <x-game :summonerData="$game" class="col-start-1 col-span-12 mt-4" id="game{{$i}}" onclick="toggleGameOpen({{$i}})"/>
+                            <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4" id="game-open{{$i}}"/>
+                            @php
+                                $i++;
+                            @endphp
                         @endforeach
                     </div>
                 </div>
@@ -79,5 +84,14 @@
         </section>
     </main>
 </x-summoner-layout>
-
-
+<script>
+function toggleGameOpen(id) {
+    var game = document.getElementById('game' + id);
+    var gameOpen = document.getElementById('game-open' + id);
+    if (gameOpen.classList.contains('hidden')) {
+        gameOpen.classList.remove('hidden');
+    } else {
+        gameOpen.classList.add('hidden');
+    }
+}
+</script>
