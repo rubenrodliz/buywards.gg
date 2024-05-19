@@ -248,7 +248,7 @@ class Summoner extends Model
 
         foreach ($participants as $participant) {
             $killParticipation = isset($participant['challenges']['killParticipation']) ? $this->getKillParticipation($participant['challenges']['killParticipation']) : 0;
-            dd($this->getKillParticipation($participant['challenges']['killParticipation']));
+            // dd($this->getKillParticipation($participant['challenges']['killParticipation']));
             $arrayParticipantsData = [
                 "riotIdGameName" => $participant['riotIdGameName'] ?? '',
                 "riotIdTagline" => $participant['riotIdTagline'] ?? '',
