@@ -12,6 +12,25 @@
             $bgColor="bg-kda_red";
             $win="Lose";
         }
+        $killBlue=0;
+        $deathBlue=0;
+        $assistBlue=0;
+        $killRed=0;
+        $deathRed=0;
+        $assistRed=0;
+        foreach ($summonerData["game"] as $pos=>$value) {
+
+            // dd($value["kills"]);
+            if($pos<5){
+                $killBlue+=$value["kills"];
+                $deathBlue+=$value["deaths"];
+                $assistBlue+=$value["assists"];
+            }elseif($pos>4 and $pos<10){
+                $killRed+=$value["kills"];
+                $deathRed+=$value["deaths"];
+                $assistRed+=$value["assists"];
+            }
+        }
     @endphp
     <div class="flex flex-col justify-between {{ $class }} m-0 p-0" id="{{$id}}">
 
@@ -33,40 +52,40 @@
                     <p>({{$summonerData['teams'][0]["side"] == "blue" ? "Blue" : "Red"}} side)</p>
                 </div>
                 <div class="flex flex-row gap-2 text-text_light items-center">
-                    <p>20</p>
+                    <p>{{$killBlue}}</p>
                     <p>/</p>
-                    <p class="text-kda_red">5</p>
+                    <p class="text-kda_red">{{$deathBlue}}</p>
                     <p>/</p>
-                    <p>10</p>
+                    <p>{{$assistBlue}}</p>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="flex gap-1 items-center">
                         <img src="{{ asset('images/gameSVG/Tower.svg') }}" alt="Tower" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["blueTeam"]["turretkills"]}}</p>
                     </div>
                     <div class="flex gap-2 items-center">
                         <img src="{{ asset('images/gameSVG/Inhibitor.svg') }}" alt="Inhibitor" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["blueTeam"]["inhibitorKills"]}}</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="flex gap-1 items-center">
                         <img src="{{ asset('images/gameSVG/Baron.svg') }}" alt="Baron" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["blueTeam"]["teamBaronKills"]}}</p>
                     </div>
                     <div class="flex gap-2 items-center">
                         <img src="{{ asset('images/gameSVG/Herald.svg') }}" alt="Herald" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["blueTeam"]["teamRiftHeraldKills"]}}</p>
                     </div>
                     <div class="flex gap-2 items-center">
                         <img src="{{ asset('images/gameSVG/Drake.svg') }}" alt="Drake" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["blueTeam"]["teamElderDragonKills"]}}</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="flex gap-1 items-center">
                         <img src="{{ asset('images/gameSVG/Gold.svg') }}" alt="Gold" class="aspect-square">
-                        <p class="text-text_light">20.444</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["blueTeam"]["totalGoldEarned"]}}</p>
                     </div>
                 </div>
             </div>
@@ -93,7 +112,7 @@
                                     <p class="text-kda_blue">{{$player["kda"]}} KDA</p> {{-- ToDo: Change color depending on the value of KDA --}}
                                 </div>
                                 <div class="flex flex-col text-text_light h-[35px] items-center justify-center font-medium">
-                                    <p>20000</p>
+                                    <p>{{$player["totalDamageDealtToChampions"]}}</p>
                                     <p class="text-sm">DMG</p>
                                 </div>
                                 <div class="flex flex-col text-text_light h-[35px] w-[100px] items-center justify-center">
@@ -126,40 +145,40 @@
                     <p>({{$summonerData['teams'][1]["side"] == "blue" ? "Blue" : "Red"}} side)</p>
                 </div>
                 <div class="flex flex-row gap-2 text-text_light items-center">
-                    <p>20</p>
+                    <p>{{$killRed}}</p>
                     <p>/</p>
-                    <p class="text-kda_red">5</p>
+                    <p class="text-kda_red">{{$deathRed}}</p>
                     <p>/</p>
-                    <p>10</p>
+                    <p>{{$assistRed}}</p>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="flex gap-1 items-center">
                         <img src="{{ asset('images/gameSVG/TowerRed.svg') }}" alt="Tower" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["redTeam"]["turretkills"]}}</p>
                     </div>
                     <div class="flex gap-2 items-center">
                         <img src="{{ asset('images/gameSVG/InhibitorRed.svg') }}" alt="Inhibitor" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["redTeam"]["inhibitorKills"]}}</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="flex gap-1 items-center">
                         <img src="{{ asset('images/gameSVG/BaronRed.svg') }}" alt="Baron" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["redTeam"]["teamBaronKills"]}}</p>
                     </div>
                     <div class="flex gap-2 items-center">
                         <img src="{{ asset('images/gameSVG/HeraldRed.svg') }}" alt="Herald" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["redTeam"]["teamRiftHeraldKills"]}}</p>
                     </div>
                     <div class="flex gap-2 items-center">
                         <img src="{{ asset('images/gameSVG/DrakeRed.svg') }}" alt="Drake" class="aspect-square">
-                        <p class="text-text_light">8</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["redTeam"]["teamElderDragonKills"]}}</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="flex gap-1 items-center">
                         <img src="{{ asset('images/gameSVG/GoldRed.svg') }}" alt="Gold" class="aspect-square">
-                        <p class="text-text_light">20.444</p>
+                        <p class="text-text_light">{{$summonerData["generalGameData"]["teamsGeneralInfo"]["redTeam"]["totalGoldEarned"]}}</p>
                     </div>
                 </div>
             </div>
@@ -186,7 +205,7 @@
                                     <p class="text-kda_red">{{$player["kda"]}} KDA</p>
                                 </div>
                                 <div class="flex flex-col text-text_light h-[35px] items-center justify-center font-medium">
-                                    <p>20000</p>
+                                    <p>{{$player["totalDamageDealtToChampions"]}}</p>
                                     <p class="text-sm">DMG</p>
                                 </div>
                                 <div class="flex flex-col text-text_light h-[35px] w-[100px] items-center justify-center">
