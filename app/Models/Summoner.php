@@ -112,6 +112,7 @@ class Summoner extends Model
             if (!isset($counts[$championId])) {
                 $counts[$championId] = [
                     'champId' => $championId,
+                    'champName' => $data['championName'],
                     'counts' => 0,
                     'totalKills' => 0,
                     'totalDeaths' => 0,
@@ -134,6 +135,7 @@ class Summoner extends Model
         foreach ($counts as $championId => $data) {
             $result[] = [
                 'champId' => $championId,
+                'champName' => $data['championName'],
                 'counts' => $data['counts'],
                 'totalKills' => $data['totalKills'] / $data['counts'],
                 'totalDeaths' => $data['totalDeaths'] / $data['counts'],
@@ -249,6 +251,7 @@ class Summoner extends Model
             $arrayParticipantsData = [
                 "riotIdGameName" => $participant['riotIdGameName'] ?? '',
                 "riotIdTagline" => $participant['riotIdTagline'] ?? '',
+                "championName"=>$participant['championName'] ?? 0,
                 "championId" => $participant['championId'] ?? 0,
                 "summoner1Id" => $participant['summoner1Id'] ?? 0,
                 "summoner2Id" => $participant['summoner2Id'] ?? 0,
