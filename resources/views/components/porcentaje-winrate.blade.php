@@ -43,13 +43,13 @@
                 @for ($i = 0; $i < 3; $i++)
                     @if (isset($summonerData[$i]))
                         @php
-                            $championName = $summonerData[$i]['championName'];
-                            $totalKDA = $summonerData[$i]['totalKDA'];
-                            $winrate = round($summonerData[$i]['winrate'], 2);
-                            $totalWins = $summonerData[$i]['totalWins'];
-                            $counts = $summonerData[$i]['counts'];
-                            $championId = $summonerData[$i]['championId'];
-                            $champLoses = $counts - $totalWins;
+                                $championName=$summonerData[$i]['championName'];
+                                $totalKDA=round($summonerData[$i]['totalKDA'],3);
+                                $winrate=round($summonerData[$i]['winrate'],2);
+                                $totalWins=$summonerData[$i]['totalWins'];
+                                $counts=$summonerData[$i]['counts'];
+                                $championId=$summonerData[$i]['championId'];
+                                $champLoses=$counts-$totalWins;
                         @endphp
                         <x-historial-champ-stats champName="{{ $championName }}" champKDA="{{ $totalKDA }}"
                             champWinRate="{{ $winrate }}" champWins="{{ $totalWins }}"
