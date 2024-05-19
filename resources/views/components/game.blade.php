@@ -16,8 +16,8 @@
 
     <div {{ $attributes->merge(['class'=>"bg-opacity-60 bg-bg_dark border-$color border-2 rounded-xl flex justify-between text-$color"]) }}>
         <div class="w-8 {{$bgColor}} rounded-l-[10px]"></div>
-        <div class="w-[90%] flex flex-wrap justify-around">
-            <div class="flex flex-wrap justify-center">
+        <div class="w-[90%] flex justify-around">
+            <div class="flex justify-center">
                 <div class="self-center text-text_light text-[16px] font-medium">
                     <h2 class="text-[20px] font-bold">{{$summonerData['generalGameData']['gameMode']}}</h2>
                     <p>{{$summonerData['generalGameData']['gameCreation']}}</p>
@@ -55,8 +55,8 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center">
-                <div class="m-6 w-[200px]">
+            <div class="flex justify-center">
+                <div class="m-6 w-[250px]">
                     @for ($i=0;5>$i;$i++)
                         <div class="flex items-center my-[2px] justify-start">
                             <img src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$summonerData["game"][$i]["championId"]}}.png" class="w-[30px] rounded-lg">
@@ -64,7 +64,7 @@
                         </div>
                     @endfor
                 </div>
-                <div class="m-6 w-[200px]">
+                <div class="m-6 w-[250px]">
                     @for ($i=5;10>$i;$i++)
                         <div class="flex items-center my-[2px] justify-start">
                             <img src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$summonerData["game"][$i]["championId"]}}.png" class="w-[30px] rounded-lg">
