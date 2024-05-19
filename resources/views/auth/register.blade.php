@@ -18,9 +18,9 @@
             </a>
         </div>
 
-        <div class="w-[60vw] h-[90vh] bg-primary rounded-md flex">
-            <div class="w-[50%] h-[100%] rounded-l-md" id="bg-image"></div>
-            <div class="w-[50%] h-[100%] flex justify-center items-center text-text_dark">
+        <div class="w-[60vw] h-[90vh] bg-primary rounded-md flex md:flex-row flex-col">
+            <div class="w-full md:w-[50%] h-[40%] md:h-[100%] rounded-l-md" id="bg-image"></div>
+            <div class="w-full md:w-[50%] h-[100%] flex justify-center items-center text-text_dark">
                 <form method="POST" action="{{ route('register') }}" class="flex flex-col justify-center items-center w-[100%]">
                     @csrf
                     <!-- Logo -->
