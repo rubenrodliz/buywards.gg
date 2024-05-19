@@ -71,7 +71,7 @@
                         <x-porcentaje-winrate :summonerData="$summonerData_performance_total" class="col-start-1 col-span-12 row-start-1" />
                         @foreach ($summonerData['games'] as $game)
                             <x-game :summonerData="$game" class="col-start-1 col-span-12 mt-4"/>
-                            {{-- <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4"/> --}}
+                            <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4"/>
                         @endforeach
                     </div>
                 </div>
