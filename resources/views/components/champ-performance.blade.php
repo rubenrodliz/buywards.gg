@@ -12,7 +12,7 @@
             {{ 'text-kda_orange' }}
         @endif
     ">
-        {{ $champKDA }} KDA
+        {{ round($champKDA, 2) }} KDA
     </p>
 </div>
 <div class="h-full w-[35%] text-end">
