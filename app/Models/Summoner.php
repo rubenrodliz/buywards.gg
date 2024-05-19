@@ -261,6 +261,7 @@ class Summoner extends Model
                 "assists" => $participant['assists'] ?? 0,
                 "kda" => isset($participant['challenges']['kda']) ? round($participant['challenges']['kda'], 2) : 0,
                 "killParticipation" => $killParticipation,
+                "totalDamageDealtToChampions" => $participant['totalDamageDealtToChampions'] ?? 0,
                 "runes" => [
                     "primaryStyle" => $participant['perks']['styles'][0]['style'] ?? 0,
                     "subStyle" => $participant['perks']['styles'][1]['style'] ?? 0
@@ -295,10 +296,75 @@ class Summoner extends Model
 
     protected function getGeneralGameData($machInstanceInfo)
     {
+        $arrayGeneralInfo = [];
+        $i = 0;
+        $blueSideDragons = 0;
+        $blueBaronKills = 0;
+        $blueElderDragonKills = 0;
+        $blueInhivitorKills = 0;
+        $blueTotalGoldEarned = 0;
+        $blueTurretKills = 0;
+        $blueteamRiftHeraldKills = 0;
+
+        $redSideDragons = 0;
+        $redSideDragons = 0;
+        $redBaronKills = 0;
+        $redElderDragonKills = 0;
+        $redInhivitorKills = 0;
+        $redTotalGoldEarned = 0;
+        $redTurretKills = 0;
+        $redteamRiftHeraldKills = 0;
+
+
+        foreach ($machInstanceInfo['participants'] as $participant){
+
+            $challenges = $participant['challenges'];
+            if($i<=5){
+                $blueSideDragons += $participant['dragonKills'];
+                $blueBaronKills += $participant['baronKills'];
+                $blueElderDragonKills += $participant['challenges']['teamElderDragonKills'];
+                $blueInhivitorKills += $participant['inhibitorKills'];
+                $blueTotalGoldEarned += $participant['goldEarned'];
+                $blueTurretKills += $participant['turretKills'];
+                $blueteamRiftHeraldKills += $participant['challenges']['teamRiftHeraldKills'];
+
+            }else{
+                $redSideDragons += $participant['dragonKills'];
+                $redBaronKills += $participant['baronKills'];
+                $redElderDragonKills += $participant['challenges']['teamElderDragonKills'];
+                $redInhivitorKills += $participant['inhibitorKills'];
+                $redTotalGoldEarned += $participant['goldEarned'];
+                $redTurretKills += $participant['turretKills'];
+                $redteamRiftHeraldKills += $participant['challenges']['teamRiftHeraldKills'];
+
+            }
+            $i++;
+        }
         $arrayGeneralInfo = [
             "gameCreation" => $this->getUnixTime($machInstanceInfo['gameCreation'] ?? 0),
             "gameDuration" => $this->durationMinSec($machInstanceInfo['gameDuration'] ?? 0),
-            "gameMode" => $machInstanceInfo['gameMode'] ?? ''
+            "gameMode" => $machInstanceInfo['gameMode'] ?? '',
+            "teamsGeneralInfo"=>[
+                "blueTeam" => [
+                    "teamBaronKills" => $blueBaronKills ?? 0,
+                    "teamElderDragonKills" =>  $blueElderDragonKills ?? 0,
+                    "DragonKills" => $blueSideDragons ?? 0,
+                    "turretkills" =>$blueTurretKills ?? 0,
+                    "inhibitorKills" => $blueInhivitorKills ?? 0,
+                    "teamRiftHeraldKills" => $blueteamRiftHeraldKills ?? 0,
+                    "totalGoldEarned" =>  $blueTotalGoldEarned ?? 0,
+                ],
+                "redTeam" => [
+                    "teamBaronKills" => $redBaronKills ?? 0,
+                    "teamElderDragonKills" =>  $redElderDragonKills ?? 0,
+                    "DragonKills" => $redSideDragons ?? 0,
+                    "turretkills" =>$redTurretKills ?? 0,
+                    "inhibitorKills" => $redInhivitorKills ?? 0,
+                    "teamRiftHeraldKills" => $redteamRiftHeraldKills ?? 0,
+                    "totalGoldEarned" =>  $redTotalGoldEarned ?? 0,
+
+                ],
+            ],
         ];
 
         return $arrayGeneralInfo;
@@ -308,12 +374,13 @@ class Summoner extends Model
     {
         $teamsInfo = [];
         $side = "";
-
+        // info/participants/challenges...
         foreach ($arrayTeams as $index => $teamData) {
             $side = $index == 0 ? 'blue' : 'red';
             $team = [
                 'win' => $teamData['win'] ?? false,
-                'side' => $side
+                'side' => $side,
+
             ];
             $teamsInfo[] = $team;
         }
