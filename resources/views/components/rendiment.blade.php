@@ -1,10 +1,5 @@
 @props(['class' => '', 'summonerData'])
-@php
-    // dd($summonerData);
-@endphp
-{{-- @dd($data->champ1) --}}
 <div class="py-4 px-4 w-[100%] border-primary border-solid border-2 rounded-[10px] flex flex-col bg-transparent text-text_light bg-opacity-60 bg-bg_dark {{ $class }}">
-{{-- <div class="w-[390px] h-[381px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent  text-white"> --}}
     <div>
         <x-barra-titulos titulo="Rendimiento" />
     </div>
@@ -15,9 +10,18 @@
     </div>
     <div class="self-center flex flex-col w-full">
         @foreach ($summonerData as $champData)
-        @dd($champData)
+        {{-- @dd($champData['championName']) --}}
+            @php
+                $championName=$champData['championName'];
+                $totalKDA=$champData['totalKDA'];
+                $winrate=round($champData['winrate'],2);
+                $totalWins=$champData['totalWins'];
+                $counts=$champData['counts'];
+                $championId=$champData['championId'];
+                $champLoses=$counts-$totalWins;
+            @endphp
             <div class="w-full h-fit mb-4 flex justify-between items-center font-semibold">
-                <x-champ-performance champName="{{$champData['champid']}}" champKDA="{{$champData["4.89"]}}" champWinRate="{{$champData['winrate']}}" champWins="{{$champData['totalWins']}}" champLoses="{{$data->$champ->loses}}" champImage="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$data->$champ->champLogo}}.png" />
+                <x-champ-performance champName="{{$championName}}" champKDA="{{$totalKDA}}" champWinRate="{{$winrate}}" champWins="{{$totalWins}}" champLoses="{{$champLoses}}" champImage="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/{{$championId}}.png" />
             </div>
         @endforeach
     </div>

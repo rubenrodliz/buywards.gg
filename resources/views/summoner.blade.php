@@ -26,7 +26,7 @@
     @endphp
     <main class="flex w-full flex-col">
         <x-top-navbar />
-        <section class="flex flex-1 flex-col items-center p-0 lg:p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/{{$summonerData['performance']['total'][0]['champId']}}/splash-art');">
+        <section class="flex flex-1 flex-col items-center p-0 lg:p-[40px] bg-cover bg-fixed" style="background-image: linear-gradient(to right, #1c1c1f, #1c1c1f85, #1c1c1f), url('https://cdn.communitydragon.org/14.8.1/champion/{{$summonerData['performance']['total'][0]['championId']}}/splash-art');">
             <section class="w-[90%] mt-7">
                 <div class="flex justify-between items-center pb-[50px]">
                     <div class="flex justify-start gap-[30px]">
@@ -68,11 +68,10 @@
                     <x-summoner-league :summonerData="$summonerData_rankFlex" class="col-start-1 col-span-12 lg:col-span-3 row-start-2" />
                     <x-rendiment class="col-start-1 col-span-12 lg:col-span-3 row-start-3" :summonerData="$summonerData_performance_total" />
                     <div class="grid grid-cols-12 lg:col-start-4 col-start-1 lg:col-span-9 col-span-12 lg:row-start-1 row-start-4 row-span-12">
-                        {{-- <x-porcentaje-winrate :summonerData="$summonerData_performance_total" class="col-start-1 col-span-12 row-start-1" /> --}}
-                        @dd($summonerData['games'])
+                        <x-porcentaje-winrate :summonerData="$summonerData_performance_total" class="col-start-1 col-span-12 row-start-1" />
                         @foreach ($summonerData['games'] as $game)
-                            <x-game :summonerData="$game['game'][10]" class="col-start-1 col-span-12 mt-4"/>
-                            <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4"/>
+                            <x-game :summonerData="$game" class="col-start-1 col-span-12 mt-4"/>
+                            {{-- <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4"/> --}}
                         @endforeach
                     </div>
                 </div>
