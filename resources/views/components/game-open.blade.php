@@ -142,7 +142,7 @@
                                         ({{ $player['minionsPerMinute'] }})</p>
                                     <p class="text-kda_orange font-medium">{{ $player['killParticipation'] }}% KP</p>
                                 </div>
-                                <div class="flex items-center justify-start gap-1">
+                                <div class="flex items-center justify-end gap-1 w-[269px]">
                                     @foreach ($player['items'] as $item)
                                         @if ($item != 0)
                                             <img src="https://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/{{ $item }}.png"
