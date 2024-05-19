@@ -248,7 +248,7 @@ class Summoner extends Model
 
         foreach ($participants as $participant) {
             $killParticipation = isset($participant['challenges']['killParticipation']) ? $this->getKillParticipation($participant['challenges']['killParticipation']) : 0;
-
+            dd($this->getKillParticipation($participant['challenges']['killParticipation']));
             $arrayParticipantsData = [
                 "riotIdGameName" => $participant['riotIdGameName'] ?? '',
                 "riotIdTagline" => $participant['riotIdTagline'] ?? '',
@@ -260,7 +260,7 @@ class Summoner extends Model
                 "deaths" => $participant['deaths'] ?? 0,
                 "assists" => $participant['assists'] ?? 0,
                 "kda" => isset($participant['challenges']['kda']) ? round($participant['challenges']['kda'], 2) : 0,
-                "killParticipation" => $killParticipation,
+                "killParticipation" => $this->getKillParticipation($participant['challenges']['killParticipation']) ?? 0,
                 "totalDamageDealtToChampions" => $participant['totalDamageDealtToChampions'] ?? 0,
                 "runes" => [
                     "primaryStyle" => $participant['perks']['styles'][0]['style'] ?? 0,
@@ -398,7 +398,8 @@ class Summoner extends Model
 
     protected function getKillParticipation($killP)
     {
-        return $killP >= 1 ? round($killP * 100, 2) : 0;
+        return round($killP * 100, 2);
+        // return $killP >= 1 ? round($killP * 100, 2) : 0;
     }
 
     protected function getMinionsPerMinute($totalMinions, $gameDuration)
