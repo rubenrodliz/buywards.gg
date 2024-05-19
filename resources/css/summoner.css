@@ -32,7 +32,9 @@ main::before {
     border-bottom: 4px solid #17AF9D;
     border-radius: 10px;
 }
-
+.z-index{
+    z-index: 10;
+}
 .text-unranked {
     color: #6B6963;
 }
