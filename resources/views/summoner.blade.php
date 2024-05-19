@@ -15,7 +15,7 @@
 
 
 
-/*         dd($summonerData); */
+        // dd($summonerData);
         $summonerData_rankSolo = $summonerData['rankedSolo'];
         $summonerData_rankFlex = $summonerData['rankedFlex'];
         $summonerData_performance_total = $summonerData['performance']['total'];
@@ -66,17 +66,15 @@
                 <div id="summonerData_summoner" class="grid grid-cols-12 gap-5">
                     <x-summoner-league :summonerData="$summonerData_rankSolo" class="col-start-1 col-span-12 lg:col-span-3 row-start-1" />
                     <x-summoner-league :summonerData="$summonerData_rankFlex" class="col-start-1 col-span-12 lg:col-span-3 row-start-2" />
-                    {{-- <x-rendiment class="col-start-1 col-span-12 lg:col-span-3 row-start-3" :summonerData="$summonerData_performance_total" />
+                    <x-rendiment class="col-start-1 col-span-12 lg:col-span-3 row-start-3" :summonerData="$summonerData_performance_total" />
                     <div class="grid grid-cols-12 lg:col-start-4 col-start-1 lg:col-span-9 col-span-12 lg:row-start-1 row-start-4 row-span-12">
-                        <x-porcentaje-winrate summonerData="{{ $summonerData_performance_total }}" class="col-start-1 col-span-12 row-start-1" />
-                        @for ($i = 0; $i < 5; $i++)
-                            @php
-                                $game = "game" . $i;
-                            @endphp
-                            <x-game summonerData="{{ $summonerData['games'][$game] }}" class="col-start-1 col-span-12 mt-4" />
-                            <x-game-open summonerData="{{ $summonerData['games'][$game] }}" class="col-start-1 col-span-12 mt-4" />
-                        @endfor
-                    </div> --}}
+                        {{-- <x-porcentaje-winrate :summonerData="$summonerData_performance_total" class="col-start-1 col-span-12 row-start-1" /> --}}
+                        @dd($summonerData['games'])
+                        @foreach ($summonerData['games'] as $game)
+                            <x-game :summonerData="$game['game'][10]" class="col-start-1 col-span-12 mt-4"/>
+                            <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4"/>
+                        @endforeach
+                    </div>
                 </div>
             </section>
         </section>

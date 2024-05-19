@@ -1,8 +1,7 @@
-@props(["data", "class"])
+@props(["summonerData", "class"])
 @vite(['/resources/css/summoner.css'])
 
 @php
-    $data = json_decode(str_replace("&quot;",'"',$data));
     if ($data->win=="true") {
         $color="kda_blue";
         $bgColor="bg-kda_blue";
@@ -69,7 +68,7 @@
         </div>
         <hr class="text-kda_blue">
         <div class="p-4 h-fit w-full">
-            <div class="h-[35%] flex items-center justify-start gap-4 flex flex-col">
+            <div class="h-[35%] flex items-center justify-start gap-4 flex-col">
                 @foreach ($data->gameInfo->team1->players as $player)
                 <div class="flex justify-between w-full">
                     <div class="flex h-[35px] w-fit gap-2">
@@ -160,7 +159,7 @@
     </div>
     <hr class="text-kda_red">
     <div class="p-4 h-fit w-full">
-        <div class="h-[35%] flex items-center justify-start gap-4 flex flex-col">
+        <div class="h-[35%] flex items-center justify-start gap-4 flex-col">
             @foreach ($data->gameInfo->team2->players as $player)
             <div class="flex justify-between w-full">
                 <div class="flex h-[35px] w-fit gap-2">

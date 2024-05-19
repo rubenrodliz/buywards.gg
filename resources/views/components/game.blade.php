@@ -1,8 +1,7 @@
-@props(["data"])
+@props(["summonerData"])
 @vite(['/resources/css/summoner.css'])
-
+@dd($summonerData)
 @php
-    $data = json_decode(str_replace("&quot;",'"',$data));
     if ($data->win=="true") {
         $color="kda_blue";
         $bgColor="bg-kda_blue";

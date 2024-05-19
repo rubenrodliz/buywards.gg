@@ -1,8 +1,5 @@
-@props(['class','data'])
-@php
-    $data = json_decode(str_replace("&quot;",'"',$data));
-@endphp
-{{-- @dd($data->champ1->champLogo) --}}
+@props(['class','summonerData'])
+@dd($summonerData)
 <div class="border-solid border-2 border-primary rounded-[10px] flex flex-col bg-transparent text-text_light bg-opacity-60 bg-bg_dark h-fit {{ $class }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {{-- <div class="w-[1100px] h-[165px] border-primary border-solid border-[1px] rounded-[10px] flex flex-col bg-transparent text-white"> --}}

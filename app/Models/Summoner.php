@@ -93,6 +93,7 @@ class Summoner extends Model
                 $total[] = $game['game'][10]['ownData'];
             }
         }
+        // dd($total);
 
         // TOTAL
         $countsTotal = $this->processPerformanceFunction($total);
@@ -111,8 +112,8 @@ class Summoner extends Model
 
             if (!isset($counts[$championId])) {
                 $counts[$championId] = [
-                    'champId' => $championId,
-                    'champName' => $data['championName'],
+                    'championId' => $championId,
+                    'championName' => $data['championName'],
                     'counts' => 0,
                     'totalKills' => 0,
                     'totalDeaths' => 0,
@@ -134,8 +135,8 @@ class Summoner extends Model
         // Obtener las estadísticas de todas las partidas
         foreach ($counts as $championId => $data) {
             $result[] = [
-                'champId' => $championId,
-                'champName' => $data['championName'],
+                'championId' => $championId,
+                'championName' => $data['championName'],
                 'counts' => $data['counts'],
                 'totalKills' => $data['totalKills'] / $data['counts'],
                 'totalDeaths' => $data['totalDeaths'] / $data['counts'],
@@ -150,7 +151,7 @@ class Summoner extends Model
         usort($result, function ($a, $b) {
             return $b['counts'] <=> $a['counts'];
         });
-
+        // dd($result);
         return $result;
     }
 
