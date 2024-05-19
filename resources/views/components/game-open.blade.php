@@ -47,7 +47,7 @@
             <div class="px-4 py-2 w-full flex justify-between">
                 <div class="flex flex-row gap-2 text-text_light items-center">
                     <div class="py-1 px-4 w-fit rounded-md bg-kda_{{$summonerData['teams'][0]["win"] == true ? 'blue' : 'red'}} text-md font-semibold">
-                        <p class="text-text_light">{{$summonerData['teams'][0]["win"] == true ? 'Victoria' : 'Derrota'}}</p>
+                        <p class="text-text_light">{{$summonerData['teams'][0]["win"] == true ? 'Win' : 'Lose'}}</p>
                     </div>
                     <p>({{$summonerData['teams'][0]["side"] == "blue" ? "Blue" : "Red"}} side)</p>
                 </div>
@@ -140,7 +140,7 @@
             <div class="px-4 py-2 w-full flex justify-between">
                 <div class="flex flex-row gap-2 text-text_light items-center">
                     <div class="py-1 px-4 w-fit rounded-md bg-kda_{{$summonerData['teams'][1]["win"] == true ? 'blue' : 'red'}} text-md font-semibold">
-                        <p class="text-text_light">{{$summonerData['teams'][1]["win"] == true ? 'Victoria' : 'Derrota'}}</p>
+                        <p class="text-text_light">{{$summonerData['teams'][1]["win"] == true ? 'Win' : 'Lose'}}</p>
                     </div>
                     <p>({{$summonerData['teams'][1]["side"] == "blue" ? "Blue" : "Red"}} side)</p>
                 </div>
