@@ -45,7 +45,7 @@
                         {{-- @dump($summonerData[$i]) --}}
                         @php
                                 $championName=$summonerData[$i]['championName'];
-                                $totalKDA=$summonerData[$i]['totalKDA'];
+                                $totalKDA=round($summonerData[$i]['totalKDA'],3);
                                 $winrate=round($summonerData[$i]['winrate'],2);
                                 $totalWins=$summonerData[$i]['totalWins'];
                                 $counts=$summonerData[$i]['counts'];
