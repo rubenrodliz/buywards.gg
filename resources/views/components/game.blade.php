@@ -74,6 +74,6 @@
                 </div>
             </div>
         </div>
-        <div class="w-8 {{$bgColor}} rounded-r-[10px] flex items-end"><img src="{{ asset('images/flechaAbajo.svg') }}" alt="fecha abajo" class="w-full"></div>
+        <div class="w-8 {{$bgColor}} rounded-r-[10px] flex items-end cursor-pointer"><img src="{{ asset('images/flechaAbajo.svg') }}" alt="fecha abajo" class="w-full"></div>
     </div>
 @endif
