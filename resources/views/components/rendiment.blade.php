@@ -1,7 +1,7 @@
 @props(['class' => '', 'summonerData'])
 <div class="py-4 px-4 w-[100%] border-primary border-solid border-2 rounded-[10px] flex flex-col bg-transparent text-text_light bg-opacity-60 bg-bg_dark {{ $class }}">
     <div>
-        <x-barra-titulos titulo="Rendimiento" />
+        <x-barra-titulos titulo="Performance" />
     </div>
     <div class="h-[12%] flex flex-row justify-between mb-4 w-full">
         <x-performance-selector-button isSelected="true" name="Total" />
@@ -13,7 +13,7 @@
         {{-- @dd($champData['championName']) --}}
             @php
                 $championName=$champData['championName'];
-                $totalKDA=$champData['totalKDA'];
+                $totalKDA=round($champData['totalKDA'],3);
                 $winrate=round($champData['winrate'],2);
                 $totalWins=$champData['totalWins'];
                 $counts=$champData['counts'];
