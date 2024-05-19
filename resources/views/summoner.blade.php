@@ -21,7 +21,7 @@
         $summonerData_performance_total = $summonerData['performance']['total'];
         $summonerData_performance_solo = $summonerData['performance'];
         $summonerData_performance_flex = $summonerData['performance'];
-
+        // dd($summonerData_rankSolo);
         // dd($summonerData, $summonerData_rankSolo, $summonerData_rankFlex, $summonerData_performance_total, $summonerData_performance_solo, $summonerData_performance_flex);
     @endphp
     <main class="flex w-full flex-col">
@@ -64,9 +64,9 @@
                     </div>
                 </div>
                 <div id="summonerData_summoner" class="grid grid-cols-12 gap-5">
-                    <x-summoner-league summonerData={{ $summonerData_rankSolo }} class="col-start-1 col-span-12 lg:col-span-3 row-start-1" />
-                    {{-- <x-summoner-league summonerData="{{ $summonerData_rankFlex }}" class="col-start-1 col-span-12 lg:col-span-3 row-start-2" />
-                    <x-rendiment class="col-start-1 col-span-12 lg:col-span-3 row-start-3" summonerData="{{ $summonerData_performance_total }}" />
+                    <x-summoner-league :summonerData="$summonerData_rankSolo" class="col-start-1 col-span-12 lg:col-span-3 row-start-1" />
+                    <x-summoner-league :summonerData="$summonerData_rankFlex" class="col-start-1 col-span-12 lg:col-span-3 row-start-2" />
+                    {{-- <x-rendiment class="col-start-1 col-span-12 lg:col-span-3 row-start-3" :summonerData="$summonerData_performance_total" />
                     <div class="grid grid-cols-12 lg:col-start-4 col-start-1 lg:col-span-9 col-span-12 lg:row-start-1 row-start-4 row-span-12">
                         <x-porcentaje-winrate summonerData="{{ $summonerData_performance_total }}" class="col-start-1 col-span-12 row-start-1" />
                         @for ($i = 0; $i < 5; $i++)

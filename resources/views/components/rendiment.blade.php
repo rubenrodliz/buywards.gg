@@ -1,6 +1,6 @@
-@props(['class' => '','data'])
+@props(['class' => '', 'summonerData'])
 @php
-    $data = json_decode(str_replace("&quot;",'"',$data));
+    dd($summonerData);
 @endphp
 {{-- @dd($data->champ1) --}}
 <div class="py-4 px-4 w-[100%] border-primary border-solid border-2 rounded-[10px] flex flex-col bg-transparent text-text_light bg-opacity-60 bg-bg_dark {{ $class }}">
