@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Services\RiotService;
 use App\Models\Summoner;
+use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
 {
     public function searchSummoner(Request $request) {
         $searchData = $this->searchData($request->summoner, $request->region);
+
+        if (Session::has('summonerData') && Session::get('summonerData')['gameName'] == $searchData['summoner']) {
+            return view('summoner', ['summonerData' => Session::get('summonerData')]);
+        }
 
         $summoner = new Summoner($searchData['summoner'], $searchData['tag'], $searchData['region']);
         
@@ -19,6 +24,8 @@ class SearchController extends Controller
         if (!$summonerData) {
             return abort(404);
         }
+
+        Session::put('summonerData', $summonerData);
 
         return view('summoner', ['summonerData' => $summonerData]);
     }
