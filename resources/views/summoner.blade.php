@@ -73,7 +73,7 @@
                         @foreach ($summonerData['games'] as $game)
                             {{-- @dd($game) --}}
                             <x-game :summonerData="$game" class="col-start-1 col-span-12 mt-4" id="game{{$i}}" onclick="toggleGameOpen({{$i}})"/>
-                            <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4" id="game-open{{$i}}"/>
+                            <x-game-open :summonerData="$game" class="col-start-1 col-span-12 mt-4 hidden" id="game-open{{$i}}"/>
                             @php
                                 $i++;
                             @endphp

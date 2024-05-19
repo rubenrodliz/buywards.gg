@@ -16,7 +16,7 @@
     <div class="flex flex-col justify-between {{ $class }} m-0 p-0" id="{{$id}}">
 
 
-        <div class="bg-opacity-60 bg-bg_dark mt-[20px] border-primary border-2 p-2 rounded-xl flex justify-between text-$color h-fit {{ $class }}">
+        <div class="bg-opacity-60 bg-bg_dark mt-[20px] border-primary border-2 p-2 rounded-xl flex justify-between text-$color h-fit">
             <div class="flex w-[50%] items-center justify-center mx-auto gap-4">
                 <x-performance-selector-button isSelected="true" name="Post game" />
                 <x-performance-selector-button name="Performance" />
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="bg-opacity-60 bg-bg_dark mt-[20px] border-kda_blue border-2 rounded-xl flex flex-col justify-between text-$color h-fit {{ $class }}">
+        <div class="bg-opacity-60 bg-bg_dark mt-[20px] border-kda_blue border-2 rounded-xl flex flex-col justify-between text-$color h-fit">
             <div class="px-4 py-2 w-full flex justify-between">
                 <div class="flex flex-row gap-2 text-text_light items-center">
                     <div class="py-1 px-4 w-fit rounded-md bg-kda_{{$summonerData['teams'][0]["win"] == true ? 'blue' : 'red'}} text-md font-semibold">
@@ -117,7 +117,7 @@
             </div>
         </div>
 
-        <div class="bg-opacity-60 bg-bg_dark mt-[20px] border-kda_red border-2 rounded-xl flex flex-col justify-between text-$color h-fit {{ $class }}">
+        <div class="bg-opacity-60 bg-bg_dark mt-[20px] border-kda_red border-2 rounded-xl flex flex-col justify-between text-$color h-fit">
             <div class="px-4 py-2 w-full flex justify-between">
                 <div class="flex flex-row gap-2 text-text_light items-center">
                     <div class="py-1 px-4 w-fit rounded-md bg-kda_{{$summonerData['teams'][1]["win"] == true ? 'blue' : 'red'}} text-md font-semibold">
