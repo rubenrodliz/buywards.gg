@@ -234,50 +234,50 @@ class Summoner extends Model
         $arrayResponse = [];
         $ownArray = [];
         for ($i = 0; $i < count($participants); $i++) {
-            // $league=$this->getTierRankForOthers($participants[$i]['riotIdGameName'],$participants[$i]['riotIdTagline'],$this->region);
+            $participant = $participants[$i];
+            $killParticipation = isset($participant['challenges']['killParticipation']) ? $this->getkillParticipation($participant['challenges']['killParticipation']) : 0;
+
             $arrayParticipantsData = [
-                "riotIdGameName" => $participants[$i]['riotIdGameName'],
-                "riotIdTagline" => $participants[$i]['riotIdTagline'],
-                "championId" => $participants[$i]['championId'],
-                "summoner1Id" => $participants[$i]['summoner1Id'],
-                "summoner2Id" => $participants[$i]['summoner2Id'],
-                // "tier"=>$league['tier'],
-                // "rank"=>$league['rank'],
-                "kills" => $participants[$i]['kills'],
-                "deaths" => $participants[$i]['deaths'],
-                "assists" => $participants[$i]['assists'],
-                "kda" => round($participants[$i]['challenges']['kda'], 2),
-                "killParticipation" => $this->getkillParticipation($participants[$i]['challenges']['killParticipation']),
+                "riotIdGameName" => $participant['riotIdGameName'],
+                "riotIdTagline" => $participant['riotIdTagline'],
+                "championId" => $participant['championId'],
+                "summoner1Id" => $participant['summoner1Id'],
+                "summoner2Id" => $participant['summoner2Id'],
+                "kills" => $participant['kills'],
+                "deaths" => $participant['deaths'],
+                "assists" => $participant['assists'],
+                "kda" => isset($participant['challenges']['kda']) ? round($participant['challenges']['kda'], 2) : 0,
+                "killParticipation" => $killParticipation,
                 "runes" => [
-                    "primaryStyle" => $participants[$i]['perks']['styles'][0]['style'],
-                    "subStyle" => $participants[$i]['perks']['styles'][1]['style']
+                    "primaryStyle" => $participant['perks']['styles'][0]['style'],
+                    "subStyle" => $participant['perks']['styles'][1]['style']
                 ],
-                "totalMinionsKilled" => $participants[$i]['totalMinionsKilled'],
-                "minionsPerMinute" => $this->getMininosPerMinute($participants[$i]['totalMinionsKilled'], $gameDuration),//otro metodo
+                "totalMinionsKilled" => $participant['totalMinionsKilled'],
+                "minionsPerMinute" => $this->getMininosPerMinute($participant['totalMinionsKilled'], $gameDuration),
                 "items" => [
-                    "item0" => $participants[$i]['item0'],
-                    "item1" => $participants[$i]['item1'],
-                    "item2" => $participants[$i]['item2'],
-                    "item3" => $participants[$i]['item3'],
-                    "item4" => $participants[$i]['item4'],
-                    "item5" => $participants[$i]['item5'],
-                    "item6" => $participants[$i]['item6'],
+                    "item0" => $participant['item0'],
+                    "item1" => $participant['item1'],
+                    "item2" => $participant['item2'],
+                    "item3" => $participant['item3'],
+                    "item4" => $participant['item4'],
+                    "item5" => $participant['item5'],
+                    "item6" => $participant['item6'],
                 ],
-                "win" => $participants[$i]['win']
+                "win" => $participant['win']
             ];
             $arrayResponse[] = $arrayParticipantsData;
         }
-        for ($y = 0; $y < count($arrayResponse); $y++) {
 
+        for ($y = 0; $y < count($arrayResponse); $y++) {
             if (strtolower($arrayResponse[$y]["riotIdGameName"]) == strtolower($this->name)) {
                 $ownArray = $arrayResponse[$y];
-
             }
         }
         $arrayResponse[] = ["ownData" => $ownArray];
 
         return $arrayResponse;
     }
+
     protected function getGeneralGameData($machInstanceInfo)
     {
         for ($i = 0; $i < count($machInstanceInfo); $i++) {
