@@ -1,6 +1,6 @@
 <x-summoner-layout>
     @section('scripts')
-        @vite(['resources/css/summoner.css', 'resources/js/porcentajeWinRate.js', 'resources/js/dropdownGames.js', 'resources/js/summonerDataSummoner.js'])
+        @vite(['resources/css/summoner.css', 'resources/js/porcentajeWinRate.js', 'resources/js/dropdownGames.js'])
     @endsection
     @php
         $summonerData_rankSolo = $summonerData['rankedSolo'];
