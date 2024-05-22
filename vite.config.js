@@ -17,6 +17,7 @@ export default defineConfig({
                 'resources/js/dropdownProfile.js',
                 'resources/js/porcentajeWinRate.js',
                 'resources/js/dropdownGames.js',
+                'resources/js/dropdownGames.js'
             ],
             refresh: true,
         }),
